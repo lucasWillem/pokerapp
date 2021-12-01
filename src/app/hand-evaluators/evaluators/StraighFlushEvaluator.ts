@@ -6,17 +6,9 @@ export default class StraightFlushEvaluator implements HandEvaluator {
 
   public evaluate() {
     const { hand } = this;
-    const handOfRelevantCardsInAscendingOrder = hand
-      // .filter((card) => {
-      //   return (
-      //     card.number !== 1 ||
-      //     card.number !== 10 ||
-      //     card.number !== 11 ||
-      //     card.number !== 12 ||
-      //     (card.number !== 13 && card)
-      //   );
-      // })
-      .sort((a, b) => a.number - b.number);
+    const handOfRelevantCardsInAscendingOrder = hand.sort(
+      (a, b) => a.number - b.number
+    );
 
     console.log(handOfRelevantCardsInAscendingOrder);
 
