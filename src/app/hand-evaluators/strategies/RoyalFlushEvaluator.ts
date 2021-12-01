@@ -1,5 +1,5 @@
-import type { Hand, HandEvaluator } from "../types";
-
+import type { HandEvaluator } from "../types";
+import type { Hand } from "../../types";
 export default class RoyalFlushEvaluator implements HandEvaluator {
   private hand;
 
