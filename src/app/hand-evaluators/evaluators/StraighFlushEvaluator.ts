@@ -10,8 +10,6 @@ export default class StraightFlushEvaluator implements HandEvaluator {
       (a, b) => a.number - b.number
     );
 
-    console.log(handOfRelevantCardsInAscendingOrder);
-
     let firstPointer = 0;
     let secondPointer = 1;
 
