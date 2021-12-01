@@ -1,25 +1,46 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import GameStarter from "./app/play";
+
 import {
   HandEvalutorsContext,
-  RoyalFlushEvaluator,
+  FourOfAKindEvaluator,
 } from "./app/hand-evaluators";
 
 function App() {
   React.useEffect(() => {
-    const isRoyalFlushEvaluator = new RoyalFlushEvaluator([
+    // const hands = GameStarter.getHands({ noOfPlayers: 2 });
+    // console.log(hands);
+
+    const isFullHouseEvaluator = new FourOfAKindEvaluator([
       {
-        number: 13,
+        number: 8,
         suit: "clubs",
+      },
+      {
+        number: 8,
+        suit: "spades",
+      },
+      {
+        number: 8,
+        suit: "clubs",
+      },
+      {
+        number: 8,
+        suit: "spades",
+      },
+      {
+        number: 8,
+        suit: "hearts",
       },
     ]);
 
-    const isRoyalFlush = new HandEvalutorsContext(
-      isRoyalFlushEvaluator
+    const isFullHouse = new HandEvalutorsContext(
+      isFullHouseEvaluator
     ).evaluate();
 
-    console.log(isRoyalFlush);
+    console.log({ isFullHouse });
   }, []);
 
   return (
