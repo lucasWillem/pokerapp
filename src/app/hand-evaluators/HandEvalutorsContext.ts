@@ -1,6 +1,6 @@
-import type { HandEvaluator } from "./types";
+import type { EvaluatorContext, HandEvaluator } from "./types";
 
-export default class HandEvalutorsContext {
+export default class HandEvalutorsContext implements EvaluatorContext {
   constructor(private handEvaluator: HandEvaluator) {}
 
   public evaluate() {

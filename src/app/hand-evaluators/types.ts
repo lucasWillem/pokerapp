@@ -2,6 +2,6 @@ export interface HandEvaluator {
   evaluate: () => boolean;
 }
 
-export interface HandEvaluatorContext {
+export interface EvaluatorContext {
   evaluate: () => boolean;
 }
