@@ -1,5 +1,5 @@
 import HandEvalutorsContext from "./HandEvalutorsContext";
-import RoyalFlushEvaluator from "./strategies/RoyalFlushEvaluator";
-import StraighFlushEvaluator from "./strategies/StraighFlushEvaluator";
+import RoyalFlushEvaluator from "./evaluators/RoyalFlushEvaluator";
+import StraighFlushEvaluator from "./evaluators/StraighFlushEvaluator";
 
 export { HandEvalutorsContext, RoyalFlushEvaluator, StraighFlushEvaluator };
