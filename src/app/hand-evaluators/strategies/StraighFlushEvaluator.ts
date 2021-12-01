@@ -2,11 +2,7 @@ import type { HandEvaluator } from "../types";
 import type { Hand } from "../../types";
 
 export default class StraightFlushEvaluator implements HandEvaluator {
-  private hand;
-
-  constructor(hand: Hand) {
-    this.hand = hand;
-  }
+  constructor(private hand: Hand) {}
 
   public evaluate() {
     const { hand } = this;
