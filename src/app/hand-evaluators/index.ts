@@ -3,6 +3,7 @@ import RoyalFlushEvaluator from "./evaluators/RoyalFlushEvaluator";
 import StraighFlushEvaluator from "./evaluators/StraighFlushEvaluator";
 import FourOfAKindEvaluator from "./evaluators/FourOfAKindEvaluator";
 import FlushEvaluator from "./evaluators/FlushEvaluator";
+import StraightEvaluator from "./evaluators/StraightEvaluator";
 
 export {
   HandEvalutorsContext,
@@ -10,4 +11,5 @@ export {
   StraighFlushEvaluator,
   FourOfAKindEvaluator,
   FlushEvaluator,
+  StraightEvaluator,
 };
