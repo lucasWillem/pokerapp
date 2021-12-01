@@ -7,6 +7,7 @@ import StraightEvaluator from "./evaluators/StraightEvaluator";
 import ThreeOfAKindEvaluator from "./evaluators/ThreeOfAKindEvaluator";
 import PairEvaluator from "./evaluators/PairEvaluator";
 import TwoPairEvaluator from "./evaluators/TwoPairEvaluator";
+import FullHouseEvaluator from "./evaluators/FullHouseEvaluator";
 
 export {
   HandEvalutorsContext,
@@ -18,4 +19,5 @@ export {
   ThreeOfAKindEvaluator,
   PairEvaluator,
   TwoPairEvaluator,
+  FullHouseEvaluator,
 };
