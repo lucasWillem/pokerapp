@@ -1,8 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import {
+  HandEvalutorsContext,
+  RoyalFlushEvaluator,
+} from "./app/hand-evaluators";
 
 function App() {
+  React.useEffect(() => {
+    const isRoyalFlushEvaluator = new RoyalFlushEvaluator([
+      {
+        number: 13,
+        suit: "clubs",
+      },
+    ]);
+
+    const isRoyalFlush = new HandEvalutorsContext(
+      isRoyalFlushEvaluator
+    ).evaluate();
+
+    console.log(isRoyalFlush);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
