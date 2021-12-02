@@ -6,7 +6,7 @@ import {
   SuitHeartFill,
 } from "react-bootstrap-icons";
 
-const Card = function () {
+const PokerCard = function () {
   return (
     <div className="Card">
       <SuitClubFill />
@@ -17,4 +17,4 @@ const Card = function () {
   );
 };
 
-export default Card;
+export default PokerCard;
