@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 
 type Props = {
   children: ReactNode;
+  isColor?: "blue";
 };
 
 const ScreenContainer = function ({ children }: Props) {
