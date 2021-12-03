@@ -1,6 +1,6 @@
 import { Hand } from "../../../types";
 
-export const mockHandLegit: Hand = [
+export const mockHandLegitRoyalFlush: Hand = [
   {
     number: 1,
     suit: "spades",
@@ -23,7 +23,7 @@ export const mockHandLegit: Hand = [
   },
 ];
 
-export const mockHandNotOfSameSuit: Hand = [
+export const mockRoyalFlushHandNotOfSameSuit: Hand = [
   {
     number: 1,
     suit: "spades",
@@ -46,7 +46,7 @@ export const mockHandNotOfSameSuit: Hand = [
   },
 ];
 
-export const mockHandNotInSequence: Hand = [
+export const mockRoyalFlushHandNotInSequence: Hand = [
   {
     number: 2,
     suit: "spades",
@@ -56,7 +56,99 @@ export const mockHandNotInSequence: Hand = [
     suit: "spades",
   },
   {
-    number: 8,
+    number: 11,
+    suit: "spades",
+  },
+  {
+    number: 12,
+    suit: "spades",
+  },
+  {
+    number: 13,
+    suit: "spades",
+  },
+];
+
+export const mockLegitStraightFlush: Hand = [
+  {
+    number: 9,
+    suit: "spades",
+  },
+  {
+    number: 10,
+    suit: "spades",
+  },
+  {
+    number: 11,
+    suit: "spades",
+  },
+  {
+    number: 12,
+    suit: "spades",
+  },
+  {
+    number: 13,
+    suit: "spades",
+  },
+];
+
+export const mockStraightFlushHandNotInSequence: Hand = [
+  {
+    number: 2,
+    suit: "spades",
+  },
+  {
+    number: 9,
+    suit: "spades",
+  },
+  {
+    number: 10,
+    suit: "spades",
+  },
+  {
+    number: 12,
+    suit: "spades",
+  },
+  {
+    number: 13,
+    suit: "spades",
+  },
+];
+
+export const mockStraightFlushHandNotOfSameSuit: Hand = [
+  {
+    number: 9,
+    suit: "spades",
+  },
+  {
+    number: 10,
+    suit: "clubs",
+  },
+  {
+    number: 11,
+    suit: "spades",
+  },
+  {
+    number: 12,
+    suit: "spades",
+  },
+  {
+    number: 13,
+    suit: "spades",
+  },
+];
+
+export const mockStraightFlushIsRoyalFlush: Hand = [
+  {
+    number: 1,
+    suit: "spades",
+  },
+  {
+    number: 10,
+    suit: "spades",
+  },
+  {
+    number: 11,
     suit: "spades",
   },
   {
