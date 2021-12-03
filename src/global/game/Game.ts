@@ -148,6 +148,7 @@ export default abstract class Game {
 
       const winnersByPlayerNumber = winners
         .map((winner) => winner.player + 1)
+        .join(" & ")
         .toString();
 
       const drawMessage = `We have a draw between players ${winnersByPlayerNumber}`;
