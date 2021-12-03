@@ -1,6 +1,6 @@
 import { HandEvalutorsContext, FourOfAKindEvaluator } from "../index";
 import {
-  mockFourOfAKindIsActuallyThreeOfAKind,
+  mockLegitThreeOfAKind,
   mockLegitFourOfAKind,
 } from "./mocks/mock-hands";
 
@@ -16,7 +16,7 @@ describe("four-of-a-kind tests", () => {
   test("is three of a kind", () => {
     expect(
       new HandEvalutorsContext(
-        new FourOfAKindEvaluator(mockFourOfAKindIsActuallyThreeOfAKind)
+        new FourOfAKindEvaluator(mockLegitThreeOfAKind)
       ).evaluate()
     ).toBe(false);
   });

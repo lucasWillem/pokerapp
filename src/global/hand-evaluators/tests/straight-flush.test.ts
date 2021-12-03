@@ -3,7 +3,7 @@ import {
   mockLegitStraightFlush,
   mockStraightFlushHandNotInSequence,
   mockStraightFlushHandNotOfSameSuit,
-  mockStraightFlushIsRoyalFlush,
+  mockHandLegitRoyalFlush,
 } from "./mocks/mock-hands";
 
 describe("straight-flush tests", () => {
@@ -34,7 +34,7 @@ describe("straight-flush tests", () => {
   test("is a royal flush", () => {
     expect(
       new HandEvalutorsContext(
-        new StraighFlushEvaluator(mockStraightFlushIsRoyalFlush)
+        new StraighFlushEvaluator(mockHandLegitRoyalFlush)
       ).evaluate()
     ).toBe(false);
   });

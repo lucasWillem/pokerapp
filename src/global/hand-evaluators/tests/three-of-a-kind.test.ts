@@ -4,8 +4,8 @@ import {
   mockLegitFourOfAKind,
 } from "./mocks/mock-hands";
 
-describe("four-of-a-kind tests", () => {
-  test("is a straight", () => {
+describe("three-of-a-kind tests", () => {
+  test("is a three of a kind", () => {
     expect(
       new HandEvalutorsContext(
         new ThreeOfAKindEvaluator(mockLegitThreeOfAKind)
@@ -13,7 +13,7 @@ describe("four-of-a-kind tests", () => {
     ).toBe(true);
   });
 
-  test("is actually a straight flush", () => {
+  test("is a four of a kind", () => {
     expect(
       new HandEvalutorsContext(
         new ThreeOfAKindEvaluator(mockLegitFourOfAKind)

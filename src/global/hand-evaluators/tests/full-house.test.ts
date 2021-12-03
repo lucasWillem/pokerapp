@@ -5,7 +5,7 @@ import {
   mockFullHouseMissingThreeOfAKind,
 } from "./mocks/mock-hands";
 
-describe("four-of-a-kind tests", () => {
+describe("full house tests", () => {
   test("is full house", () => {
     expect(
       new HandEvalutorsContext(

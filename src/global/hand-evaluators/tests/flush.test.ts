@@ -4,7 +4,7 @@ import {
   mockLegitFlush,
 } from "./mocks/mock-hands";
 
-describe("four-of-a-kind tests", () => {
+describe("flush tests", () => {
   test("is a flush", () => {
     expect(
       new HandEvalutorsContext(new FlushEvaluator(mockLegitFlush)).evaluate()
