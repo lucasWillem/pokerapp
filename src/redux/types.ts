@@ -14,6 +14,7 @@ export interface StoreModel {
 export interface PokerHandsModel {
   pokerHands: Hand[];
   storePokerHands: Action<PokerHandsModel, Hand[]>;
+  clearPokerHands: Action<PokerHandsModel, []>;
 }
 
 export interface AlertModel {

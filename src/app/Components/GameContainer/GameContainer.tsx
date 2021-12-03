@@ -11,9 +11,14 @@ import "./GameContainer.css";
 
 const GameContainer = function () {
   const [selection, setSelection] = useState(0);
+  const [winningMessage, setWinningMessage] = useState("");
 
   const storeHands = useStoreActions(
     (actions) => actions.playersHands.storePokerHands
+  );
+
+  const clearHands = useStoreActions(
+    (actions) => actions.playersHands.clearPokerHands
   );
 
   const setAlertConfiguration = useStoreActions(
@@ -32,9 +37,19 @@ const GameContainer = function () {
   }, []);
 
   const handleDetermineWinner = useCallback(() => {
-    const winner = Game.determineWinner(pokerHands);
-    setAlertConfiguration({ isVisible: true, message: "test" });
+    const winnerMessage = Game.determineWinner(pokerHands);
+
+    if (winnerMessage) {
+      setAlertConfiguration({ isVisible: true, message: winnerMessage });
+      setWinningMessage(winnerMessage);
+    }
   }, [pokerHands, setAlertConfiguration]);
+
+  const handleReplay = useCallback(() => {
+    setAlertConfiguration({ isVisible: false, message: "" });
+    clearHands([]);
+    setSelection(0);
+  }, [clearHands, setAlertConfiguration]);
 
   return (
     <div className="GameContainer">
@@ -58,14 +73,24 @@ const GameContainer = function () {
       )}
       <div>
         <PlayerContainer pokerHands={pokerHands} />
-        {pokerHands.length > 0 && (
-          <ActionButton
-            style={{ margin: 50 }}
-            variant="primary"
-            buttonText="Determine Winner"
-            action={handleDetermineWinner}
-          />
-        )}
+
+        <div className="BottomActionButtons">
+          {pokerHands.length > 0 && (
+            <ActionButton
+              variant="primary"
+              buttonText="Determine Winner"
+              action={handleDetermineWinner}
+            />
+          )}
+          {pokerHands.length > 0 && winningMessage.length > 0 && (
+            <ActionButton
+              style={{ marginLeft: 10 }}
+              variant="secondary"
+              buttonText="Replay"
+              action={handleReplay}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
