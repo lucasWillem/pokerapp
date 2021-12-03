@@ -15,7 +15,7 @@ const GameContainer = function () {
   const pokerHands = useStoreState((state) => state.playersHands.pokerHands);
 
   const startGame = useCallback(() => {
-    const hands = GameStarter.getHands({ noOfPlayers: 2 });
+    const hands = GameStarter.getHands({ noOfPlayers: 10 });
     storeHands(hands);
   }, [storeHands]);
 
