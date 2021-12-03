@@ -15,7 +15,8 @@ import {
   FullHouseEvaluator,
 } from "../hand-evaluators";
 
-import { CardNumber, Hand } from "../types";
+import type { Hand } from "../types";
+import type { PlayerRank } from "./types";
 
 export default abstract class Game {
   static getHands({ noOfPlayers = 2 }: { noOfPlayers?: number }): Hand[] {
@@ -33,7 +34,18 @@ export default abstract class Game {
     return hands;
   }
 
-  static determineWinner(pokerHands: Hand[]) {
+  static determineWinner(pokerHands: Hand[]): string | null {
+    const { rankOfBadHand, rankOfGoodHand } = this.RankPlayers(pokerHands);
+
+    const message = this.determineWinnerAndReturnMessage(
+      rankOfGoodHand,
+      rankOfBadHand
+    );
+
+    return message;
+  }
+
+  static RankPlayers(pokerHands: Hand[]) {
     let isRoyalFlush = false;
     let isStraightFlush = false;
     let isFourOfAKind = false;
@@ -44,8 +56,8 @@ export default abstract class Game {
     let isTwoPair = false;
     let isFullHouse = false;
 
-    const rankOfGoodHand = [];
-    const rankOfBadHand = [];
+    const rankOfGoodHand: PlayerRank[] = [];
+    const rankOfBadHand: PlayerRank[] = [];
 
     pokerHands.forEach((hand, i) => {
       isRoyalFlush = new HandEvalutorsContext(
@@ -96,26 +108,56 @@ export default abstract class Game {
 
         rankOfBadHand.push({ player: i, rank: highestCard });
       }
-
-      if (rankOfGoodHand.length === 0) {
-        const winners = rankOfBadHand
-          .sort((a, b) => b.rank - a.rank)
-          .filter((winner, i, arr) => winner.rank === arr[0].rank);
-
-        return winners.length > 1 ? "it's a draw" : winners[0].player;
-      }
-
-      if (rankOfGoodHand.length === 1) {
-        return rankOfGoodHand[0].player;
-      }
-
-      if (rankOfGoodHand.length > 1) {
-        const winners = rankOfGoodHand
-          .sort((a, b) => b.rank - a.rank)
-          .filter((winner, i, arr) => winner.rank === arr[0].rank);
-
-        return winners.length > 1 ? "it's a draw" : winners[0].player;
-      }
     });
+
+    return { rankOfGoodHand, rankOfBadHand };
+  }
+
+  static determineWinnerAndReturnMessage(
+    rankOfGoodHand: PlayerRank[],
+    rankOfBadHand: PlayerRank[]
+  ) {
+    if (rankOfGoodHand.length === 0) {
+      const winners = rankOfBadHand
+        .sort((a, b) => b.rank - a.rank)
+        .filter((winner, i, arr) => winner.rank === arr[0].rank);
+
+      const winnersByPlayerNumber = winners
+        .map((winner) => winner.player + 1)
+        .toString();
+
+      const drawMessage = `We have a draw between players ${winnersByPlayerNumber}`;
+      const singleWinnerMessage = `The winner is player ${
+        winners[0].player + 1
+      }`;
+
+      return winners.length > 1 ? drawMessage : singleWinnerMessage;
+    }
+
+    if (rankOfGoodHand.length === 1) {
+      const singleWinnerMessage = `The winner is player ${
+        rankOfGoodHand[0].player + 1
+      }`;
+      return singleWinnerMessage;
+    }
+
+    if (rankOfGoodHand.length > 1) {
+      const winners = rankOfGoodHand
+        .sort((a, b) => b.rank - a.rank)
+        .filter((winner, i, arr) => winner.rank === arr[0].rank);
+
+      const winnersByPlayerNumber = winners
+        .map((winner) => winner.player + 1)
+        .toString();
+
+      const drawMessage = `We have a draw between players ${winnersByPlayerNumber}`;
+      const singleWinnerMessage = `The winner is player ${
+        winners[0].player + 1
+      }`;
+
+      return winners.length > 1 ? drawMessage : singleWinnerMessage;
+    }
+
+    return null;
   }
 }
