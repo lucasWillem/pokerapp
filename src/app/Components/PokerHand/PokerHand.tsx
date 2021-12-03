@@ -1,3 +1,4 @@
+import { memo } from "react";
 import PokerCard from "../PokerCard";
 import type { Hand } from "../../../global/types";
 import "./PokerHand.css";
@@ -16,4 +17,4 @@ const PokerHand = function ({ pokerHand }: Props) {
   );
 };
 
-export default PokerHand;
+export default memo(PokerHand);

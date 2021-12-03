@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 type Props = {
@@ -30,4 +31,4 @@ const DropDown = function ({
   );
 };
 
-export default DropDown;
+export default memo(DropDown);

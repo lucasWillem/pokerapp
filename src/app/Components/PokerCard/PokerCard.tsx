@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./PokerCard.css";
 import type { Card } from "../../../global/types";
 
@@ -52,11 +53,11 @@ const PokerCard = function ({ pokerCard }: Props) {
 
   return (
     <div className="Card">
-      <div className="Card-Top-Number-Row">{determineNumberToShow()}</div>
+      <div className="CardTopNumberRow">{determineNumberToShow()}</div>
       <div>{determineSuiteToShow()}</div>
-      <div className="Card-Bottom-Number-Row">{determineNumberToShow()}</div>
+      <div className="CardBottomNumberRow">{determineNumberToShow()}</div>
     </div>
   );
 };
 
-export default PokerCard;
+export default memo(PokerCard);

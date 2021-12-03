@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { Hand } from "../../../global/types";
 import PokerPlayer from "../PokerPlayer";
 import "./PlayerContainer.css";
@@ -19,4 +20,4 @@ const PlayerContainer = function ({ pokerHands }: Props) {
   );
 };
 
-export default PlayerContainer;
+export default memo(PlayerContainer);

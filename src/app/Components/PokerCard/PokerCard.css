@@ -9,7 +9,7 @@
   justify-content: space-between;
 }
 
-.Card-Top-Number-Row {
+.CardTopNumberRow {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -17,7 +17,7 @@
   padding: 5px;
 }
 
-.Card-Bottom-Number-Row {
+.CardBottomNumberRow {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

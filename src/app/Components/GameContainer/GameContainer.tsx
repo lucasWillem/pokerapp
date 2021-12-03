@@ -4,7 +4,7 @@ import { useStoreActions, useStoreState } from "../../../redux";
 
 import ActionButton from "../../../global/Components/ActionButton";
 import PlayerContainer from "../PlayerContainer";
-import GameStarter from "../../../global/play";
+import Game from "../../../global/game";
 import DropDown from "../../../global/Components/DropDown";
 
 import "./GameContainer.css";
@@ -23,13 +23,18 @@ const GameContainer = function () {
   const pokerHands = useStoreState((state) => state.playersHands.pokerHands);
 
   const startGame = useCallback(() => {
-    const hands = GameStarter.getHands({ noOfPlayers: selection });
+    const hands = Game.getHands({ noOfPlayers: selection });
     storeHands(hands);
   }, [selection, storeHands]);
 
   const storeNumberOfPlayers = useCallback((menuItem) => {
     setSelection(menuItem);
   }, []);
+
+  const handleDetermineWinner = useCallback(() => {
+    const winner = Game.determineWinner(pokerHands);
+    setAlertConfiguration({ isVisible: true, message: "test" });
+  }, [pokerHands, setAlertConfiguration]);
 
   return (
     <div className="GameContainer">
@@ -58,9 +63,7 @@ const GameContainer = function () {
             style={{ margin: 50 }}
             variant="primary"
             buttonText="Determine Winner"
-            action={() =>
-              setAlertConfiguration({ isVisible: true, message: "test" })
-            }
+            action={handleDetermineWinner}
           />
         )}
       </div>
