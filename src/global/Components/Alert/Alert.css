@@ -1,0 +1,7 @@
+.alert-modal {
+  position: fixed;
+  top: 10px;
+  left: 5px;
+  right: 5px;
+  z-index: 2;
+}

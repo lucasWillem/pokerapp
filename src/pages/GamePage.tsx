@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import ScreenContainer from "../global/Components/ScreenContainer";
-import GameContainer from "../this-app/Components/GameContainer";
+import GameContainer from "../app/Components/GameContainer";
 
 const GamePage = function () {
   return (
