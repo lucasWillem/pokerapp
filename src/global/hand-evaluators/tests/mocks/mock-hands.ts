@@ -275,3 +275,49 @@ export const mockFullHouseMissingThreeOfAKind: Hand = [
     suit: "spades",
   },
 ];
+
+export const mockLegitFlush: Hand = [
+  {
+    number: 1,
+    suit: "spades",
+  },
+  {
+    number: 2,
+    suit: "spades",
+  },
+  {
+    number: 8,
+    suit: "spades",
+  },
+  {
+    number: 4,
+    suit: "spades",
+  },
+  {
+    number: 5,
+    suit: "spades",
+  },
+];
+
+export const mockFlushSameSuitButInSequence: Hand = [
+  {
+    number: 1,
+    suit: "spades",
+  },
+  {
+    number: 2,
+    suit: "spades",
+  },
+  {
+    number: 3,
+    suit: "spades",
+  },
+  {
+    number: 4,
+    suit: "spades",
+  },
+  {
+    number: 5,
+    suit: "spades",
+  },
+];
