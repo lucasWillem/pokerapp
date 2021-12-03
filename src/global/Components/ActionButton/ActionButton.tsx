@@ -4,12 +4,25 @@ import { Button } from "react-bootstrap";
 type Props = {
   buttonText: string;
   action: () => void;
-  disabled: boolean;
+  disabled?: boolean;
+  variant: string;
+  style?: object;
 };
 
-const ActionButton = function ({ buttonText, action, disabled }: Props) {
+const ActionButton = function ({
+  buttonText,
+  action,
+  disabled,
+  variant,
+  style,
+}: Props) {
   return (
-    <Button disabled={disabled} variant="outline-primary" onClick={action}>
+    <Button
+      style={style}
+      disabled={disabled}
+      variant={variant}
+      onClick={action}
+    >
       {buttonText}
     </Button>
   );
