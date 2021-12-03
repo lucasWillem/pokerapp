@@ -31,11 +31,30 @@ const PokerCard = function ({ pokerCard }: Props) {
     }
   }
 
+  function determineNumberToShow() {
+    if (pokerCard.number === 1) {
+      return "A";
+    }
+
+    if (pokerCard.number === 11) {
+      return "J";
+    }
+
+    if (pokerCard.number === 12) {
+      return "Q";
+    }
+
+    if (pokerCard.number === 13) {
+      return "K";
+    }
+    return pokerCard.number;
+  }
+
   return (
     <div className="Card">
-      <div className="Card-Top-Number-Row">{pokerCard.number}</div>
+      <div className="Card-Top-Number-Row">{determineNumberToShow()}</div>
       <div>{determineSuiteToShow()}</div>
-      <div className="Card-Bottom-Number-Row">{pokerCard.number}</div>
+      <div className="Card-Bottom-Number-Row">{determineNumberToShow()}</div>
     </div>
   );
 };
