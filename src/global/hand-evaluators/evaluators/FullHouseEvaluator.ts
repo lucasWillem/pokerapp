@@ -11,8 +11,6 @@ export default class FullHouseEvaluator implements HandEvaluator {
     const isPair = new PairEvaluator(hand).evaluate();
     const isThreeOfKind = new ThreeOfAKindEvaluator(hand).evaluate();
 
-    console.log({ isPair, isThreeOfKind });
-
     return isPair && isThreeOfKind;
   }
 }
