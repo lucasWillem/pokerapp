@@ -4,8 +4,6 @@ import type { PokerHandsModel } from "../../types";
 const pokerHandsModel: PokerHandsModel = {
   pokerHands: [],
   storePokerHands: action((state, payload) => {
-    console.log(payload);
-
     if (state.pokerHands.length === 0) {
       state.pokerHands = payload;
     }

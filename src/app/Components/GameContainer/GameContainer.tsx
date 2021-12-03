@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState, useEffect } from "react";
+import React, { memo, useCallback, useState } from "react";
 
 import { useStoreActions, useStoreState } from "../../../redux";
 
@@ -14,6 +14,10 @@ const GameContainer = function () {
 
   const storeHands = useStoreActions(
     (actions) => actions.playersHands.storePokerHands
+  );
+
+  const setAlertConfiguration = useStoreActions(
+    (actions) => actions.alert.setAlertConfiguration
   );
 
   const pokerHands = useStoreState((state) => state.playersHands.pokerHands);
@@ -54,7 +58,9 @@ const GameContainer = function () {
             style={{ margin: 50 }}
             variant="primary"
             buttonText="Determine Winner"
-            action={startGame}
+            action={() =>
+              setAlertConfiguration({ isVisible: true, message: "test" })
+            }
           />
         )}
       </div>
