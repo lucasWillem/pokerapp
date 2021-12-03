@@ -9,8 +9,8 @@ type Props = {
 const PokerHand = function ({ pokerHand }: Props) {
   return (
     <div className="PokerHand">
-      {pokerHand.map((pokerCard) => (
-        <PokerCard pokerCard={pokerCard} />
+      {pokerHand.map((pokerCard, i) => (
+        <PokerCard key={`${pokerHand}-${i}`} pokerCard={pokerCard} />
       ))}
     </div>
   );
