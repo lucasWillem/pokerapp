@@ -2,7 +2,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import Navigator from "./navigation/Navigator";
-import Alert from "./global/Alert";
+import Alert from "./global/Components/Alert";
 
 function App() {
   return (
