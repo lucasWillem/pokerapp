@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Alert as BootstrapAlert } from "react-bootstrap";
 
-import { useStoreActions, useStoreState } from "../../redux";
+import { useStoreActions, useStoreState } from "../../../redux";
 import "./Alert.css";
 
 function Alert() {
