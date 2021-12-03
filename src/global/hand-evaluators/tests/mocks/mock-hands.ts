@@ -367,3 +367,26 @@ export const mockStraightIsActuallyStraightFlush: Hand = [
     suit: "spades",
   },
 ];
+
+export const mockLegitThreeOfAKind: Hand = [
+  {
+    number: 1,
+    suit: "spades",
+  },
+  {
+    number: 1,
+    suit: "clubs",
+  },
+  {
+    number: 1,
+    suit: "hearts",
+  },
+  {
+    number: 4,
+    suit: "hearts",
+  },
+  {
+    number: 5,
+    suit: "spades",
+  },
+];
