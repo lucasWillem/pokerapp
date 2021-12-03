@@ -29,17 +29,9 @@ const GameContainer = function () {
 
   return (
     <div className="GameContainer">
-      <PlayerContainer pokerHands={pokerHands} />
       {pokerHands.length === 0 && (
-        <div
-          style={{
-            maxHeight: 200,
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ marginRight: 20 }}>
+        <div className="ComponentFlexWrapper">
+          <div className="DropDownWrapper">
             <DropDown
               title="Select Number Of Players"
               menuItems={[2, 3, 4, 5, 6]}
@@ -48,12 +40,24 @@ const GameContainer = function () {
             />
           </div>
           <ActionButton
+            variant="outline-primary"
             disabled={selection === 0 ? true : false}
             buttonText="Start game"
             action={startGame}
           />
         </div>
       )}
+      <div>
+        <PlayerContainer pokerHands={pokerHands} />
+        {pokerHands.length > 0 && (
+          <ActionButton
+            style={{ margin: 50 }}
+            variant="primary"
+            buttonText="Determine Winner"
+            action={startGame}
+          />
+        )}
+      </div>
     </div>
   );
 };

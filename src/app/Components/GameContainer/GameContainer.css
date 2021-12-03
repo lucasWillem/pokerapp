@@ -2,3 +2,14 @@
   height: 100vh;
   width: 100%;
 }
+
+.ComponentFlexWrapper {
+  max-height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.DropDownWrapper {
+  margin-right: 20px;
+}
