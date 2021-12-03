@@ -160,3 +160,49 @@ export const mockStraightFlushIsRoyalFlush: Hand = [
     suit: "spades",
   },
 ];
+
+export const mockLegitFourOfAKind: Hand = [
+  {
+    number: 1,
+    suit: "spades",
+  },
+  {
+    number: 1,
+    suit: "hearts",
+  },
+  {
+    number: 1,
+    suit: "clubs",
+  },
+  {
+    number: 1,
+    suit: "diamonds",
+  },
+  {
+    number: 13,
+    suit: "spades",
+  },
+];
+
+export const mockFourOfAKindIsActuallyThreeOfAKind: Hand = [
+  {
+    number: 1,
+    suit: "spades",
+  },
+  {
+    number: 1,
+    suit: "hearts",
+  },
+  {
+    number: 1,
+    suit: "clubs",
+  },
+  {
+    number: 10,
+    suit: "diamonds",
+  },
+  {
+    number: 13,
+    suit: "spades",
+  },
+];
