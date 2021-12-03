@@ -1,5 +1,6 @@
 import type { Hand } from "../../../global/types";
 import PokerPlayer from "../PokerPlayer";
+import "./PlayerContainer.css";
 
 type Props = {
   pokerHands: Hand[];
@@ -7,9 +8,12 @@ type Props = {
 
 const PlayerContainer = function ({ pokerHands }: Props) {
   return (
-    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-      {pokerHands.map((hand) => (
-        <PokerPlayer pokerhand={hand} />
+    <div className="PlayerContainer">
+      {pokerHands.map((hand, i) => (
+        <div className="PlayerWrapper">
+          <p className="PlayerName">player: {i + 1}</p>
+          <PokerPlayer pokerhand={hand} />
+        </div>
       ))}
     </div>
   );

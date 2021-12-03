@@ -1,5 +1,6 @@
 import PokerCard from "../PokerCard";
 import type { Hand } from "../../../global/types";
+import "./PokerHand.css";
 
 type Props = {
   pokerHand: Hand;
@@ -7,7 +8,7 @@ type Props = {
 
 const PokerHand = function ({ pokerHand }: Props) {
   return (
-    <div>
+    <div className="PokerHand">
       {pokerHand.map((pokerCard) => (
         <PokerCard pokerCard={pokerCard} />
       ))}
