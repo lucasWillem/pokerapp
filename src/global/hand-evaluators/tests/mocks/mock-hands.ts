@@ -321,3 +321,49 @@ export const mockFlushSameSuitButInSequence: Hand = [
     suit: "spades",
   },
 ];
+
+export const mockLegitStraight: Hand = [
+  {
+    number: 1,
+    suit: "spades",
+  },
+  {
+    number: 2,
+    suit: "clubs",
+  },
+  {
+    number: 3,
+    suit: "spades",
+  },
+  {
+    number: 4,
+    suit: "hearts",
+  },
+  {
+    number: 5,
+    suit: "spades",
+  },
+];
+
+export const mockStraightIsActuallyStraightFlush: Hand = [
+  {
+    number: 1,
+    suit: "spades",
+  },
+  {
+    number: 2,
+    suit: "spades",
+  },
+  {
+    number: 3,
+    suit: "spades",
+  },
+  {
+    number: 4,
+    suit: "spades",
+  },
+  {
+    number: 5,
+    suit: "spades",
+  },
+];
