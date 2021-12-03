@@ -8,7 +8,7 @@ type Props = {
 const PokerPlayer = function ({ pokerhand }: Props) {
   return (
     <div>
-      <PokerHand hand={pokerhand} />
+      <PokerHand pokerHand={pokerhand} />
     </div>
   );
 };

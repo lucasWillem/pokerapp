@@ -2,13 +2,15 @@ import PokerCard from "../PokerCard";
 import type { Hand } from "../../../global/types";
 
 type Props = {
-  hand: Hand;
+  pokerHand: Hand;
 };
 
-const PokerHand = function ({ hand }: Props) {
+const PokerHand = function ({ pokerHand }: Props) {
   return (
     <div>
-      <PokerCard />
+      {pokerHand.map((pokerCard) => (
+        <PokerCard pokerCard={pokerCard} />
+      ))}
     </div>
   );
 };

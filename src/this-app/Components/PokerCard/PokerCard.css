@@ -1,7 +1,25 @@
 .Card {
   height: 150px;
-  width: 100px;
   border-radius: 2px;
   background-color: #f8f8f8;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Card-Top-Number-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px;
+}
+
+.Card-Bottom-Number-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px;
 }
