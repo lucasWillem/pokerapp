@@ -1,12 +1,12 @@
-import React, { memo } from "react";
-import ScreenContainer from "../global/Components/ScreenContainer";
+import React, { memo, FC } from "react";
+import { ScreenWrapper } from "../components/wrappers/ScreenWrapper";
 import GameContainer from "../app/Components/GameContainer";
 
-const GamePage = function () {
+const GamePage: FC = () => {
   return (
-    <ScreenContainer>
+    <ScreenWrapper>
       <GameContainer />
-    </ScreenContainer>
+    </ScreenWrapper>
   );
 };
 
