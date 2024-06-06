@@ -1,10 +1,10 @@
-import React, { useCallback } from "react";
+import React, { useCallback, FC } from "react";
 import { Alert as BootstrapAlert } from "react-bootstrap";
 
 import { useStoreActions, useStoreState } from "../../../redux";
 import "./Alert.css";
 
-function Alert() {
+const Alert: FC = () => {
   const { isVisible, message } = useStoreState(
     (state) => state.alert.alertConfiguration
   );
@@ -21,7 +21,7 @@ function Alert() {
     <>
       {isVisible && (
         <BootstrapAlert
-          className={"alert-modal"}
+          className="alert-modal"
           onClose={handleOnModalClose}
           variant="primary"
           dismissible
