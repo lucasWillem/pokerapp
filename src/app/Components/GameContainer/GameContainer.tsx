@@ -2,10 +2,10 @@ import React, { memo, useCallback, useState } from "react";
 
 import { useStoreActions, useStoreState } from "../../../redux";
 
-import ActionButton from "../../../global/Components/ActionButton";
 import PlayerContainer from "../PlayerContainer";
 import Game from "../../../global/game";
 import DropDown from "../../../global/Components/DropDown";
+import { Button } from "react-bootstrap";
 
 import "./GameContainer.css";
 
@@ -63,12 +63,11 @@ const GameContainer = function () {
               activeItem={selection}
             />
           </div>
-          <ActionButton
+          <Button
             variant="outline-primary"
             disabled={selection === 0 ? true : false}
-            buttonText="Start game"
-            action={startGame}
-          />
+            onClick={startGame}
+          >Start game</Button>
         </div>
       )}
       <div>
@@ -76,19 +75,19 @@ const GameContainer = function () {
 
         <div className="BottomActionButtons">
           {pokerHands.length > 0 && (
-            <ActionButton
+            <Button
               variant="primary"
-              buttonText="Determine Winner"
-              action={handleDetermineWinner}
-            />
+              onClick={handleDetermineWinner}
+            >Determine Winner</Button>
           )}
           {pokerHands.length > 0 && winningMessage.length > 0 && (
-            <ActionButton
+            <Button
               style={{ marginLeft: 10 }}
               variant="secondary"
-              buttonText="Replay"
-              action={handleReplay}
-            />
+              onClick={handleReplay}
+            >
+              Replay
+            </Button>
           )}
         </div>
       </div>
