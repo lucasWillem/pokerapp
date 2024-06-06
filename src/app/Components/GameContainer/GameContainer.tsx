@@ -4,7 +4,7 @@ import { useStoreActions, useStoreState } from "../../../redux";
 
 import PlayerContainer from "../PlayerContainer";
 import Game from "../../../global/game";
-import DropDown from "../../../global/Components/DropDown";
+import { DropDown } from "../../../components/presentational/DropDown";
 import { Button } from "react-bootstrap";
 
 import "./GameContainer.css";

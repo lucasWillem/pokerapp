@@ -1,19 +1,19 @@
-import { memo } from "react";
+import { memo, FC } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
-type Props = {
+interface DropDownProps {
   menuItems: number[];
   title: string;
   makeSelection: (menuItem: number) => void;
   activeItem: number;
-};
+}
 
-const DropDown = function ({
+const DropDown: FC<DropDownProps> = ({
   menuItems,
   title,
   makeSelection,
   activeItem,
-}: Props) {
+}) => {
   return (
     <Dropdown>
       <DropdownButton title={title}>
