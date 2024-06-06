@@ -32,7 +32,7 @@ const GameContainer = function () {
     storeHands(hands);
   }, [selection, storeHands]);
 
-  const storeNumberOfPlayers = useCallback((menuItem) => {
+  const storeNumberOfPlayers = useCallback((menuItem: React.SetStateAction<number>) => {
     setSelection(menuItem);
   }, []);
 
