@@ -1,4 +1,6 @@
-.Card {
+import styled from "styled-components";
+
+const StyledCard = styled.div`
   height: 100px;
   width: 70px;
   border-radius: 2px;
@@ -7,20 +9,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+`;
 
-.CardTopNumberRow {
+const TopRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   padding: 5px;
-}
+`;
 
-.CardBottomNumberRow {
+const MiddleRow = styled.div`
+  display: 'flex', justifyContent: 'center'
+`;
+
+const BottomRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   padding: 5px;
-}
+`;
+export { StyledCard, TopRow, MiddleRow, BottomRow };

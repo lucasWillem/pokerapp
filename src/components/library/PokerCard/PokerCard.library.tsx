@@ -1,6 +1,6 @@
-import { memo } from "react";
-import "./PokerCard.css";
+import { FC, memo } from "react";
 import type { Card } from "../../../global/types";
+import { StyledCard, TopRow, BottomRow, MiddleRow } from "./PokerCard.styles";
 
 import {
   SuitClubFill,
@@ -9,12 +9,12 @@ import {
   SuitHeartFill,
 } from "react-bootstrap-icons";
 
-type Props = {
+interface PokerCardProps {
   pokerCard: Card;
-};
+}
 
-const PokerCard = function ({ pokerCard }: Props) {
-  function determineSuiteToShow() {
+const PokerCard: FC<PokerCardProps> = ({ pokerCard }) => {
+  const renderSuite = () => {
     if (pokerCard.suit === "spades") {
       return <SuitSpadeFill style={{ fontSize: 25 }} />;
     }
@@ -30,9 +30,9 @@ const PokerCard = function ({ pokerCard }: Props) {
     if (pokerCard.suit === "diamonds") {
       return <SuitDiamondFill style={{ fontSize: 25 }} />;
     }
-  }
+  };
 
-  function determineNumberToShow() {
+  const renderNumber = () => {
     if (pokerCard.number === 1) {
       return "A";
     }
@@ -49,14 +49,14 @@ const PokerCard = function ({ pokerCard }: Props) {
       return "K";
     }
     return pokerCard.number;
-  }
+  };
 
   return (
-    <div className="Card">
-      <div className="CardTopNumberRow">{determineNumberToShow()}</div>
-      <div>{determineSuiteToShow()}</div>
-      <div className="CardBottomNumberRow">{determineNumberToShow()}</div>
-    </div>
+    <StyledCard>
+      <TopRow>{renderNumber()}</TopRow>
+      <MiddleRow>{renderSuite()}</MiddleRow>
+      <BottomRow>{renderNumber()}</BottomRow>
+    </StyledCard>
   );
 };
 
