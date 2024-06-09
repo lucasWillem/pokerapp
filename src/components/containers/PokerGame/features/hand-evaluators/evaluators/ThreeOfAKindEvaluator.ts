@@ -1,16 +1,17 @@
 import type { HandEvaluator } from "../types";
-import type { Hand } from "../../types";
+import type { Hand } from "../../../../../../global/types";
 
 interface Frequencies {
   [key: string]: any;
 }
-export default class FourOfAKindEvaluator implements HandEvaluator {
+
+export default class ThreeOfAKindEvaluator implements HandEvaluator {
   constructor(private hand: Hand) {}
 
   public evaluate() {
     const { hand } = this;
     const frequencies: Frequencies = {};
-    let isFourOfKind = false;
+    let isThreeOfKind = false;
 
     for (const card of hand) {
       const cardProperty = card.number;
@@ -20,11 +21,11 @@ export default class FourOfAKindEvaluator implements HandEvaluator {
     for (const [cardNumber, cardNumberFrequency] of Object.entries(
       frequencies
     )) {
-      if (cardNumberFrequency === 4) {
-        isFourOfKind = true;
+      if (cardNumberFrequency === 3) {
+        isThreeOfKind = true;
       }
     }
 
-    return isFourOfKind;
+    return isThreeOfKind;
   }
 }

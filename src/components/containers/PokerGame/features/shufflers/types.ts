@@ -1,4 +1,4 @@
-import type { CardDeck } from "../types";
+import { CardDeck } from "../../../../../global/types";
 
 export interface DeckShuffler {
   shuffle: () => CardDeck;

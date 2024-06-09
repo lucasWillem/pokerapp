@@ -15,7 +15,7 @@ import {
   FullHouseEvaluator,
 } from "../hand-evaluators";
 
-import type { Hand } from "../types";
+import type { Hand } from "../../../../../global/types";
 import type { PlayerRank } from "./types";
 
 export default abstract class Game {
@@ -124,10 +124,11 @@ export default abstract class Game {
 
       const winnersByPlayerNumber = winners
         .map((winner) => winner.player + 1)
+        .join(", ")
         .toString();
 
-      const drawMessage = `We have a draw between players ${winnersByPlayerNumber}`;
-      const singleWinnerMessage = `The winner is player ${
+      const drawMessage = `Congratulations players ${winnersByPlayerNumber}`;
+      const singleWinnerMessage = `Congratulations player ${
         winners[0].player + 1
       }`;
 
@@ -135,7 +136,7 @@ export default abstract class Game {
     }
 
     if (rankOfGoodHand.length === 1) {
-      const singleWinnerMessage = `The winner is player ${
+      const singleWinnerMessage = `Congratulations player ${
         rankOfGoodHand[0].player + 1
       }`;
       return singleWinnerMessage;
@@ -148,11 +149,11 @@ export default abstract class Game {
 
       const winnersByPlayerNumber = winners
         .map((winner) => winner.player + 1)
-        .join(" & ")
+        .join(", ")
         .toString();
 
-      const drawMessage = `We have a draw between players ${winnersByPlayerNumber}`;
-      const singleWinnerMessage = `The winner is player ${
+      const drawMessage = `Congratulations players ${winnersByPlayerNumber}`;
+      const singleWinnerMessage = `Congratulations player ${
         winners[0].player + 1
       }`;
 

@@ -1,4 +1,5 @@
-import type { CardDeck } from "../types";
+
+import type { CardDeck } from "../../../../../global/types";
 
 export interface DeckCreator {
   create: () => CardDeck;

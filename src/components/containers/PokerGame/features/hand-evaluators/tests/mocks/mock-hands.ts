@@ -1,5 +1,4 @@
-import { Hand } from "../../../types";
-
+import { Hand } from "../../../../../../../global/types";
 export const mockHandLegitRoyalFlush: Hand = [
   {
     number: 1,
