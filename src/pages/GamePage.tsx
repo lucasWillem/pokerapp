@@ -1,12 +1,12 @@
-import React, { memo } from "react";
-import ScreenContainer from "../global/Components/ScreenContainer";
-import GameContainer from "../app/Components/GameContainer";
+import { memo, FC } from "react";
+import { ScreenTemplate } from "../components/templates/ScreenTemplate";
+import { PokerGame } from "../components/containers/PokerGame";
 
-const GamePage = function () {
+const GamePage: FC = () => {
   return (
-    <ScreenContainer>
-      <GameContainer />
-    </ScreenContainer>
+    <ScreenTemplate>
+      <PokerGame />
+    </ScreenTemplate>
   );
 };
 

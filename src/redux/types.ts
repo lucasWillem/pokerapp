@@ -1,15 +1,6 @@
 import { Action } from "easy-peasy";
 import { Hand } from "../global/types";
-
-interface alert {
-  isVisible: boolean;
-  message: string;
-}
-
-export interface StoreModel {
-  playersHands: PokerHandsModel;
-  alert: AlertModel;
-}
+import { PlayerRank } from "../components/containers/PokerGame/features/game/types";
 
 export interface PokerHandsModel {
   pokerHands: Hand[];
@@ -17,7 +8,23 @@ export interface PokerHandsModel {
   clearPokerHands: Action<PokerHandsModel, []>;
 }
 
+interface alert {
+  isVisible: boolean;
+  message: string;
+}
 export interface AlertModel {
-  alertConfiguration: alert;
-  setAlertConfiguration: Action<AlertModel, alert>;
+  alertConfig: alert;
+  configureAlert: Action<AlertModel, alert>;
+}
+
+export interface StoreModel {
+  playersHands: PokerHandsModel;
+  alert: AlertModel;
+  winners: WinnersModel;
+}
+
+export interface WinnersModel {
+  winners: number[];
+  storeWinners: Action<WinnersModel, number[]>;
+  clearWinners: Action<WinnersModel, []>;
 }
