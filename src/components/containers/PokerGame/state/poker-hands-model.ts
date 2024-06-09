@@ -1,5 +1,5 @@
 import { action } from "easy-peasy";
-import type { PokerHandsModel } from "../../types";
+import type { PokerHandsModel } from "../../../../redux/types";
 
 const pokerHandsModel: PokerHandsModel = {
   pokerHands: [],
