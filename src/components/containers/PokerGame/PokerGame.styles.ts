@@ -5,9 +5,11 @@ interface StyledButtonProps extends ButtonProps {
   variant?: "primary" | "secondary" | "outline-primary";
 }
 
-const Button = styled(BootstrapButton).attrs<StyledButtonProps>((props) => ({
-  variant: props.variant,
-}))<{ theme: DefaultTheme }>`
+const StyledButton = styled(BootstrapButton).attrs<StyledButtonProps>(
+  (props) => ({
+    variant: props.variant,
+  })
+)<{ theme: DefaultTheme }>`
   margin: 8px;
   background-color: ${(props) => props.theme.colors.secondary};
   border-color: ${(props) => props.theme.colors.secondary};
@@ -20,6 +22,10 @@ const Button = styled(BootstrapButton).attrs<StyledButtonProps>((props) => ({
   &:disabled {
     background-color: ${(props) => props.theme.colors.dark};
     border-color: ${(props) => props.theme.colors.dark};
+  }
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 0.05rem ${(props) => props.theme.colors.accent} !important;
   }
 `;
 
@@ -46,7 +52,7 @@ const PokerHand = styled.div`
 `;
 
 export {
-  Button,
+  StyledButton,
   PokerGame,
   PlayerSelectionFlexWrapper,
   BottomActionButtonsContainer,
