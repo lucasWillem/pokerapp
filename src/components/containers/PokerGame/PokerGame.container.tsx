@@ -155,8 +155,7 @@ const GameContainer: FC = () => {
               </Button>
             )}
             {pokerHands.length > 0 && (
-              <Button onClick={handleReplay}
-              disabled={winners.length === 0}>
+              <Button onClick={handleReplay} disabled={winners.length === 0}>
                 Replay
               </Button>
             )}
