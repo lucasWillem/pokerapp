@@ -1,6 +1,7 @@
 import { FC, memo } from "react";
-import {StyledWinnerAlert} from './WinnerAlert.styles'
+import { StyledWinnerAlert } from "./WinnerAlert.styles";
 
+import ClickAwayListener from "react-click-away-listener";
 interface WinnerAlertProps {
   isVisible: boolean;
   handleOnModalClose: () => void;
@@ -15,14 +16,15 @@ const WinnerAlert: FC<WinnerAlertProps> = ({
   return (
     <>
       {isVisible && (
-        <StyledWinnerAlert
-          className="winner-alert-modal"
-          onClose={handleOnModalClose}
-          variant="primary"
-          dismissible
-        >
-          {message}
-        </StyledWinnerAlert>
+        <ClickAwayListener onClickAway={handleOnModalClose}>
+          <StyledWinnerAlert
+            className="winner-alert-modal"
+            variant="primary"
+            dismissible
+          >
+            {message}
+          </StyledWinnerAlert>
+        </ClickAwayListener>
       )}
     </>
   );

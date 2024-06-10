@@ -10,6 +10,9 @@ position: fixed;
   background-color: ${(props) => props.theme.colors.dark};
   border: 2px solid ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.light};
+  .btn-close {
+    display: none;
+  }
 `;
 
 export { StyledWinnerAlert };
