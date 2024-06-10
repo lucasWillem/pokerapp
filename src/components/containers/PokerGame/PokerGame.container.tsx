@@ -13,7 +13,7 @@ import { PokerPlayer } from "../../library/PokerPlayer";
 import { WinnerAlert } from "../../library/WinnerAlert";
 
 import {
-  Button,
+  StyledButton,
   PokerGame,
   PlayerSelectionFlexWrapper,
   BottomActionButtonsContainer,
@@ -123,9 +123,9 @@ const GameContainer: FC = () => {
               makeSelection={storeNumberOfPlayers}
               activeItem={numberOfPlayers}
             />
-            <Button disabled={numberOfPlayers === 0} onClick={startGame}>
+            <StyledButton disabled={numberOfPlayers === 0} onClick={startGame}>
               Start game
-            </Button>
+            </StyledButton>
           </PlayerSelectionFlexWrapper>
         )}
         <>
@@ -147,18 +147,17 @@ const GameContainer: FC = () => {
 
           <BottomActionButtonsContainer>
             {pokerHands.length > 0 && (
-              <Button
+              <StyledButton
                 onClick={handleDetermineWinner}
                 disabled={winners.length > 0}
               >
                 Determine Winner
-              </Button>
+              </StyledButton>
             )}
             {pokerHands.length > 0 && (
-              <Button onClick={handleReplay}
-              disabled={winners.length === 0}>
+              <StyledButton onClick={handleReplay} disabled={winners.length === 0}>
                 Replay
-              </Button>
+              </StyledButton>
             )}
           </BottomActionButtonsContainer>
         </>
