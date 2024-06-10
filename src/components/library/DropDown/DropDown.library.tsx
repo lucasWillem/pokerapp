@@ -29,17 +29,6 @@ const DropDown: FC<DropDownProps> = ({
           </StyledDropdown.Item>
         ))}
       </StyledDropdown.Menu>
-      {/* <DropdownButton title={title}>
-        {menuItems.map((menuItem, i) => (
-          <StyledDropdown.Item
-            active={activeItem === menuItem}
-            key={`${menuItem}-${i}`}
-            onClick={() => makeSelection(menuItem)}
-          >
-            {menuItem}
-          </StyledDropdown.Item>
-        ))}
-      </DropdownButton> */}
     </StyledDropdown>
   );
 };
