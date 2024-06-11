@@ -7,10 +7,10 @@ export default class RandomShuffler implements DeckShuffler {
   public shuffle() {
     const shuffledDeck = [...this.deck];
 
-    for (var i = shuffledDeck.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
+    for (let i = shuffledDeck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
 
-      var temp = shuffledDeck[i];
+      const temp = shuffledDeck[i];
       shuffledDeck[i] = shuffledDeck[j];
       shuffledDeck[j] = temp;
     }

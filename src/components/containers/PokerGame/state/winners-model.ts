@@ -7,7 +7,7 @@ const winnersModel: WinnersModel = {
     state.winners = payload;
   }),
   clearWinners: action((state, payload) => {
-    state.winners = [];
+      state.winners = payload;
   }),
 };
 

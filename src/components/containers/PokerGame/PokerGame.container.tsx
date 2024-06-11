@@ -85,7 +85,7 @@ const GameContainer: FC = () => {
   const renderHand = useCallback(
     ({ hand, index }: { hand: Hand; index: number }) => {
       return (
-        <PokerHand>
+        <PokerHand key={`${index}`}>
           {hand.map((pokerCard, index) => (
             <PokerCard key={`${hand}-${index}`} pokerCard={pokerCard} />
           ))}

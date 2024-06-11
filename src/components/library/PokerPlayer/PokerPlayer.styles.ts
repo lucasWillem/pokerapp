@@ -1,9 +1,13 @@
 import styled, { DefaultTheme } from 'styled-components';
-import { animated } from 'react-spring';
+import { animated, SpringValue } from 'react-spring';
+
+type AnimatedStyle = {
+  opacity: SpringValue<number>;
+};
 
 interface StyledPokerPlayerProps {
   theme: DefaultTheme;
-  style: any;
+  style: AnimatedStyle;
 }
 
 const StyledPokerPlayer = styled(animated.div)<StyledPokerPlayerProps>`

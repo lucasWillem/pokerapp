@@ -2,7 +2,7 @@ import type { HandEvaluator } from '../types';
 import type { Hand } from '../../../../../../global/types';
 
 interface Frequencies {
-  [key: string]: any;
+  [key: string]: number;
 }
 
 export default class PairEvaluator implements HandEvaluator {
@@ -17,8 +17,9 @@ export default class PairEvaluator implements HandEvaluator {
       const cardProperty = card.number;
       frequencies[cardProperty] = ++frequencies[cardProperty] || 1;
     }
-
-    for (const [cardNumber, cardNumberFrequency] of Object.entries(
+    
+    // eslint-disable-next-line
+    for (const [_, cardNumberFrequency] of Object.entries(
       frequencies,
     )) {
       if (cardNumberFrequency === 2) {
