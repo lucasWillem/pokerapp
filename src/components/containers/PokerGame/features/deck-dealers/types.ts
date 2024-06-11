@@ -1,4 +1,4 @@
-import type { Hand } from "../../../../../global/types";
+import type { Hand } from '../../../../../global/types';
 
 export interface DeckDealer {
   deal: () => Hand;

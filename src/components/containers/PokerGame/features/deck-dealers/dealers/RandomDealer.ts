@@ -1,5 +1,5 @@
-import type { CardDeck } from "../../../../../../global/types";
-import type { DeckDealer } from "../types";
+import type { CardDeck } from '../../../../../../global/types';
+import type { DeckDealer } from '../types';
 
 export default class RandomDealer implements DeckDealer {
   constructor(private deck: CardDeck) {}

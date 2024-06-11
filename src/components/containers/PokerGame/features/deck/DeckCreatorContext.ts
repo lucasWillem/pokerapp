@@ -1,4 +1,4 @@
-import type { CreatorContext, DeckCreator } from "./types";
+import type { CreatorContext, DeckCreator } from './types';
 
 export default class DeckCreatorContext implements CreatorContext {
   constructor(private deckCreator: DeckCreator) {}

@@ -1,6 +1,6 @@
-import { DeckCreatorContext, DefaultDeckCreator } from "../deck";
-import { ShufflerContext, RandomShuffler } from "../shufflers";
-import { DealerContext, RandomDealer } from "../deck-dealers";
+import { DeckCreatorContext, DefaultDeckCreator } from '../deck';
+import { ShufflerContext, RandomShuffler } from '../shufflers';
+import { DealerContext, RandomDealer } from '../deck-dealers';
 
 import {
   HandEvalutorsContext,
@@ -13,10 +13,10 @@ import {
   PairEvaluator,
   TwoPairEvaluator,
   FullHouseEvaluator,
-} from "../hand-evaluators";
+} from '../hand-evaluators';
 
-import type { Hand } from "../../../../../global/types";
-import type { PlayerRank } from "./types";
+import type { Hand } from '../../../../../global/types';
+import type { PlayerRank } from './types';
 
 export default abstract class Game {
   static getHands({ noOfPlayers = 2 }: { noOfPlayers?: number }): Hand[] {
@@ -24,7 +24,7 @@ export default abstract class Game {
 
     const deck = new DeckCreatorContext(new DefaultDeckCreator()).create();
     const shuffledDeck = new ShufflerContext(
-      new RandomShuffler(deck)
+      new RandomShuffler(deck),
     ).shuffle();
 
     for (let x = 1; x <= noOfPlayers; x++) {
@@ -39,7 +39,7 @@ export default abstract class Game {
 
     const message = this.determineWinnerAndReturnMessage(
       rankOfGoodHand,
-      rankOfBadHand
+      rankOfBadHand,
     );
 
     return message;
@@ -61,28 +61,28 @@ export default abstract class Game {
 
     pokerHands.forEach((hand, i) => {
       isRoyalFlush = new HandEvalutorsContext(
-        new RoyalFlushEvaluator(hand)
+        new RoyalFlushEvaluator(hand),
       ).evaluate();
       isStraightFlush = new HandEvalutorsContext(
-        new StraighFlushEvaluator(hand)
+        new StraighFlushEvaluator(hand),
       ).evaluate();
       isFourOfAKind = new HandEvalutorsContext(
-        new FourOfAKindEvaluator(hand)
+        new FourOfAKindEvaluator(hand),
       ).evaluate();
       isFlush = new HandEvalutorsContext(new FlushEvaluator(hand)).evaluate();
       isStraight = new HandEvalutorsContext(
-        new StraightEvaluator(hand)
+        new StraightEvaluator(hand),
       ).evaluate();
       isThreeOfAKind = new HandEvalutorsContext(
-        new ThreeOfAKindEvaluator(hand)
+        new ThreeOfAKindEvaluator(hand),
       ).evaluate();
       isPair = new HandEvalutorsContext(new PairEvaluator(hand)).evaluate();
       isTwoPair = new HandEvalutorsContext(
-        new TwoPairEvaluator(hand)
+        new TwoPairEvaluator(hand),
       ).evaluate();
 
       isFullHouse = new HandEvalutorsContext(
-        new FullHouseEvaluator(hand)
+        new FullHouseEvaluator(hand),
       ).evaluate();
 
       if (isRoyalFlush) {
@@ -115,7 +115,7 @@ export default abstract class Game {
 
   static determineWinnerAndReturnMessage(
     rankOfGoodHand: PlayerRank[],
-    rankOfBadHand: PlayerRank[]
+    rankOfBadHand: PlayerRank[],
   ) {
     if (rankOfGoodHand.length === 0) {
       const winners = rankOfBadHand
@@ -124,7 +124,7 @@ export default abstract class Game {
 
       const winnersByPlayerNumber = winners
         .map((winner) => winner.player + 1)
-        .join(", ")
+        .join(', ')
         .toString();
 
       const drawMessage = `Congratulations players ${winnersByPlayerNumber}`;
@@ -149,7 +149,7 @@ export default abstract class Game {
 
       const winnersByPlayerNumber = winners
         .map((winner) => winner.player + 1)
-        .join(", ")
+        .join(', ')
         .toString();
 
       const drawMessage = `Congratulations players ${winnersByPlayerNumber}`;

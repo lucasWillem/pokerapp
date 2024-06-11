@@ -1,5 +1,5 @@
-import type { HandEvaluator } from "../types";
-import type { Hand } from "../../../../../../global/types";
+import type { HandEvaluator } from '../types';
+import type { Hand } from '../../../../../../global/types';
 
 interface Frequencies {
   [key: string]: any;
@@ -19,7 +19,7 @@ export default class ThreeOfAKindEvaluator implements HandEvaluator {
     }
 
     for (const [cardNumber, cardNumberFrequency] of Object.entries(
-      frequencies
+      frequencies,
     )) {
       if (cardNumberFrequency === 3) {
         isThreeOfKind = true;

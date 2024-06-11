@@ -1,6 +1,6 @@
-import { Action } from "easy-peasy";
-import { Hand } from "../global/types";
-import { PlayerRank } from "../components/containers/PokerGame/features/game/types";
+import { Action } from 'easy-peasy';
+import { Hand } from '../global/types';
+import { PlayerRank } from '../components/containers/PokerGame/features/game/types';
 
 export interface PokerHandsModel {
   pokerHands: Hand[];

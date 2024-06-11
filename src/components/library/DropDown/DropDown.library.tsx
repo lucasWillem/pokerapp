@@ -1,5 +1,5 @@
-import { memo, FC } from "react";
-import { StyledDropdown } from "./DropDown.styles";
+import { memo, FC } from 'react';
+import { StyledDropdown } from './DropDown.styles';
 
 interface DropDownProps {
   menuItems: number[];

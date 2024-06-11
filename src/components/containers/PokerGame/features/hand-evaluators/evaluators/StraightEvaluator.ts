@@ -1,5 +1,5 @@
-import type { HandEvaluator } from "../types";
-import type { Hand } from "../../../../../../global/types";
+import type { HandEvaluator } from '../types';
+import type { Hand } from '../../../../../../global/types';
 
 export default class StraightEvaluator implements HandEvaluator {
   constructor(private hand: Hand) {}
@@ -11,7 +11,7 @@ export default class StraightEvaluator implements HandEvaluator {
     let numOfIsOfSameSuitCases = 0;
 
     const handOfrelevantCardsInAscendingOrder = hand.sort(
-      (a, b) => a.number - b.number
+      (a, b) => a.number - b.number,
     );
 
     let firstPointer = 0;

@@ -1,4 +1,4 @@
-import styled, { DefaultTheme } from "styled-components";
+import styled, { DefaultTheme } from 'styled-components';
 import { animated } from 'react-spring';
 
 interface StyledPokerPlayerProps {
@@ -7,7 +7,7 @@ interface StyledPokerPlayerProps {
 }
 
 const StyledPokerPlayer = styled(animated.div)<StyledPokerPlayerProps>`
-  display: "flex";   
+  display: 'flex';
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;

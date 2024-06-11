@@ -77,7 +77,6 @@ One of the proposed optimizations for the Geo App project is the adoption of Pre
 - **Cleaner Code:** Preact Signals allows for a more declarative approach to state management and side effects, resulting in cleaner and more readable code.
 - **Efficient State Management:** It provides a set of hooks that are optimized for Preact, ensuring efficient state management without the overhead of React's hooks.
 
-
 ### ESLint, Prettier, Lint-Staged and Husky Integration
 
 Integrating ESLint, Prettier, Lint-Staged and Husky into the Geo App project can significantly improve code quality and consistency. This setup ensures that Lint-Staged checks the code for ESLint errors and performs Prettier formatting before it is committed, helping to maintain a high standard of code quality and preventing common issues from being introduced into the codebase.
