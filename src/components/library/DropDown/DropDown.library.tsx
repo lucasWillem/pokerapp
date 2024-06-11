@@ -17,7 +17,6 @@ const DropDown: FC<DropDownProps> = ({
   return (
     <StyledDropdown>
       <StyledDropdown.Toggle>{title}</StyledDropdown.Toggle>
-
       <StyledDropdown.Menu>
         {menuItems.map((menuItem, i) => (
           <StyledDropdown.Item

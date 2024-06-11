@@ -1,17 +1,6 @@
 import React, { FC, memo, useCallback, useState } from 'react';
 
-import { useStoreActions, useStoreState } from '../../../redux';
-
 import Game from './features/game';
-
-import { Hand } from '../../../global/types';
-
-import { PokerTable } from '../../library/PokerTable';
-import { DropDown } from '../../library/DropDown';
-import { PokerCard } from '../../library/PokerCard';
-import { PokerPlayer } from '../../library/PokerPlayer';
-import { WinnerAlert } from '../../library/WinnerAlert';
-
 import {
   StyledButton,
   PokerGame,
@@ -19,6 +8,16 @@ import {
   BottomActionButtonsContainer,
   PokerHand,
 } from './PokerGame.styles';
+
+import { Hand } from '@global/types';
+
+import { PokerTable } from '@components/library/PokerTable';
+import { DropDown } from '@components/library/DropDown';
+import { PokerCard } from '@components/library/PokerCard';
+import { PokerPlayer } from '@components/library/PokerPlayer';
+import { WinnerAlert } from '@components/library/WinnerAlert';
+
+import { useStoreActions, useStoreState } from '@redux/index';
 
 const GameContainer: FC = () => {
   const [numberOfPlayers, setNumberOfPlayers] = useState(0);

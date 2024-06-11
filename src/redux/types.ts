@@ -1,5 +1,5 @@
 import { Action } from 'easy-peasy';
-import { Hand } from '../global/types';
+import { Hand } from '@global/types';
 
 export interface PokerHandsModel {
   pokerHands: Hand[];

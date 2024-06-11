@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import type { Card } from '../../../global/types';
+import type { Card } from '@global/types';
 import { StyledCard, TopRow, BottomRow, MiddleRow } from './PokerCard.styles';
 
 import {

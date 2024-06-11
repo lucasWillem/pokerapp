@@ -15,7 +15,7 @@ import {
   FullHouseEvaluator,
 } from '../hand-evaluators';
 
-import type { Hand } from '../../../../../global/types';
+import type { Hand } from '@global/types';
 import type { PlayerRank } from './types';
 
 export default abstract class Game {

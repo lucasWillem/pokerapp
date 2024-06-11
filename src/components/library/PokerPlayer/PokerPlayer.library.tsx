@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import type { Hand } from '../../../global/types';
+import type { Hand } from '@global/types';
 import { StyledPokerPlayer, PlayerName } from './PokerPlayer.styles';
 import { useSpring } from 'react-spring';
 

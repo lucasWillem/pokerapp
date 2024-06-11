@@ -1,5 +1,5 @@
 import type { HandEvaluator } from '../types';
-import type { Hand } from '../../../../../../global/types';
+import type { Hand } from '@global/types';
 import PairEvaluator from './PairEvaluator';
 import ThreeOfAKindEvaluator from './ThreeOfAKindEvaluator';
 
