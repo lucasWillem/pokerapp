@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { Alert as BootstrapAlert } from "react-bootstrap";
+import styled from 'styled-components';
+import { Alert as BootstrapAlert } from 'react-bootstrap';
 
 const StyledWinnerAlert = styled(BootstrapAlert)`
-position: fixed;
+  position: fixed;
   top: 24px;
   left: 30%;
   right: 30%;

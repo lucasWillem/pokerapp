@@ -50,40 +50,41 @@ yarn test
 
 Poker App employs several design patterns to ensure a clean, maintainable, and scalable codebase. These patterns facilitate the separation of concerns, making the application easier to understand, develop, and test.
 
-### Container/Presentational Pattern
+- **Container/Presentational Pattern**
+- **Composition Pattern**
+- **Render Prop Pattern**
+- **Compound Component Pattern**
 
-The Container/Presentational pattern is a widely used pattern in React applications. It involves separating components into two categories:
+## Additional Features
 
-- **Containers**: These components are concerned with how things work. Containers manage the state, handle data fetching, and contain the business logic of the application. They are often connected to the Redux store or use React's Context API for state management.
-- **Presentationals**: These components are concerned with how things look. Presentational components are stateless and purely focused on the presentation layer. They receive data and callbacks exclusively via props.
+- **ESLint, Prettier, Lint-Staged and Husky Integration**
 
-This pattern enhances the reusability and readability of the code, as it clearly separates the logic from the presentation.
+- **Code Quality:** ESLint helps in identifying and reporting on ECMAScript/JavaScript and React errors, with the goal of making code more consistent and avoiding bugs.
+- **Code Formatting:** Prettier enforces a consistent style by parsing your code and re-printing it with its own rules, ensuring that the codebase has a uniform formatting style.
+- **Automated Checks:** Husky and lint-staged automate the process of running linters and formatters on files that are about to be committed, ensuring that only quality code is committed to the repository.
 
-### Composition Pattern
+### Import Aliases
 
-The Composition pattern in React involves building complex UIs from smaller, reusable components passed as children or props. This approach enhances code reusability and modularity, facilitating the construction of maintainable and comprehensible UIs.
+- **Simplified Imports**: Import aliases reduce the complexity of import statements, especially in projects with deep directory structures, making them easier to read and manage.
+- **Enhanced Readability**: By providing meaningful names, aliases can make the source of imports clearer, improving code readability.
+- **Refactoring Ease**: Aliases can simplify the process of refactoring by decoupling the actual file paths from the import statements, making it easier to move files around without breaking imports.
+- **Avoid Relative Path Hell**: They help in avoiding the confusion and maintenance headache associated with using long relative paths like `../../../utils/myUtil`.
+- **Consistency Across the Project**: Aliases ensure that imports are consistent across the project, regardless of where the files are located.
 
-By adopting these design patterns, Fe-test ensures a clean separation of concerns, improves code reusability, and enhances the overall maintainability of the application. These patterns provide a structured approach to building React applications, making it easier for developers to work with the codebase and contribute to the project.
+### Custom Theme through Theme Provider and Styled Components
+
+- **Consistent Theming**: Utilizing a Theme Provider with Styled Components allows for a consistent theme across the entire application, making it easier to manage and update the UI's look and feel.
+
+- **Improved Scalability**: This method promotes scalability in styling large applications by providing a structured way to apply consistent styles and themes across numerous components.
 
 ## Proposed Optimizations
 
 ### Preact Signals for Hooks Replacement
 
-One of the proposed optimizations for the Geo App project is the adoption of Preact Signals to replace traditional React hooks such as `useCallback`, `useEffect`, and others. This change aims to enhance the performance and maintainability of the application by leveraging Preact's efficient state management and side effect handling capabilities.
+A proposed optimizations for the Poker App project is the adoption of Preact Signals to replace traditional React hooks such as `useCallback`, `useEffect`, and others. This change aims to enhance the performance and maintainability of the application by leveraging Preact's efficient state management and side effect handling capabilities.
 
 #### Benefits of Using Preact Signals
 
 - **Performance Improvements:** By replacing React hooks with Preact Signals, the application can benefit from more optimized state updates and side effects, leading to smoother and faster user interactions.
 - **Cleaner Code:** Preact Signals allows for a more declarative approach to state management and side effects, resulting in cleaner and more readable code.
 - **Efficient State Management:** It provides a set of hooks that are optimized for Preact, ensuring efficient state management without the overhead of React's hooks.
-
-
-### ESLint, Prettier, Lint-Staged and Husky Integration
-
-Integrating ESLint, Prettier, Lint-Staged and Husky into the Geo App project can significantly improve code quality and consistency. This setup ensures that Lint-Staged checks the code for ESLint errors and performs Prettier formatting before it is committed, helping to maintain a high standard of code quality and preventing common issues from being introduced into the codebase.
-
-#### Benefits of ESLint, Prettier, Lint-Staged and Husky Integration
-
-- **Code Quality:** ESLint helps in identifying and reporting on ECMAScript/JavaScript and React errors, with the goal of making code more consistent and avoiding bugs.
-- **Code Formatting:** Prettier enforces a consistent style by parsing your code and re-printing it with its own rules, ensuring that the codebase has a uniform formatting style.
-- **Automated Checks:** Husky and lint-staged automate the process of running linters and formatters on files that are about to be committed, ensuring that only quality code is committed to the repository.

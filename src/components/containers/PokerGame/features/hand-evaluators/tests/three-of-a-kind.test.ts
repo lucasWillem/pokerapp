@@ -1,23 +1,23 @@
-import { HandEvalutorsContext, ThreeOfAKindEvaluator } from "../index";
+import { HandEvalutorsContext, ThreeOfAKindEvaluator } from '../index';
 import {
   mockLegitThreeOfAKind,
   mockLegitFourOfAKind,
-} from "./mocks/mock-hands";
+} from './mocks/mock-hands';
 
-describe("three-of-a-kind tests", () => {
-  test("is a three of a kind", () => {
+describe('three-of-a-kind tests', () => {
+  test('is a three of a kind', () => {
     expect(
       new HandEvalutorsContext(
-        new ThreeOfAKindEvaluator(mockLegitThreeOfAKind)
-      ).evaluate()
+        new ThreeOfAKindEvaluator(mockLegitThreeOfAKind),
+      ).evaluate(),
     ).toBe(true);
   });
 
-  test("is a four of a kind", () => {
+  test('is a four of a kind', () => {
     expect(
       new HandEvalutorsContext(
-        new ThreeOfAKindEvaluator(mockLegitFourOfAKind)
-      ).evaluate()
+        new ThreeOfAKindEvaluator(mockLegitFourOfAKind),
+      ).evaluate(),
     ).toBe(false);
   });
 });

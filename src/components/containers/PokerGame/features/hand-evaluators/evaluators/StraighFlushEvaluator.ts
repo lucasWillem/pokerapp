@@ -1,5 +1,5 @@
-import type { HandEvaluator } from "../types";
-import type { Hand } from "../../../../../../global/types";
+import type { HandEvaluator } from '../types';
+import type { Hand } from '@global/types';
 
 export default class StraightFlushEvaluator implements HandEvaluator {
   constructor(private hand: Hand) {}
@@ -7,7 +7,7 @@ export default class StraightFlushEvaluator implements HandEvaluator {
   public evaluate() {
     const { hand } = this;
     const handOfRelevantCardsInAscendingOrder = hand.sort(
-      (a, b) => a.number - b.number
+      (a, b) => a.number - b.number,
     );
 
     let firstPointer = 0;

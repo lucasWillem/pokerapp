@@ -1,8 +1,7 @@
-import { FC, memo } from "react";
-import type { Hand } from "../../../global/types";
-import { StyledPokerPlayer, PlayerName } from "./PokerPlayer.styles";
+import { FC, memo } from 'react';
+import type { Hand } from '@global/types';
+import { StyledPokerPlayer, PlayerName } from './PokerPlayer.styles';
 import { useSpring } from 'react-spring';
-
 
 type PokerPlayerProps = {
   name: string;
@@ -19,16 +18,12 @@ const PokerPlayer: FC<PokerPlayerProps> = ({
   index,
   shouldRenderCard,
 }) => {
-
   const fade = useSpring({
     opacity: shouldRenderCard ? 1 : 0,
   });
 
   return (
-    <StyledPokerPlayer
-      style={fade}
-      key={`${name}-${hand}-${index}`}
-    >
+    <StyledPokerPlayer style={fade} key={`${name}-${hand}-${index}`}>
       <PlayerName>{name}</PlayerName>
       {renderHand({ hand, index })}
     </StyledPokerPlayer>

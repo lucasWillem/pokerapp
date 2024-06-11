@@ -1,14 +1,14 @@
-import styled, { DefaultTheme } from "styled-components";
-import { Button as BootstrapButton, ButtonProps } from "react-bootstrap";
+import styled, { DefaultTheme } from 'styled-components';
+import { Button as BootstrapButton, ButtonProps } from 'react-bootstrap';
 
 interface StyledButtonProps extends ButtonProps {
-  variant?: "primary" | "secondary" | "outline-primary";
+  variant?: 'primary' | 'secondary' | 'outline-primary';
 }
 
 const StyledButton = styled(BootstrapButton).attrs<StyledButtonProps>(
   (props) => ({
     variant: props.variant,
-  })
+  }),
 )<{ theme: DefaultTheme }>`
   margin: 8px;
   background-color: ${(props) => props.theme.colors.secondary};

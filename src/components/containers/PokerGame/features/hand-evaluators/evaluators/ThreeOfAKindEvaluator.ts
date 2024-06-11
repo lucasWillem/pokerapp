@@ -1,8 +1,8 @@
-import type { HandEvaluator } from "../types";
-import type { Hand } from "../../../../../../global/types";
+import type { HandEvaluator } from '../types';
+import type { Hand } from '@global/types';
 
 interface Frequencies {
-  [key: string]: any;
+  [key: string]: number;
 }
 
 export default class ThreeOfAKindEvaluator implements HandEvaluator {
@@ -18,8 +18,9 @@ export default class ThreeOfAKindEvaluator implements HandEvaluator {
       frequencies[cardProperty] = ++frequencies[cardProperty] || 1;
     }
 
-    for (const [cardNumber, cardNumberFrequency] of Object.entries(
-      frequencies
+    // eslint-disable-next-line
+    for (const [_, cardNumberFrequency] of Object.entries(
+      frequencies,
     )) {
       if (cardNumberFrequency === 3) {
         isThreeOfKind = true;

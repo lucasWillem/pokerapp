@@ -1,5 +1,5 @@
-import type { CardDeck } from "../../../../../../global/types";
-import type { DeckDealer } from "../types";
+import type { CardDeck } from '@global/types';
+import type { DeckDealer } from '../types';
 
 export default class RandomDealer implements DeckDealer {
   constructor(private deck: CardDeck) {}
@@ -7,7 +7,7 @@ export default class RandomDealer implements DeckDealer {
   deal() {
     const hand = [];
 
-    for (var i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 5; i++) {
       const randomCard = this.deck[Math.floor(Math.random() * 52)];
       hand.push(randomCard);
     }

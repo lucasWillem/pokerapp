@@ -1,46 +1,45 @@
-import React, { FC, memo, useCallback, useState } from "react";
+import React, { FC, memo, useCallback, useState } from 'react';
 
-import { useStoreActions, useStoreState } from "../../../redux";
-
-import Game from "./features/game";
-
-import { Hand } from "../../../global/types";
-
-import { PokerTable } from "../../library/PokerTable";
-import { DropDown } from "../../library/DropDown";
-import { PokerCard } from "../../library/PokerCard";
-import { PokerPlayer } from "../../library/PokerPlayer";
-import { WinnerAlert } from "../../library/WinnerAlert";
-
+import Game from './features/game';
 import {
   StyledButton,
   PokerGame,
   PlayerSelectionFlexWrapper,
   BottomActionButtonsContainer,
   PokerHand,
-} from "./PokerGame.styles";
+} from './PokerGame.styles';
+
+import { Hand } from '@global/types';
+
+import { PokerTable } from '@components/library/PokerTable';
+import { DropDown } from '@components/library/DropDown';
+import { PokerCard } from '@components/library/PokerCard';
+import { PokerPlayer } from '@components/library/PokerPlayer';
+import { WinnerAlert } from '@components/library/WinnerAlert';
+
+import { useStoreActions, useStoreState } from '@redux/index';
 
 const GameContainer: FC = () => {
   const [numberOfPlayers, setNumberOfPlayers] = useState(0);
 
   const storeHands = useStoreActions(
-    (actions) => actions.playersHands.storePokerHands
+    (actions) => actions.playersHands.storePokerHands,
   );
 
   const clearHands = useStoreActions(
-    (actions) => actions.playersHands.clearPokerHands
+    (actions) => actions.playersHands.clearPokerHands,
   );
 
   const configureAlert = useStoreActions(
-    (actions) => actions.alert.configureAlert
+    (actions) => actions.alert.configureAlert,
   );
 
   const storeWinners = useStoreActions(
-    (actions) => actions.winners.storeWinners
+    (actions) => actions.winners.storeWinners,
   );
 
   const clearWinners = useStoreActions(
-    (actions) => actions.winners.clearWinners
+    (actions) => actions.winners.clearWinners,
   );
 
   const pokerHands = useStoreState((state) => state.playersHands.pokerHands);
@@ -56,7 +55,7 @@ const GameContainer: FC = () => {
     (menuItem: React.SetStateAction<number>) => {
       setNumberOfPlayers(menuItem);
     },
-    []
+    [],
   );
 
   const handleDetermineWinner = useCallback(() => {
@@ -76,7 +75,7 @@ const GameContainer: FC = () => {
   };
 
   const handleReplay = useCallback(() => {
-    configureAlert({ isVisible: false, message: "" });
+    configureAlert({ isVisible: false, message: '' });
     clearHands([]);
     clearWinners([]);
     setNumberOfPlayers(0);
@@ -85,22 +84,22 @@ const GameContainer: FC = () => {
   const renderHand = useCallback(
     ({ hand, index }: { hand: Hand; index: number }) => {
       return (
-        <PokerHand>
+        <PokerHand key={`${index}`}>
           {hand.map((pokerCard, index) => (
             <PokerCard key={`${hand}-${index}`} pokerCard={pokerCard} />
           ))}
         </PokerHand>
       );
     },
-    []
+    [],
   );
 
   const { isVisible, message } = useStoreState(
-    (state) => state.alert.alertConfig
+    (state) => state.alert.alertConfig,
   );
 
   const handleOnModalClose = useCallback(() => {
-    configureAlert({ isVisible: false, message: "" });
+    configureAlert({ isVisible: false, message: '' });
   }, [configureAlert]);
 
   return (
@@ -117,7 +116,7 @@ const GameContainer: FC = () => {
               title={
                 numberOfPlayers > 0
                   ? `${numberOfPlayers}`
-                  : "Select Number Of Players"
+                  : 'Select Number Of Players'
               }
               menuItems={[2, 3, 4, 5, 6]}
               makeSelection={storeNumberOfPlayers}
@@ -155,7 +154,10 @@ const GameContainer: FC = () => {
               </StyledButton>
             )}
             {pokerHands.length > 0 && (
-              <StyledButton onClick={handleReplay} disabled={winners.length === 0}>
+              <StyledButton
+                onClick={handleReplay}
+                disabled={winners.length === 0}
+              >
                 Replay
               </StyledButton>
             )}

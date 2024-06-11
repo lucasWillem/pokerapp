@@ -1,5 +1,5 @@
-import { memo, FC } from "react";
-import { StyledDropdown } from "./DropDown.styles";
+import { memo, FC } from 'react';
+import { StyledDropdown } from './DropDown.styles';
 
 interface DropDownProps {
   menuItems: number[];
@@ -17,7 +17,6 @@ const DropDown: FC<DropDownProps> = ({
   return (
     <StyledDropdown>
       <StyledDropdown.Toggle>{title}</StyledDropdown.Toggle>
-
       <StyledDropdown.Menu>
         {menuItems.map((menuItem, i) => (
           <StyledDropdown.Item

@@ -1,8 +1,8 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import GamePage from "../../pages/GamePage";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import GamePage from '@pages/GamePage';
 
-import { paths } from "../paths";
+import { paths } from '../paths';
 
 const { root } = paths;
 

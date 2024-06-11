@@ -1,1 +1,1 @@
-export { default as PokerCard } from "./PokerCard.library";
+export { default as PokerCard } from './PokerCard.library';

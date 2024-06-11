@@ -1,7 +1,7 @@
-import { FC, memo } from "react";
-import { StyledWinnerAlert } from "./WinnerAlert.styles";
+import { FC, memo } from 'react';
+import { StyledWinnerAlert } from './WinnerAlert.styles';
 
-import ClickAwayListener from "react-click-away-listener";
+import ClickAwayListener from 'react-click-away-listener';
 interface WinnerAlertProps {
   isVisible: boolean;
   handleOnModalClose: () => void;

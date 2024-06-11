@@ -1,1 +1,1 @@
-export { default as PokerTable } from "./PokerTable.library";
+export { default as PokerTable } from './PokerTable.library';

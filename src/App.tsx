@@ -1,7 +1,7 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter } from "react-router-dom";
-import Navigator from "./navigation/Navigator";
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from 'react-router-dom';
+import Navigator from '@navigation/Navigator';
 
 function App() {
   return (
