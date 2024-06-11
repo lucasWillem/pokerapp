@@ -1,36 +1,37 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+      "browser": true,
+      "es2021": true
     },
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "settings": {
-    "react": { "version": "detect" },
-    "import/resolver": {
-      "node": {
-        "paths": ["src"],
-        "alias": {
-          "@components": "src/components",
-          "@redux": "src/redux",
-          "@globals": "src/globals",
-          "@assets": "src/assets"
-          // Add more aliases as needed
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react-hooks/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "settings": {
+      "react": { "version": "detect" },
+      "import/resolver": {
+        "node": {
+          "paths": ["src"],
+          "alias": {
+            "@components": "src/components",
+            "@global": "src/global",
+            "@navigation": "src/navigation",
+            "@pages": "src/pages",
+            "@redux": "src/redux"
+            // Add more aliases as needed
+          }
         }
       }
     }
   }
-}
