@@ -8,8 +8,8 @@ const pokerHandsModel: PokerHandsModel = {
       state.pokerHands = payload;
     }
   }),
-  clearPokerHands: action((state, payload) => {
-    state.pokerHands = payload;
+  clearPokerHands: action((state) => {
+    state.pokerHands = [];
   }),
 };
 

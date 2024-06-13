@@ -77,8 +77,8 @@ const GameContainer: FC = () => {
 
   const handleReplay = useCallback(() => {
     configureAlert({ isVisible: false, message: '' });
-    clearHands([]);
-    clearWinners([]);
+    clearHands();
+    clearWinners();
     setNumberOfPlayers(0);
   }, [clearHands, clearWinners, configureAlert]);
 
