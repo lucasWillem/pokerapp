@@ -10,6 +10,12 @@ const LoginPage = lazy(() =>
   })),
 );
 
+const SignUpPage = lazy(() =>
+  import('@pages/index').then((module) => ({
+    default: module.SignUpPage,
+  })),
+);
+
 const UnauthorizedPage = lazy(() =>
   import('@pages/index').then((module) => ({
     default: module.UnauthorizedPage,
@@ -34,7 +40,8 @@ export const Router: FC = () => {
           </Route>
           <Route element={<PublicRoutes isAuthenticated={isAuthenticated} />}>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/*" element={<Navigate to="/login" replace />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/*" element={<Navigate to="/signup" replace />} />
           </Route>
           <Route path="/unauthorized" element={<UnauthorizedPage />} />
         </Routes>

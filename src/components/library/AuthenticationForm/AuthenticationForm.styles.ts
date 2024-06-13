@@ -1,9 +1,8 @@
-import { Form } from 'react-bootstrap';
+import { Form, Button, ButtonProps } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const StyledAuthenticationForm = styled(Form)`
   width: 30%;
-  height: 40vh;
 `;
 
 const StyledInputTemplate = styled.div`
@@ -17,4 +16,13 @@ const StyledHelperText = styled(Form.Text)`
   color: ${(props) => props.theme.colors.danger};
 `;
 
-export { StyledAuthenticationForm, StyledInputTemplate, StyledHelperText };
+const StyledSubmissionButton = styled(Button)<ButtonProps>`
+  color: ${(props) => props.theme.colors.light};
+`;
+
+export {
+  StyledAuthenticationForm,
+  StyledInputTemplate,
+  StyledHelperText,
+  StyledSubmissionButton,
+};
