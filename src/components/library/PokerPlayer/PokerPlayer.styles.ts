@@ -1,28 +1,29 @@
-import styled, { DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { animated, SpringValue } from 'react-spring';
 
-type AnimatedStyle = {
-  opacity: SpringValue<number>;
-};
-
 interface StyledPokerPlayerProps {
-  theme: DefaultTheme;
-  style: AnimatedStyle;
+  style: {
+    opacity: SpringValue<number>;
+  };
 }
 
-const StyledPokerPlayer = styled(animated.div)<StyledPokerPlayerProps>`
-  display: 'flex';
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: 20px;
-`;
+const StyledPokerPlayer = styled(animated.div)<StyledPokerPlayerProps>(() =>
+  css({
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    margin: '20px',
+  }),
+);
 
-const PlayerName = styled.div`
-  text-align: left;
-  font-size: 1rem;
-  margin-bottom: 8px;
-  color: ${(props) => props.theme.colors.accent};
-`;
+const PlayerName = styled.div(({ theme }) =>
+  css({
+    textAlign: 'left',
+    fontSize: '1rem',
+    marginBottom: '8px',
+    color: theme.colors.gold,
+  }),
+);
 
 export { StyledPokerPlayer, PlayerName };

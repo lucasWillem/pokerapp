@@ -1,51 +1,46 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Dropdown } from 'react-bootstrap';
 
-const StyledDropdown = styled(Dropdown)`
-  margin-top: 8px;
-  & .btn-primary.dropdown-toggle {
-    box-shadow: 0 0 0 0.25rem ${(props) => props.theme.colors.dark};
-    background-color: ${(props) => props.theme.colors.secondary} !important;
-    border-color: ${(props) => props.theme.colors.secondary} !important;
-    &:focus,
-    &:active {
-      box-shadow: 0 0 0 0.25rem ${(props) => props.theme.colors.dark};
-      background-color: ${(props) => props.theme.colors.secondary} !important;
-      border-color: ${(props) => props.theme.colors.secondary} !important;
-    }
-  }
-  & .btn-primary {
-    min-width: 150px;
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    align-items: center;
-    background-color: ${(props) => props.theme.colors.dark};
-    border-color: ${(props) => props.theme.colors.secondary};
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      background-color: ${(props) => props.theme.colors.secondary};
-      border-color: ${(props) => props.theme.colors.secondary};
-    }
-  }
-
-  & .dropdown-menu.show {
-    margin-top: 16px;
-    background-color: ${(props) => props.theme.colors.dark};
-    box-shadow: 0 0 0 0.05rem ${(props) => props.theme.colors.secondary} !important;
-    padding: 0px;
-  }
-
-  & .dropdown-item.active {
-    background-color: ${(props) => props.theme.colors.secondary};
-  }
-
-  & .dropdown-item {
-    background-color: ${(props) => props.theme.colors.dark};
-    color: ${(props) => props.theme.colors.light};
-  }
-`;
+const StyledDropdown = styled(Dropdown)(({ theme }) =>
+  css({
+    marginTop: '8px',
+    '& .btn-primary.dropdown-toggle': {
+      boxShadow: `0 0 0 0.25rem ${theme.colors.black}`,
+      backgroundColor: `${theme.colors.red} !important`,
+      borderColor: `${theme.colors.red} !important`,
+      '&:focus, &:active': {
+        boxShadow: `0 0 0 0.25rem ${theme.colors.black}`,
+        backgroundColor: `${theme.colors.red} !important`,
+        borderColor: `${theme.colors.red} !important`,
+      },
+    },
+    '& .btn-primary': {
+      minWidth: '150px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      gap: '8px',
+      alignItems: 'center',
+      backgroundColor: theme.colors.black,
+      borderColor: theme.colors.red,
+      '&:hover, &:focus, &:active, &.active': {
+        backgroundColor: theme.colors.red,
+        borderColor: theme.colors.red,
+      },
+    },
+    '& .dropdown-menu.show': {
+      marginTop: '16px',
+      backgroundColor: theme.colors.black,
+      boxShadow: `0 0 0 0.05rem ${theme.colors.red} !important`,
+      padding: '0px',
+    },
+    '& .dropdown-item.active': {
+      backgroundColor: theme.colors.red,
+    },
+    '& .dropdown-item': {
+      backgroundColor: theme.colors.black,
+      color: theme.colors.light,
+    },
+  }),
+);
 
 export { StyledDropdown };
