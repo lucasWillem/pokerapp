@@ -2,7 +2,6 @@ import React, { FC, memo, useCallback, useState } from 'react';
 
 import Game from './features/game';
 import {
-  StyledButton,
   PokerGame,
   PlayerSelectionFlexWrapper,
   BottomActionButtonsContainer,
@@ -18,6 +17,8 @@ import { PokerPlayer } from '@components/library/PokerPlayer';
 import { WinnerAlert } from '@components/library/WinnerAlert';
 
 import { useStoreActions, useStoreState } from '@redux/index';
+import { Button } from '@components/library/Button';
+import { ButtonColors } from '@components/library/Button/Button.styles';
 
 const GameContainer: FC = () => {
   const [numberOfPlayers, setNumberOfPlayers] = useState(0);
@@ -122,9 +123,13 @@ const GameContainer: FC = () => {
               makeSelection={storeNumberOfPlayers}
               activeItem={numberOfPlayers}
             />
-            <StyledButton disabled={numberOfPlayers === 0} onClick={startGame}>
+            <Button
+              borderColor={ButtonColors.Red}
+              disabled={numberOfPlayers === 0}
+              onClick={startGame}
+            >
               Start game
-            </StyledButton>
+            </Button>
           </PlayerSelectionFlexWrapper>
         )}
         <>
@@ -146,20 +151,22 @@ const GameContainer: FC = () => {
 
           <BottomActionButtonsContainer>
             {pokerHands.length > 0 && (
-              <StyledButton
+              <Button
+                borderColor={ButtonColors.Green}
                 onClick={handleDetermineWinner}
                 disabled={winners.length > 0}
               >
                 Determine Winner
-              </StyledButton>
+              </Button>
             )}
             {pokerHands.length > 0 && (
-              <StyledButton
+              <Button
+                color={ButtonColors.Green}
                 onClick={handleReplay}
                 disabled={winners.length === 0}
               >
                 Replay
-              </StyledButton>
+              </Button>
             )}
           </BottomActionButtonsContainer>
         </>
