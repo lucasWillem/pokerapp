@@ -116,17 +116,13 @@ const LoginForm: FC = () => {
       <Container>
         <Button
           style={{ width: 100 }}
-          color={ButtonColors.Red}
+          borderColor={ButtonColors.Red}
           disabled={!isValid}
           type="submit"
         >
           Submit
         </Button>
-        <Button
-          borderColor={ButtonColors.Gold}
-          style={{ width: 300 }}
-          onClick={() => navigate('/signup')}
-        >
+        <Button style={{ width: 300 }} onClick={() => navigate('/signup')}>
           {`I don't have an account`}
         </Button>
       </Container>
