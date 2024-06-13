@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useEffect } from 'react';
 
 import {
   StyledSignUpForm,
@@ -8,21 +8,40 @@ import {
 
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+
 import { passwordPattern, emailPattern } from '@global/constants';
 
 import { Button } from '@components/library/Button';
-import { Container } from 'react-bootstrap';
 import { ButtonColors } from '@components/library/Button/Button.styles';
+import useRegisterUser from '@features/authentication/useRegisterUser';
+import { useStoreActions } from '@redux/typed-hooks';
 
 export interface SignUpFormInputs {
   email: string;
   password: string;
 }
 const SignUpForm: FC = () => {
+  const storeUser = useStoreActions((actions) => actions.user.storeUser);
+
   const navigate = useNavigate();
 
+  const { registerUser, user } = useRegisterUser();
+
+  useEffect(() => {
+    if (user) {
+      storeUser(user);
+      navigate('/login');
+    }
+  }, [navigate, storeUser, user]);
+
   const onSignUp = (data: SignUpFormInputs) => {
-    console.log(data);
+    const userData = {
+      username: data.email,
+      email: data.email,
+      password: data.password,
+    };
+    registerUser(userData);
   };
 
   const title = 'Please Sign up to continue';
@@ -114,17 +133,13 @@ const SignUpForm: FC = () => {
       <Container>
         <Button
           style={{ width: 100 }}
-          color={ButtonColors.Red}
+          borderColor={ButtonColors.Red}
           disabled={!isValid}
           type="submit"
         >
           Submit
         </Button>
-        <Button
-          borderColor={ButtonColors.Gold}
-          style={{ width: 300 }}
-          onClick={() => navigate('/login')}
-        >
+        <Button style={{ width: 300 }} onClick={() => navigate('/login')}>
           I already have an account
         </Button>
       </Container>
