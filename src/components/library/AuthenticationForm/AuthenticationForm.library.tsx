@@ -1,12 +1,11 @@
 import { FC, memo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { Button, Form } from 'react-bootstrap';
-
 import {
   StyledAuthenticationForm,
   StyledHelperText,
   StyledInputTemplate,
+  StyledSubmissionButton,
 } from './AuthenticationForm.styles';
 
 import { emailPattern, passwordPattern } from '@global/constants';
@@ -19,11 +18,13 @@ export interface AuthenticationFormInputs {
 interface AuthenticationFormProps {
   title: string;
   onSubmit: (data: AuthenticationFormInputs) => void;
+  additionalButton?: JSX.Element;
 }
 
 const AuthenticationForm: FC<AuthenticationFormProps> = ({
   title,
   onSubmit,
+  additionalButton,
 }) => {
   const {
     control,
@@ -52,8 +53,10 @@ const AuthenticationForm: FC<AuthenticationFormProps> = ({
           control={control}
           render={({ field }) => (
             <>
-              <Form.Label htmlFor="inputPassword5">Email</Form.Label>
-              <Form.Control
+              <StyledAuthenticationForm.Label htmlFor="inputPassword5">
+                Email
+              </StyledAuthenticationForm.Label>
+              <StyledAuthenticationForm.Control
                 {...field}
                 data-testid="email"
                 onChange={(e) => {
@@ -80,8 +83,10 @@ const AuthenticationForm: FC<AuthenticationFormProps> = ({
           control={control}
           render={({ field }) => (
             <>
-              <Form.Label htmlFor="inputPassword5">Password</Form.Label>
-              <Form.Control
+              <StyledAuthenticationForm.Label htmlFor="inputPassword5">
+                Password
+              </StyledAuthenticationForm.Label>
+              <StyledAuthenticationForm.Control
                 {...field}
                 data-testid="password"
                 onChange={(e) => {
@@ -105,14 +110,15 @@ const AuthenticationForm: FC<AuthenticationFormProps> = ({
           }}
         />
       </StyledInputTemplate>
-      <Button
-        data-testid="submit-login"
+      <StyledSubmissionButton
+        data-testid="submit-authentication-form"
         disabled={!isValid}
         type="submit"
         variant="outlined"
       >
         Submit
-      </Button>
+      </StyledSubmissionButton>
+      {additionalButton}
     </StyledAuthenticationForm>
   );
 };
