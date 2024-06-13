@@ -21,7 +21,9 @@
       "@global/*": ["src/global/*"],
       "@routing/*": ["src/routing/*"],
       "@pages/*": ["src/pages/*"],
-      "@redux/*": ["src/redux/*"]
+      "@redux/*": ["src/redux/*"],
+      "@api/*": ["src/api/*"],
+      "@features/*": ["src/features/*"]
     }
   },
   "include": ["src", "config-overrides.js"]
