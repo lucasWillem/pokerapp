@@ -1,8 +1,9 @@
-import { FC, Suspense, lazy } from 'react';
+import { FC, Suspense, lazy, ReactNode } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { PrivateRoutes } from './PrivateRoutes';
 import { PublicRoutes } from './PublicRoutes';
+import { useCheckIfUser } from '@features/authentication/useCheckIfUser';
 
 const LoginPage = lazy(() =>
   import('@pages/index').then((module) => ({
@@ -28,11 +29,16 @@ const GamePage = lazy(() =>
   })),
 );
 
-export const Router: FC = () => {
-  const isAuthenticated = false;
+interface RouterProps {
+  children: ReactNode;
+}
+
+export const Router: FC<RouterProps> = ({ children }) => {
+  const isAuthenticated = useCheckIfUser();
 
   return (
     <BrowserRouter>
+      {children}
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route element={<PrivateRoutes isAuthenticated={isAuthenticated} />}>
