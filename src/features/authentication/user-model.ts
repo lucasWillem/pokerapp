@@ -1,5 +1,5 @@
-import { action } from 'easy-peasy';
-import type { UserModel } from '@redux/types';
+import { action } from "easy-peasy";
+import type { UserModel } from "@redux/types";
 
 const userModel: UserModel = {
   user: undefined,

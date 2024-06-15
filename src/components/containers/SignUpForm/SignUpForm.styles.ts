@@ -1,10 +1,10 @@
-import { Form, FormProps } from 'react-bootstrap';
-import styled, { css } from 'styled-components';
-import { ColorOptions } from '@global/theme';
+import { Form, FormProps } from "react-bootstrap";
+import styled, { css } from "styled-components";
+import { ColorOptions } from "@global/theme";
 
 const StyledSignUpForm = styled(Form)(() =>
   css({
-    width: '30%',
+    width: "30%",
   }),
 );
 
@@ -16,7 +16,7 @@ const StyledSignUpFormControl = styled(
   Form.Control,
 )<StyledSignUpFormControlProps>(({ theme, color = ColorOptions.Green }) =>
   css({
-    '&:focus': {
+    "&:focus": {
       border: `0.08rem solid ${theme.colors[color]}`,
       boxShadow: `0 0 0 0.08rem ${theme.colors[color]} !important`,
     },
@@ -25,10 +25,10 @@ const StyledSignUpFormControl = styled(
 
 const StyledInputTemplate = styled.div(() =>
   css({
-    margin: '16px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px',
+    margin: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "8px",
   }),
 );
 

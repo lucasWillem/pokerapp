@@ -1,1 +1,1 @@
-export { default as PokerGame } from './PokerGame.container';
+export { default as PokerGame } from "./PokerGame.container";

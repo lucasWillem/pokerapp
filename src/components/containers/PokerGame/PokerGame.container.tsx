@@ -1,23 +1,23 @@
-import React, { FC, memo, useCallback, useState } from 'react';
+import React, { FC, memo, useCallback, useState } from "react";
 
-import Game from './features/game';
+import Game from "./features/game";
 import {
   PokerGame,
   PlayerSelectionFlexWrapper,
   BottomActionButtonsContainer,
   PokerHand,
-} from './PokerGame.styles';
+} from "./PokerGame.styles";
 
-import { Hand } from '@global/types';
+import { Hand } from "@global/types";
 
-import { PokerTable } from '@components/library/PokerTable';
-import { PokerCard } from '@components/library/PokerCard';
-import { PokerPlayer } from '@components/library/PokerPlayer';
+import { PokerTable } from "@components/library/PokerTable";
+import { PokerCard } from "@components/library/PokerCard";
+import { PokerPlayer } from "@components/library/PokerPlayer";
 
-import { useStoreActions, useStoreState } from '@redux/index';
-import { Button } from '@components/library/Button';
-import { ColorOptions } from '@global/theme';
-import { Dropdown } from '@components/library/Dropdown';
+import { useStoreActions, useStoreState } from "@redux/index";
+import { Button } from "@components/library/Button";
+import { ColorOptions } from "@global/theme";
+import { Dropdown } from "@components/library/Dropdown";
 
 const GameContainer: FC = () => {
   const [numberOfPlayers, setNumberOfPlayers] = useState(0);
@@ -75,7 +75,7 @@ const GameContainer: FC = () => {
   };
 
   const handleReplay = useCallback(() => {
-    configureAlert({ isVisible: false, message: '' });
+    configureAlert({ isVisible: false, message: "" });
     clearHands();
     clearWinners();
     setNumberOfPlayers(0);
@@ -103,7 +103,7 @@ const GameContainer: FC = () => {
               title={
                 numberOfPlayers > 0
                   ? `${numberOfPlayers}`
-                  : 'Select Number Of Players'
+                  : "Select Number Of Players"
               }
               menuItems={[2, 3, 4, 5, 6]}
               makeSelection={storeNumberOfPlayers}

@@ -1,13 +1,13 @@
-import { HandEvalutorsContext, StraighFlushEvaluator } from '../index';
+import { HandEvalutorsContext, StraighFlushEvaluator } from "../index";
 import {
   mockLegitStraightFlush,
   mockStraightFlushHandNotInSequence,
   mockStraightFlushHandNotOfSameSuit,
   mockHandLegitRoyalFlush,
-} from './mocks/mock-hands';
+} from "./mocks/mock-hands";
 
-describe('straight-flush tests', () => {
-  test('is a straight flush', () => {
+describe("straight-flush tests", () => {
+  test("is a straight flush", () => {
     expect(
       new HandEvalutorsContext(
         new StraighFlushEvaluator(mockLegitStraightFlush),
@@ -15,7 +15,7 @@ describe('straight-flush tests', () => {
     ).toBe(true);
   });
 
-  test('is not of same suit', () => {
+  test("is not of same suit", () => {
     expect(
       new HandEvalutorsContext(
         new StraighFlushEvaluator(mockStraightFlushHandNotOfSameSuit),
@@ -23,7 +23,7 @@ describe('straight-flush tests', () => {
     ).toBe(false);
   });
 
-  test('is not in sequence', () => {
+  test("is not in sequence", () => {
     expect(
       new HandEvalutorsContext(
         new StraighFlushEvaluator(mockStraightFlushHandNotInSequence),
@@ -31,7 +31,7 @@ describe('straight-flush tests', () => {
     ).toBe(false);
   });
 
-  test('is a royal flush', () => {
+  test("is a royal flush", () => {
     expect(
       new HandEvalutorsContext(
         new StraighFlushEvaluator(mockHandLegitRoyalFlush),

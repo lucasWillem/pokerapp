@@ -1,7 +1,7 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Router } from '@routing/router';
-import { AuthMenu } from '@components/containers/AuthMenu';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Router } from "@routing/router";
+import { AuthMenu } from "@components/containers/AuthMenu";
 
 function App() {
   return (

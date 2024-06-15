@@ -22,7 +22,7 @@
       "@routing/*": ["src/routing/*"],
       "@pages/*": ["src/pages/*"],
       "@redux/*": ["src/redux/*"],
-      "@api/*": ["src/api/*"],
+      "@networking/*": ["src/networking/*"],
       "@features/*": ["src/features/*"]
     }
   },
