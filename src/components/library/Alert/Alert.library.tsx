@@ -1,33 +1,39 @@
 import { FC, memo } from 'react';
-import { StyledWinnerAlert } from './WinnerAlert.styles';
+import { StyledAlert } from './Alert.styles';
 
 import ClickAwayListener from 'react-click-away-listener';
-interface WinnerAlertProps {
+import { AlertProps as BootstrapAlertProps } from 'react-bootstrap';
+import { ColorOptions } from '@global/theme';
+
+export interface AlertProps extends BootstrapAlertProps {
   isVisible: boolean;
   handleOnModalClose: () => void;
   message: string;
+  color?: ColorOptions;
 }
 
-const WinnerAlert: FC<WinnerAlertProps> = ({
+const Alert: FC<AlertProps> = ({
   isVisible,
   handleOnModalClose,
   message,
+  color,
 }) => {
   return (
     <>
       {isVisible && (
         <ClickAwayListener onClickAway={handleOnModalClose}>
-          <StyledWinnerAlert
+          <StyledAlert
             className="winner-alert-modal"
             variant="primary"
             dismissible
+            color={color}
           >
             {message}
-          </StyledWinnerAlert>
+          </StyledAlert>
         </ClickAwayListener>
       )}
     </>
   );
 };
 
-export default memo(WinnerAlert);
+export default memo(Alert);
