@@ -1,5 +1,6 @@
 import { Action } from 'easy-peasy';
 import { Hand } from '@global/types';
+import { ColorOptions } from '@global/theme';
 
 export interface PokerHandsModel {
   pokerHands: Hand[];
@@ -8,8 +9,6 @@ export interface PokerHandsModel {
 }
 export interface User {
   username: string;
-  email: string;
-  password: string;
   jwt: string;
 }
 
@@ -22,6 +21,7 @@ export interface UserModel {
 interface alert {
   isVisible: boolean;
   message: string;
+  color?: ColorOptions;
 }
 export interface AlertModel {
   alertConfig: alert;

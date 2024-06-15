@@ -1,1 +1,1 @@
-export { default as DropDown } from './DropDown.library';
+export { default as Dropdown } from './Dropdown.library';

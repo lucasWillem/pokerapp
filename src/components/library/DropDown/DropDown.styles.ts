@@ -1,17 +1,26 @@
 import styled, { css } from 'styled-components';
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, DropdownProps } from 'react-bootstrap';
+import { ColorOptions } from '@global/theme';
 
-const StyledDropdown = styled(Dropdown)(({ theme }) =>
-  css({
+export interface StyledDropdownProps extends DropdownProps {
+  color?: ColorOptions;
+}
+
+const StyledDropdown = styled(Dropdown)(({
+  theme,
+  color = ColorOptions.Green,
+}) => {
+  const backgroundColor = theme.colors['black'];
+
+  return css({
     marginTop: '8px',
     '& .btn-primary.dropdown-toggle': {
-      boxShadow: `0 0 0 0.25rem ${theme.colors.black}`,
-      backgroundColor: `${theme.colors.red} !important`,
-      borderColor: `${theme.colors.red} !important`,
+      boxShadow: `0 0 0 0.02rem ${theme.colors[color]}`,
+      backgroundColor: `${backgroundColor} !important`,
       '&:focus, &:active': {
-        boxShadow: `0 0 0 0.25rem ${theme.colors.black}`,
-        backgroundColor: `${theme.colors.red} !important`,
-        borderColor: `${theme.colors.red} !important`,
+        boxShadow: `0 0 0 0.02rem ${theme.colors[color]}`,
+        backgroundColor: `${backgroundColor} !important`,
+        borderColor: `${theme.colors[color]} !important`,
       },
     },
     '& .btn-primary': {
@@ -20,27 +29,25 @@ const StyledDropdown = styled(Dropdown)(({ theme }) =>
       justifyContent: 'space-between',
       gap: '8px',
       alignItems: 'center',
-      backgroundColor: theme.colors.black,
-      borderColor: theme.colors.red,
+      backgroundColor,
+      borderColor: theme.colors[color],
       '&:hover, &:focus, &:active, &.active': {
-        backgroundColor: theme.colors.red,
-        borderColor: theme.colors.red,
+        backgroundColor: theme.colors[color],
       },
     },
     '& .dropdown-menu.show': {
       marginTop: '16px',
-      backgroundColor: theme.colors.black,
-      boxShadow: `0 0 0 0.05rem ${theme.colors.red} !important`,
+      backgroundColor,
       padding: '0px',
     },
     '& .dropdown-item.active': {
-      backgroundColor: theme.colors.red,
+      backgroundColor: theme.colors[color],
     },
     '& .dropdown-item': {
-      backgroundColor: theme.colors.black,
+      backgroundColor,
       color: theme.colors.light,
     },
-  }),
-);
+  });
+});
 
 export { StyledDropdown };

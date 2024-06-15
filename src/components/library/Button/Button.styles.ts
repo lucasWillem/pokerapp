@@ -1,41 +1,32 @@
 import styled, { css } from 'styled-components';
 import { Button, ButtonProps } from 'react-bootstrap';
-
-export enum ButtonColors {
-  Black = 'black',
-  Red = 'red',
-  Green = 'green',
-  Gold = 'gold',
-  Success = 'success',
-  Info = 'info',
-  Warning = 'warning',
-  Danger = 'danger',
-  Light = 'light',
-}
-
+import { ColorOptions } from '@global/theme';
 export interface StyledButtonProps extends ButtonProps {
-  color?: ButtonColors;
-  borderColor?: ButtonColors;
+  color?: ColorOptions;
 }
 
-const StyledButton = styled(Button)<StyledButtonProps>(
-  ({ theme, color = ButtonColors.Black, borderColor = ButtonColors.Black }) =>
-    css({
-      margin: '8px',
-      backgroundColor: theme.colors[color],
-      borderColor: theme.colors[borderColor],
-      borderWidth: '2px',
-      '--bs-btn-active-bg': theme.colors[color],
-      '--bs-btn-active-border-color': theme.colors[color],
-      '&:hover': {
-        backgroundColor: theme.colors[color],
-        borderColor: theme.colors[borderColor],
-      },
-      '&:disabled': {
-        backgroundColor: theme.colors[color],
-        borderColor: theme.colors[borderColor],
-      },
-    }),
-);
+const StyledButton = styled(Button)<StyledButtonProps>(({
+  theme,
+  color = ColorOptions.Green,
+}) => {
+  const backgroundColor = theme.colors['black'];
+
+  return css({
+    margin: '8px',
+    backgroundColor,
+    borderColor: theme.colors[color],
+    borderWidth: '0.02rem',
+    '--bs-btn-active-bg': theme.colors[color],
+    '--bs-btn-active-border-color': theme.colors[color],
+    '&:hover': {
+      backgroundColor,
+      borderColor: theme.colors[color],
+    },
+    '&:disabled': {
+      backgroundColor,
+      borderColor: theme.colors['red'],
+    },
+  });
+});
 
 export { StyledButton };
