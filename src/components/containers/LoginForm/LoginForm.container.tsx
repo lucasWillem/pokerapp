@@ -11,8 +11,12 @@ import { useNavigate } from 'react-router-dom';
 
 import { passwordPattern, emailPattern } from '@global/constants';
 import { Button } from '@components/library/Button';
-import { ButtonColors } from '@components/library/Button/Button.styles';
 import { Container } from 'react-bootstrap';
+import { RoutePaths } from '@routing/router';
+import { useLoginUser } from 'src/networking/network-hooks/useLoginUser';
+import { UserEndpoints } from '@features/authentication/user.constants';
+import { useStoreActions } from '@redux/typed-hooks';
+import { ColorOptions } from '@global/theme';
 
 export interface LoginFormInputs {
   email: string;
@@ -20,10 +24,16 @@ export interface LoginFormInputs {
 }
 
 const LoginForm: FC = () => {
+  const storeUser = useStoreActions((actions) => actions.user.storeUser);
+
+  const configureAlert = useStoreActions(
+    (actions) => actions.alert.configureAlert,
+  );
+
   const navigate = useNavigate();
 
-  const onLogin = (data: LoginFormInputs) => {
-    console.log(data);
+  const onLogin = ({ email, password }: LoginFormInputs) => {
+    loginUser({ identifier: email, password });
   };
 
   const title = 'Please Log in to continue';
@@ -45,6 +55,27 @@ const LoginForm: FC = () => {
   const handleChange = (name: keyof LoginFormInputs) => {
     trigger(name);
   };
+
+  const { mutate: loginUser } = useLoginUser({
+    url: UserEndpoints.Login,
+    options: {
+      onError: (error: Error) => {
+        configureAlert({
+          isVisible: true,
+          message: error.message,
+          color: ColorOptions.Danger,
+        });
+      },
+      onSuccess: (userData) => {
+        const { jwt, user } = userData;
+        storeUser({
+          jwt,
+          username: user.username,
+        });
+        navigate(RoutePaths.Login);
+      },
+    },
+  });
 
   return (
     <StyledLoginForm onSubmit={handleSubmit(onLogin)}>
@@ -114,15 +145,14 @@ const LoginForm: FC = () => {
       </StyledInputTemplate>
 
       <Container>
-        <Button
-          style={{ width: 100 }}
-          borderColor={ButtonColors.Red}
-          disabled={!isValid}
-          type="submit"
-        >
-          Submit
+        <Button style={{ width: 100 }} disabled={!isValid} type="submit">
+          Log In
         </Button>
-        <Button style={{ width: 300 }} onClick={() => navigate('/signup')}>
+        <Button
+          style={{ width: 300 }}
+          onClick={() => navigate(RoutePaths.Signup)}
+          color={ColorOptions.Black}
+        >
           {`I don't have an account`}
         </Button>
       </Container>

@@ -6,11 +6,10 @@ import reportWebVitals from './reportWebVitals';
 
 import { StoreProvider } from 'easy-peasy';
 import { ThemeProvider } from 'styled-components';
-import { QueryClientProvider } from 'react-query';
 
 import { store } from '@redux/store';
-import theme from './theme';
-import { queryClient } from '@api/index';
+import theme from './global/theme';
+import { NetworkProvider } from './networking';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -20,9 +19,9 @@ root.render(
   <React.StrictMode>
     <StoreProvider store={store}>
       <ThemeProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
+        <NetworkProvider>
           <App />
-        </QueryClientProvider>
+        </NetworkProvider>
       </ThemeProvider>
     </StoreProvider>
   </React.StrictMode>,
