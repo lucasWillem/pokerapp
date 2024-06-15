@@ -33,6 +33,13 @@ interface RouterProps {
   children: ReactNode;
 }
 
+export enum RoutePaths {
+  Game = '/game',
+  Login = '/login',
+  Signup = '/signup',
+  Unauthorized = '/unauthorized',
+}
+
 export const Router: FC<RouterProps> = ({ children }) => {
   const isAuthenticated = useCheckIfUser();
 
@@ -42,14 +49,20 @@ export const Router: FC<RouterProps> = ({ children }) => {
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route element={<PrivateRoutes isAuthenticated={isAuthenticated} />}>
-            <Route path="/game" element={<GamePage />} />
+            <Route path={RoutePaths.Game} element={<GamePage />} />
           </Route>
           <Route element={<PublicRoutes isAuthenticated={isAuthenticated} />}>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/*" element={<Navigate to="/signup" replace />} />
+            <Route path={RoutePaths.Login} element={<LoginPage />} />
+            <Route path={RoutePaths.Signup} element={<SignUpPage />} />
+            <Route
+              path="/*"
+              element={<Navigate to={RoutePaths.Signup} replace />}
+            />
           </Route>
-          <Route path="/unauthorized" element={<UnauthorizedPage />} />
+          <Route
+            path={RoutePaths.Unauthorized}
+            element={<UnauthorizedPage />}
+          />
         </Routes>
       </Suspense>
     </BrowserRouter>
