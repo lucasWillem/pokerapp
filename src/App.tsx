@@ -1,13 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router } from '@routing/router';
-import { HamburgerSidebar } from '@components/library/HamburgerSideBar';
+import { AuthMenu } from '@components/containers/AuthMenu';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <HamburgerSidebar />
+        <AuthMenu />
       </Router>
     </div>
   );
