@@ -1,14 +1,14 @@
 import { memo, FC } from 'react';
-import { StyledDropdown } from './DropDown.styles';
+import { StyledDropdown } from './Dropdown.styles';
 
-interface DropDownProps {
+interface DropdownProps {
   menuItems: number[];
   title: string;
   makeSelection: (menuItem: number) => void;
   activeItem: number;
 }
 
-const DropDown: FC<DropDownProps> = ({
+const Dropdown: FC<DropdownProps> = ({
   menuItems,
   title,
   makeSelection,
@@ -32,4 +32,4 @@ const DropDown: FC<DropDownProps> = ({
   );
 };
 
-export default memo(DropDown);
+export default memo(Dropdown);
