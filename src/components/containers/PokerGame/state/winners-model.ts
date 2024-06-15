@@ -1,5 +1,5 @@
-import { action } from 'easy-peasy';
-import type { WinnersModel } from '@redux/types';
+import { action } from "easy-peasy";
+import type { WinnersModel } from "@redux/types";
 
 const winnersModel: WinnersModel = {
   winners: [],

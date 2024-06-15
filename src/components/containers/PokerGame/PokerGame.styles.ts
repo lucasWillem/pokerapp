@@ -1,32 +1,32 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const PokerGame = styled.div(() =>
   css({
-    height: '100vh',
-    width: '100%',
+    height: "100vh",
+    width: "100%",
   }),
 );
 
 const PlayerSelectionFlexWrapper = styled.div(() =>
   css({
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: '50px',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: "50px",
   }),
 );
 
 const BottomActionButtonsContainer = styled.div(() =>
   css({
-    margin: '50px',
+    margin: "50px",
   }),
 );
 
 const PokerHand = styled.div(() =>
   css({
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
   }),
 );
 

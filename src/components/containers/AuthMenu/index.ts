@@ -1,1 +1,1 @@
-export { default as AuthMenu } from './AuthMenu.container';
+export { default as AuthMenu } from "./AuthMenu.container";

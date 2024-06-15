@@ -1,22 +1,22 @@
-import { FC, memo } from 'react';
+import { FC, memo } from "react";
 
 import {
   StyledLoginForm,
   StyledInputTemplate,
   StyledHelperText,
-} from './LoginForm.styles';
+} from "./LoginForm.styles";
 
-import { Controller, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
-import { passwordPattern, emailPattern } from '@global/constants';
-import { Button } from '@components/library/Button';
-import { Container } from 'react-bootstrap';
-import { RoutePaths } from '@routing/router';
-import { useLoginUser } from 'src/networking/network-hooks/useLoginUser';
-import { UserEndpoints } from '@features/authentication/user.constants';
-import { useStoreActions } from '@redux/typed-hooks';
-import { ColorOptions } from '@global/theme';
+import { passwordPattern, emailPattern } from "@global/constants";
+import { Button } from "@components/library/Button";
+import { Container } from "react-bootstrap";
+import { RoutePaths } from "@routing/router";
+import { useLoginUser } from "@networking/network-hooks/useLoginUser";
+import { UserEndpoints } from "@features/authentication/user.constants";
+import { useStoreActions } from "@redux/typed-hooks";
+import { ColorOptions } from "@global/theme";
 
 export interface LoginFormInputs {
   email: string;
@@ -36,7 +36,7 @@ const LoginForm: FC = () => {
     loginUser({ identifier: email, password });
   };
 
-  const title = 'Please Log in to continue';
+  const title = "Please Log in to continue";
 
   const {
     control,
@@ -45,11 +45,11 @@ const LoginForm: FC = () => {
     trigger,
   } = useForm<LoginFormInputs>({
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
-    mode: 'onChange',
-    reValidateMode: 'onChange',
+    mode: "onChange",
+    reValidateMode: "onChange",
   });
 
   const handleChange = (name: keyof LoginFormInputs) => {
@@ -94,7 +94,7 @@ const LoginForm: FC = () => {
                 data-testid="email"
                 onChange={(e) => {
                   field.onChange(e);
-                  handleChange('email');
+                  handleChange("email");
                 }}
                 placeholder="Email"
               />
@@ -104,10 +104,10 @@ const LoginForm: FC = () => {
             </>
           )}
           rules={{
-            required: 'Email is required',
+            required: "Email is required",
             pattern: {
               value: emailPattern,
-              message: 'Please provide a valid email address',
+              message: "Please provide a valid email address",
             },
           }}
         />
@@ -124,7 +124,7 @@ const LoginForm: FC = () => {
                 data-testid="password"
                 onChange={(e) => {
                   field.onChange(e);
-                  handleChange('password');
+                  handleChange("password");
                 }}
                 placeholder="Password"
                 type="password"
@@ -135,10 +135,10 @@ const LoginForm: FC = () => {
             </>
           )}
           rules={{
-            required: 'Password is required',
+            required: "Password is required",
             pattern: {
               value: passwordPattern,
-              message: '8+ chars, 1 uppercase, 1 special char, 1 number',
+              message: "8+ chars, 1 uppercase, 1 special char, 1 number",
             },
           }}
         />

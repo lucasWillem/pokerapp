@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Outlet, Navigate } from 'react-router-dom';
+import { FC } from "react";
+import { Outlet, Navigate } from "react-router-dom";
 
 interface PrivateRoutesProps {
   isAuthenticated: boolean;

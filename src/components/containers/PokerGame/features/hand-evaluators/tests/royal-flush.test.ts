@@ -1,12 +1,12 @@
-import { HandEvalutorsContext, RoyalFlushEvaluator } from '../index';
+import { HandEvalutorsContext, RoyalFlushEvaluator } from "../index";
 import {
   mockHandLegitRoyalFlush,
   mockRoyalFlushHandNotInSequence,
   mockRoyalFlushHandNotOfSameSuit,
-} from './mocks/mock-hands';
+} from "./mocks/mock-hands";
 
-describe('royal-flush tests', () => {
-  test('is a royal flush', () => {
+describe("royal-flush tests", () => {
+  test("is a royal flush", () => {
     expect(
       new HandEvalutorsContext(
         new RoyalFlushEvaluator(mockHandLegitRoyalFlush),
@@ -14,7 +14,7 @@ describe('royal-flush tests', () => {
     ).toBe(true);
   });
 
-  test('is not of same suit', () => {
+  test("is not of same suit", () => {
     expect(
       new HandEvalutorsContext(
         new RoyalFlushEvaluator(mockRoyalFlushHandNotOfSameSuit),
@@ -22,7 +22,7 @@ describe('royal-flush tests', () => {
     ).toBe(false);
   });
 
-  test('is not in sequence', () => {
+  test("is not in sequence", () => {
     expect(
       new HandEvalutorsContext(
         new RoyalFlushEvaluator(mockRoyalFlushHandNotInSequence),

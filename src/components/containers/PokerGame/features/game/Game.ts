@@ -1,6 +1,6 @@
-import { DeckCreatorContext, DefaultDeckCreator } from '../deck';
-import { ShufflerContext, RandomShuffler } from '../shufflers';
-import { DealerContext, RandomDealer } from '../deck-dealers';
+import { DeckCreatorContext, DefaultDeckCreator } from "../deck";
+import { ShufflerContext, RandomShuffler } from "../shufflers";
+import { DealerContext, RandomDealer } from "../deck-dealers";
 
 import {
   HandEvalutorsContext,
@@ -13,10 +13,10 @@ import {
   PairEvaluator,
   TwoPairEvaluator,
   FullHouseEvaluator,
-} from '../hand-evaluators';
+} from "../hand-evaluators";
 
-import type { Hand } from '@global/types';
-import type { PlayerRank } from './types';
+import type { Hand } from "@global/types";
+import type { PlayerRank } from "./types";
 
 export default abstract class Game {
   static getHands({ noOfPlayers = 2 }: { noOfPlayers?: number }): Hand[] {
@@ -124,7 +124,7 @@ export default abstract class Game {
 
       const winnersByPlayerNumber = winners
         .map((winner) => winner.player + 1)
-        .join(', ')
+        .join(", ")
         .toString();
 
       const drawMessage = `Congratulations players ${winnersByPlayerNumber}`;
@@ -149,7 +149,7 @@ export default abstract class Game {
 
       const winnersByPlayerNumber = winners
         .map((winner) => winner.player + 1)
-        .join(', ')
+        .join(", ")
         .toString();
 
       const drawMessage = `Congratulations players ${winnersByPlayerNumber}`;

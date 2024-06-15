@@ -1,18 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import { StoreProvider } from 'easy-peasy';
-import { ThemeProvider } from 'styled-components';
+import { StoreProvider } from "easy-peasy";
+import { ThemeProvider } from "styled-components";
 
-import { store } from '@redux/store';
-import theme from './global/theme';
-import { NetworkProvider } from './networking';
+import { store } from "@redux/store";
+import theme from "@global/theme";
+import { NetworkProvider } from "@networking/index";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
+  document.getElementById("root") as HTMLElement,
 );
 
 root.render(

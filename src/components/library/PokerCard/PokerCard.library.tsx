@@ -1,13 +1,13 @@
-import { FC, memo } from 'react';
-import type { Card } from '@global/types';
-import { StyledCard, TopRow, BottomRow, MiddleRow } from './PokerCard.styles';
+import { FC, memo } from "react";
+import type { Card } from "@global/types";
+import { StyledCard, TopRow, BottomRow, MiddleRow } from "./PokerCard.styles";
 
 import {
   SuitClubFill,
   SuitDiamondFill,
   SuitSpadeFill,
   SuitHeartFill,
-} from 'react-bootstrap-icons';
+} from "react-bootstrap-icons";
 
 interface PokerCardProps {
   pokerCard: Card;
@@ -15,38 +15,38 @@ interface PokerCardProps {
 
 const PokerCard: FC<PokerCardProps> = ({ pokerCard }) => {
   const renderSuite = () => {
-    if (pokerCard.suit === 'spades') {
+    if (pokerCard.suit === "spades") {
       return <SuitSpadeFill style={{ fontSize: 25 }} />;
     }
 
-    if (pokerCard.suit === 'clubs') {
+    if (pokerCard.suit === "clubs") {
       return <SuitClubFill style={{ fontSize: 25 }} />;
     }
 
-    if (pokerCard.suit === 'hearts') {
+    if (pokerCard.suit === "hearts") {
       return <SuitHeartFill style={{ fontSize: 25 }} />;
     }
 
-    if (pokerCard.suit === 'diamonds') {
+    if (pokerCard.suit === "diamonds") {
       return <SuitDiamondFill style={{ fontSize: 25 }} />;
     }
   };
 
   const renderNumber = () => {
     if (pokerCard.number === 1) {
-      return 'A';
+      return "A";
     }
 
     if (pokerCard.number === 11) {
-      return 'J';
+      return "J";
     }
 
     if (pokerCard.number === 12) {
-      return 'Q';
+      return "Q";
     }
 
     if (pokerCard.number === 13) {
-      return 'K';
+      return "K";
     }
     return pokerCard.number;
   };

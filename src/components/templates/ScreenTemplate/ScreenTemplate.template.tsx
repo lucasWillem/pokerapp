@@ -1,7 +1,7 @@
-import { memo, ReactNode, FC, CSSProperties, useCallback } from 'react';
-import { StyledScreenTemplate } from './ScreenTemplate.styles';
-import { Alert } from '@components/library/Alert';
-import { useStoreState, useStoreActions } from '@redux/index';
+import { memo, ReactNode, FC, CSSProperties, useCallback } from "react";
+import { StyledScreenTemplate } from "./ScreenTemplate.styles";
+import { Alert } from "@components/library/Alert";
+import { useStoreState, useStoreActions } from "@redux/index";
 
 interface ScreenWrapperProps {
   children: ReactNode;
@@ -21,7 +21,7 @@ const ScreenTemplate: FC<ScreenWrapperProps> = ({
   );
 
   const handleOnModalClose = useCallback(() => {
-    configureAlert({ isVisible: false, message: '' });
+    configureAlert({ isVisible: false, message: "" });
   }, [configureAlert]);
 
   return (
