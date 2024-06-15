@@ -1,7 +1,8 @@
-import { FC, memo, useEffect } from 'react';
+import { FC, memo } from 'react';
 
 import {
   StyledSignUpForm,
+  StyledSignUpFormControl,
   StyledInputTemplate,
   StyledHelperText,
 } from './SignUpForm.styles';
@@ -13,9 +14,12 @@ import { Container } from 'react-bootstrap';
 import { passwordPattern, emailPattern } from '@global/constants';
 
 import { Button } from '@components/library/Button';
-import { ButtonColors } from '@components/library/Button/Button.styles';
-import useRegisterUser from '@features/authentication/useRegisterUser';
+import { useRegisterUser } from '../../../networking/network-hooks/useRegisterUser';
 import { useStoreActions } from '@redux/typed-hooks';
+
+import { RoutePaths } from '@routing/router';
+import { UserEndpoints } from '@features/authentication/user.constants';
+import { ColorOptions } from '@global/theme';
 
 export interface SignUpFormInputs {
   email: string;
@@ -26,14 +30,30 @@ const SignUpForm: FC = () => {
 
   const navigate = useNavigate();
 
-  const { registerUser, user } = useRegisterUser();
+  const configureAlert = useStoreActions(
+    (actions) => actions.alert.configureAlert,
+  );
 
-  useEffect(() => {
-    if (user) {
-      storeUser(user);
-      navigate('/login');
-    }
-  }, [navigate, storeUser, user]);
+  const { mutate: registerUser } = useRegisterUser({
+    url: UserEndpoints.Register,
+    options: {
+      onError: (error: Error) => {
+        configureAlert({
+          isVisible: true,
+          message: error.message,
+          color: ColorOptions.Danger,
+        });
+      },
+      onSuccess: (userData) => {
+        const { jwt, user } = userData;
+        storeUser({
+          jwt,
+          username: user.username,
+        });
+        navigate(RoutePaths.Login);
+      },
+    },
+  });
 
   const onSignUp = (data: SignUpFormInputs) => {
     const userData = {
@@ -76,7 +96,7 @@ const SignUpForm: FC = () => {
               <StyledSignUpForm.Label htmlFor="inputPassword5">
                 Email
               </StyledSignUpForm.Label>
-              <StyledSignUpForm.Control
+              <StyledSignUpFormControl
                 {...field}
                 data-testid="email"
                 onChange={(e) => {
@@ -106,7 +126,7 @@ const SignUpForm: FC = () => {
               <StyledSignUpForm.Label htmlFor="inputPassword5">
                 Password
               </StyledSignUpForm.Label>
-              <StyledSignUpForm.Control
+              <StyledSignUpFormControl
                 {...field}
                 data-testid="password"
                 onChange={(e) => {
@@ -131,15 +151,14 @@ const SignUpForm: FC = () => {
         />
       </StyledInputTemplate>
       <Container>
-        <Button
-          style={{ width: 100 }}
-          borderColor={ButtonColors.Red}
-          disabled={!isValid}
-          type="submit"
-        >
-          Submit
+        <Button style={{ width: 100 }} disabled={!isValid} type="submit">
+          Sign Up
         </Button>
-        <Button style={{ width: 300 }} onClick={() => navigate('/login')}>
+        <Button
+          style={{ width: 300 }}
+          onClick={() => navigate(RoutePaths.Login)}
+          color={ColorOptions.Black}
+        >
           I already have an account
         </Button>
       </Container>
