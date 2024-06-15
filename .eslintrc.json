@@ -26,9 +26,11 @@
         "alias": {
           "@components": "src/components",
           "@global": "src/global",
-          "@navigation": "src/navigation",
+          "@routing": "src/routing",
           "@pages": "src/pages",
-          "@redux": "src/redux"
+          "@redux": "src/redux",
+          "@features": "src/features",
+          "@api": "src/api"
           // Add more aliases as needed
         }
       }

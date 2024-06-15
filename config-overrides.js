@@ -4,9 +4,11 @@ module.exports = function override(config, env) {
   alias({
     '@components': 'src/components',
     '@global': 'src/global',
-    '@navigation': 'src/navigation',
+    '@routing': 'src/routing',
     '@pages': 'src/pages',
     '@redux': 'src/redux',
+    '@api': 'src/api',
+    '@features': 'src/features',
     // Add more aliases as needed
   })(config);
 

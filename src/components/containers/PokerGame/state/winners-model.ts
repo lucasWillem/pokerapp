@@ -6,8 +6,8 @@ const winnersModel: WinnersModel = {
   storeWinners: action((state, payload) => {
     state.winners = payload;
   }),
-  clearWinners: action((state, payload) => {
-      state.winners = payload;
+  clearWinners: action((state) => {
+    state.winners = [];
   }),
 };
 

@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
 import { StoreProvider } from 'easy-peasy';
-import { store } from '@redux/store';
 import { ThemeProvider } from 'styled-components';
-import theme from './theme';
+
+import { store } from '@redux/store';
+import theme from './global/theme';
+import { NetworkProvider } from './networking';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -16,7 +19,9 @@ root.render(
   <React.StrictMode>
     <StoreProvider store={store}>
       <ThemeProvider theme={theme}>
-        <App />
+        <NetworkProvider>
+          <App />
+        </NetworkProvider>
       </ThemeProvider>
     </StoreProvider>
   </React.StrictMode>,

@@ -1,14 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter } from 'react-router-dom';
-import Navigator from '@navigation/Navigator';
+import { Router } from '@routing/router';
+import { AuthMenu } from '@components/containers/AuthMenu';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navigator />
-      </BrowserRouter>
+      <Router>
+        <AuthMenu />
+      </Router>
     </div>
   );
 }

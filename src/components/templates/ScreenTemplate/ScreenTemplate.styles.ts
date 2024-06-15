@@ -1,9 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Container } from 'react-bootstrap';
 
-const StyledScreenTemplate = styled(Container)`
-  padding: 5%;
-  background: ${(props) => props.theme.colors.dark};
-`;
+const StyledScreenTemplate = styled(Container)(({ theme }) =>
+  css({
+    padding: '5%',
+    background: theme.colors.black,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }),
+);
 
 export { StyledScreenTemplate };

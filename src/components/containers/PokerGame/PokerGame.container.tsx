@@ -2,7 +2,6 @@ import React, { FC, memo, useCallback, useState } from 'react';
 
 import Game from './features/game';
 import {
-  StyledButton,
   PokerGame,
   PlayerSelectionFlexWrapper,
   BottomActionButtonsContainer,
@@ -12,12 +11,13 @@ import {
 import { Hand } from '@global/types';
 
 import { PokerTable } from '@components/library/PokerTable';
-import { DropDown } from '@components/library/DropDown';
 import { PokerCard } from '@components/library/PokerCard';
 import { PokerPlayer } from '@components/library/PokerPlayer';
-import { WinnerAlert } from '@components/library/WinnerAlert';
 
 import { useStoreActions, useStoreState } from '@redux/index';
+import { Button } from '@components/library/Button';
+import { ColorOptions } from '@global/theme';
+import { Dropdown } from '@components/library/Dropdown';
 
 const GameContainer: FC = () => {
   const [numberOfPlayers, setNumberOfPlayers] = useState(0);
@@ -65,7 +65,7 @@ const GameContainer: FC = () => {
     if (!message || !winners) return;
 
     storeWinners(winners);
-    configureAlert({ isVisible: true, message });
+    configureAlert({ isVisible: true, message, color: ColorOptions.Success });
   }, [configureAlert, pokerHands, storeWinners]);
 
   const getCardVisibility = (index: number, playerNumber: number) => {
@@ -76,8 +76,8 @@ const GameContainer: FC = () => {
 
   const handleReplay = useCallback(() => {
     configureAlert({ isVisible: false, message: '' });
-    clearHands([]);
-    clearWinners([]);
+    clearHands();
+    clearWinners();
     setNumberOfPlayers(0);
   }, [clearHands, clearWinners, configureAlert]);
 
@@ -94,25 +94,12 @@ const GameContainer: FC = () => {
     [],
   );
 
-  const { isVisible, message } = useStoreState(
-    (state) => state.alert.alertConfig,
-  );
-
-  const handleOnModalClose = useCallback(() => {
-    configureAlert({ isVisible: false, message: '' });
-  }, [configureAlert]);
-
   return (
     <PokerGame>
-      <WinnerAlert
-        isVisible={isVisible}
-        handleOnModalClose={handleOnModalClose}
-        message={message}
-      />
       <>
         {pokerHands.length === 0 && (
           <PlayerSelectionFlexWrapper>
-            <DropDown
+            <Dropdown
               title={
                 numberOfPlayers > 0
                   ? `${numberOfPlayers}`
@@ -122,9 +109,9 @@ const GameContainer: FC = () => {
               makeSelection={storeNumberOfPlayers}
               activeItem={numberOfPlayers}
             />
-            <StyledButton disabled={numberOfPlayers === 0} onClick={startGame}>
+            <Button disabled={numberOfPlayers === 0} onClick={startGame}>
               Start game
-            </StyledButton>
+            </Button>
           </PlayerSelectionFlexWrapper>
         )}
         <>
@@ -146,20 +133,17 @@ const GameContainer: FC = () => {
 
           <BottomActionButtonsContainer>
             {pokerHands.length > 0 && (
-              <StyledButton
+              <Button
                 onClick={handleDetermineWinner}
                 disabled={winners.length > 0}
               >
                 Determine Winner
-              </StyledButton>
+              </Button>
             )}
             {pokerHands.length > 0 && (
-              <StyledButton
-                onClick={handleReplay}
-                disabled={winners.length === 0}
-              >
+              <Button onClick={handleReplay} disabled={winners.length === 0}>
                 Replay
-              </StyledButton>
+              </Button>
             )}
           </BottomActionButtonsContainer>
         </>

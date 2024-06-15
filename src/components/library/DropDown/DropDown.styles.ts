@@ -1,51 +1,53 @@
-import styled from 'styled-components';
-import { Dropdown } from 'react-bootstrap';
+import styled, { css } from 'styled-components';
+import { Dropdown, DropdownProps } from 'react-bootstrap';
+import { ColorOptions } from '@global/theme';
 
-const StyledDropdown = styled(Dropdown)`
-  margin-top: 8px;
-  & .btn-primary.dropdown-toggle {
-    box-shadow: 0 0 0 0.25rem ${(props) => props.theme.colors.dark};
-    background-color: ${(props) => props.theme.colors.secondary} !important;
-    border-color: ${(props) => props.theme.colors.secondary} !important;
-    &:focus,
-    &:active {
-      box-shadow: 0 0 0 0.25rem ${(props) => props.theme.colors.dark};
-      background-color: ${(props) => props.theme.colors.secondary} !important;
-      border-color: ${(props) => props.theme.colors.secondary} !important;
-    }
-  }
-  & .btn-primary {
-    min-width: 150px;
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    align-items: center;
-    background-color: ${(props) => props.theme.colors.dark};
-    border-color: ${(props) => props.theme.colors.secondary};
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      background-color: ${(props) => props.theme.colors.secondary};
-      border-color: ${(props) => props.theme.colors.secondary};
-    }
-  }
+export interface StyledDropdownProps extends DropdownProps {
+  color?: ColorOptions;
+}
 
-  & .dropdown-menu.show {
-    margin-top: 16px;
-    background-color: ${(props) => props.theme.colors.dark};
-    box-shadow: 0 0 0 0.05rem ${(props) => props.theme.colors.secondary} !important;
-    padding: 0px;
-  }
+const StyledDropdown = styled(Dropdown)(({
+  theme,
+  color = ColorOptions.Green,
+}) => {
+  const backgroundColor = theme.colors['black'];
 
-  & .dropdown-item.active {
-    background-color: ${(props) => props.theme.colors.secondary};
-  }
-
-  & .dropdown-item {
-    background-color: ${(props) => props.theme.colors.dark};
-    color: ${(props) => props.theme.colors.light};
-  }
-`;
+  return css({
+    marginTop: '8px',
+    '& .btn-primary.dropdown-toggle': {
+      boxShadow: `0 0 0 0.02rem ${theme.colors[color]}`,
+      backgroundColor: `${backgroundColor} !important`,
+      '&:focus, &:active': {
+        boxShadow: `0 0 0 0.02rem ${theme.colors[color]}`,
+        backgroundColor: `${backgroundColor} !important`,
+        borderColor: `${theme.colors[color]} !important`,
+      },
+    },
+    '& .btn-primary': {
+      minWidth: '150px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      gap: '8px',
+      alignItems: 'center',
+      backgroundColor,
+      borderColor: theme.colors[color],
+      '&:hover, &:focus, &:active, &.active': {
+        backgroundColor: theme.colors[color],
+      },
+    },
+    '& .dropdown-menu.show': {
+      marginTop: '16px',
+      backgroundColor,
+      padding: '0px',
+    },
+    '& .dropdown-item.active': {
+      backgroundColor: theme.colors[color],
+    },
+    '& .dropdown-item': {
+      backgroundColor,
+      color: theme.colors.light,
+    },
+  });
+});
 
 export { StyledDropdown };
