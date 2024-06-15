@@ -13,4 +13,16 @@ const theme = {
   fonts: ['Arial', 'sans-serif'],
 };
 
+export enum ColorOptions {
+  Black = 'black',
+  Red = 'red',
+  Green = 'green',
+  Gold = 'gold',
+  Success = 'success',
+  Info = 'info',
+  Warning = 'warning',
+  Danger = 'danger',
+  Light = 'light',
+}
+
 export default theme;
