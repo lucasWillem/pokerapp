@@ -18,8 +18,8 @@ import { useRegisterUser } from "@networking/network-hooks/useRegisterUser";
 import { useStoreActions } from "@redux/typed-hooks";
 
 import { RoutePaths } from "@routing/router";
-import { UserEndpoints } from "@features/authentication/user.constants";
 import { ColorOptions } from "@global/theme";
+import { AuthenticationEndPoints } from "@networking/constants";
 
 export interface SignUpFormInputs {
   email: string;
@@ -35,7 +35,7 @@ const SignUpForm: FC = () => {
   );
 
   const { mutate: registerUser } = useRegisterUser({
-    url: UserEndpoints.Register,
+    url: AuthenticationEndPoints.Register,
     options: {
       onError: (error: Error) => {
         configureAlert({
