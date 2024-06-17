@@ -14,7 +14,7 @@ Poker App leverages a variety of technologies and packages to provide a robust, 
 
 - **@testing-library/user-event**: This library allows you to simulate user events, such as typing into an input or clicking a button. It provides a more realistic simulation of user interactions than the base fireEvent function.
 
-## Getting Started
+## Getting Started with the Front-end
 
 To run the app locally, follow these steps:
 
@@ -40,7 +40,17 @@ cd pokerapp; yarn install
 yarn start
 ```
 
-Open your browser and navigate to http://localhost:3000 to see the app
+Open your browser and navigate to http://localhost:5173 to see the app
+
+### Getting started with the API
+
+1. Clone https://github.com/lucasWillem/poker-app-api
+
+2. Install dependencies:
+
+```bash
+cd poker-app-api; yarn install
+```
 
 ## Run Automated Tests
 
