@@ -13,6 +13,7 @@ const PlayerSelectionFlexWrapper = styled.div(() =>
     flexDirection: "row",
     justifyContent: "center",
     marginTop: "50px",
+    width: "100%",
   }),
 );
 

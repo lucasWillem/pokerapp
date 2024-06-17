@@ -5,12 +5,7 @@ import styled, { css } from "styled-components";
 const StyledErrorBoundaryWrapper = styled("div")(({ theme }) =>
   css({
     background: theme.colors.black,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
     height: "100vh",
-    width: "100%",
   }),
 );
 
