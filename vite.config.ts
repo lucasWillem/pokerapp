@@ -7,12 +7,12 @@ export default defineConfig({
   resolve: {
     alias: {
       "@components": path.resolve(__dirname, "src/components"),
+      "@features": path.resolve(__dirname, "src/features"),
       "@global": path.resolve(__dirname, "src/global"),
-      "@routing": path.resolve(__dirname, "src/routing"),
+      "@networking": path.resolve(__dirname, "src/networking"),
       "@pages": path.resolve(__dirname, "src/pages"),
       "@redux": path.resolve(__dirname, "src/redux"),
-      "@networking": path.resolve(__dirname, "src/networking"),
-      "@features": path.resolve(__dirname, "src/features"),
+      "@routing": path.resolve(__dirname, "src/routing"),
     },
   },
 });
