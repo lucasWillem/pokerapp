@@ -9,6 +9,7 @@ const StyledScreenTemplate = styled(Container)(({ theme }) =>
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    width: "100%",
   }),
 );
 

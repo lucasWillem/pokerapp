@@ -1,4 +1,4 @@
-import Dropdown from "../Dropdown.library";
+import Dropdown from "../DropDown.library";
 import withProviders from "../../../../../cypress/utils";
 
 describe("Dropdown.tsx", () => {
