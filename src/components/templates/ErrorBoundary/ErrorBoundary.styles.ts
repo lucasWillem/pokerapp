@@ -4,6 +4,10 @@ import styled, { css } from "styled-components";
 
 const StyledErrorBoundaryWrapper = styled("div")(({ theme }) =>
   css({
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     background: theme.colors.black,
     height: "100vh",
   }),
@@ -15,7 +19,6 @@ const StyledErrorFallback = styled(Alert)(({ theme }) =>
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "20vh auto",
     width: "50%",
     backgroundColor: theme.colors[ColorOptions.Black],
     border: `1px solid ${theme.colors[ColorOptions.Red]}`,
