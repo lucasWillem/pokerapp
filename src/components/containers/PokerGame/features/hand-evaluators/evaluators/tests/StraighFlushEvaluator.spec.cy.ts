@@ -1,4 +1,4 @@
-import { HandEvalutorsContext, StraighFlushEvaluator } from "../index";
+import { HandEvalutorsContext, StraighFlushEvaluator } from "../../index";
 import {
   mockLegitStraightFlush,
   mockStraightFlushHandNotInSequence,

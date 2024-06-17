@@ -1,40 +1,40 @@
-import { HandEvalutorsContext, FullHouseEvaluator } from "../index";
+import { HandEvalutorsContext, StraightEvaluator } from "../../index";
 import {
-  mockLegitFullHouse,
   mockHandLegitRoyalFlush,
   mockLegitFlush,
   mockLegitFourOfAKind,
+  mockLegitFullHouse,
+  mockLegitPair,
   mockLegitStraight,
   mockLegitStraightFlush,
   mockLegitThreeOfAKind,
   mockLegitTwoPair,
-  mockLegitPair,
 } from "./mocks/mock-hands";
 
-describe("full house tests", () => {
-  it("is full house", () => {
+describe("straight tests", () => {
+  it("is a straight", () => {
     cy.wrap(
       new HandEvalutorsContext(
-        new FullHouseEvaluator(mockLegitFullHouse),
+        new StraightEvaluator(mockLegitStraight),
       ).evaluate(),
     ).should("be.true");
   });
 
-  const nonFullHouseMocks = [
+  const nonStraightMocks = [
     mockLegitFlush,
     mockLegitFourOfAKind,
+    mockLegitFullHouse,
     mockLegitPair,
     mockHandLegitRoyalFlush,
     mockLegitStraightFlush,
-    mockLegitStraight,
     mockLegitTwoPair,
     mockLegitThreeOfAKind,
   ];
 
-  nonFullHouseMocks.forEach((mockHand) => {
-    it("is not a full house", () => {
+  nonStraightMocks.forEach((mockHand) => {
+    it("is not a straight", () => {
       cy.wrap(
-        new HandEvalutorsContext(new FullHouseEvaluator(mockHand)).evaluate(),
+        new HandEvalutorsContext(new StraightEvaluator(mockHand)).evaluate(),
       ).should("be.false");
     });
   });

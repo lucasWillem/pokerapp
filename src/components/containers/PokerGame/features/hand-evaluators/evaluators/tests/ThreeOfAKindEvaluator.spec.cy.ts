@@ -1,40 +1,42 @@
-import { HandEvalutorsContext, StraightEvaluator } from "../index";
+import { HandEvalutorsContext, ThreeOfAKindEvaluator } from "../../index";
 import {
+  mockLegitThreeOfAKind,
+  mockLegitFourOfAKind,
   mockHandLegitRoyalFlush,
   mockLegitFlush,
-  mockLegitFourOfAKind,
   mockLegitFullHouse,
   mockLegitPair,
   mockLegitStraight,
   mockLegitStraightFlush,
-  mockLegitThreeOfAKind,
   mockLegitTwoPair,
 } from "./mocks/mock-hands";
 
-describe("straight tests", () => {
-  it("is a straight", () => {
+describe("three-of-a-kind tests", () => {
+  it("is a three of a kind", () => {
     cy.wrap(
       new HandEvalutorsContext(
-        new StraightEvaluator(mockLegitStraight),
+        new ThreeOfAKindEvaluator(mockLegitThreeOfAKind),
       ).evaluate(),
     ).should("be.true");
   });
 
-  const nonStraightMocks = [
+  const nonThreeOfAKindMocks = [
     mockLegitFlush,
     mockLegitFourOfAKind,
     mockLegitFullHouse,
     mockLegitPair,
     mockHandLegitRoyalFlush,
     mockLegitStraightFlush,
+    mockLegitStraight,
     mockLegitTwoPair,
-    mockLegitThreeOfAKind,
   ];
 
-  nonStraightMocks.forEach((mockHand) => {
-    it("is not a straight", () => {
+  nonThreeOfAKindMocks.forEach((mockHand) => {
+    it("is not a three of a kind", () => {
       cy.wrap(
-        new HandEvalutorsContext(new StraightEvaluator(mockHand)).evaluate(),
+        new HandEvalutorsContext(
+          new ThreeOfAKindEvaluator(mockHand),
+        ).evaluate(),
       ).should("be.false");
     });
   });

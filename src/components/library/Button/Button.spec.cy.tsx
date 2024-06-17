@@ -1,5 +1,6 @@
-import Button from "../Button.library";
-import withProviders from "../../../../../cypress/utils";
+import React from "react";
+import { Button } from "@components/library/Button";
+import { withProviders } from "../../../../cypress";
 import theme, { ColorOptions } from "@global/theme";
 
 describe("Button.tsx", () => {
