@@ -1,14 +1,14 @@
 const theme = {
   colors: {
-    black: "#000000",
-    red: "#800020",
-    green: "#0C361F",
-    gold: "#FFD700",
-    success: "#28a745",
-    info: "#17a2b8",
-    warning: "#ffc107",
-    danger: "#dc3545",
-    light: "#f8f9fa",
+    black: "rgb(0, 0, 0)",
+    red: "rgb(128, 0, 32)",
+    green: "rgb(12, 54, 31)",
+    gold: "rgb(255, 215, 0)",
+    success: "rgb(40, 167, 69)",
+    info: "rgb(23, 162, 184)",
+    warning: "rgb(255, 193, 7)",
+    danger: "rgb(220, 53, 69)",
+    light: "rgb(248, 249, 250)",
   },
   fonts: ["Arial", "sans-serif"],
 };

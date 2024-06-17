@@ -183,52 +183,6 @@ export const mockLegitFullHouse: Hand = [
   },
 ];
 
-export const mockFullHouseMissingAPair: Hand = [
-  {
-    number: 12,
-    suit: "spades",
-  },
-  {
-    number: 1,
-    suit: "hearts",
-  },
-  {
-    number: 10,
-    suit: "clubs",
-  },
-  {
-    number: 10,
-    suit: "diamonds",
-  },
-  {
-    number: 10,
-    suit: "spades",
-  },
-];
-
-export const mockFullHouseMissingThreeOfAKind: Hand = [
-  {
-    number: 1,
-    suit: "spades",
-  },
-  {
-    number: 1,
-    suit: "hearts",
-  },
-  {
-    number: 10,
-    suit: "clubs",
-  },
-  {
-    number: 10,
-    suit: "diamonds",
-  },
-  {
-    number: 11,
-    suit: "spades",
-  },
-];
-
 export const mockLegitFlush: Hand = [
   {
     number: 1,
