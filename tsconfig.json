@@ -26,5 +26,5 @@
       "@features/*": ["src/features/*"]
     }
   },
-  "include": ["src", "config-overrides.js"]
+  "include": ["src", "config-overrides.js", "cypress/e2e/SignUpForm.spec.cy.tsx"]
 }

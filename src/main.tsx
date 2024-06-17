@@ -9,6 +9,7 @@ import { ThemeProvider } from "styled-components";
 import { store } from "@redux/store";
 import theme from "@global/theme";
 import { NetworkProvider } from "@networking/index";
+import { ErrorBoundary } from "@components/templates/ErrorBoundary";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -19,7 +20,9 @@ root.render(
     <StoreProvider store={store}>
       <ThemeProvider theme={theme}>
         <NetworkProvider>
-          <App />
+          <ErrorBoundary>
+            <App />
+          </ErrorBoundary>
         </NetworkProvider>
       </ThemeProvider>
     </StoreProvider>
