@@ -18,12 +18,12 @@
     "jsx": "react-jsx",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@features/*": ["src/features/*"],
       "@global/*": ["src/global/*"],
-      "@routing/*": ["src/routing/*"],
+      "@networking/*": ["src/networking/*"],
       "@pages/*": ["src/pages/*"],
       "@redux/*": ["src/redux/*"],
-      "@networking/*": ["src/networking/*"],
-      "@features/*": ["src/features/*"]
+      "@routing/*": ["src/routing/*"],
     }
   },
   "include": [
