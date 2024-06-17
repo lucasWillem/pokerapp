@@ -37,20 +37,10 @@ cd pokerapp; yarn install
 5. Start the development server:
 
 ```bash
-yarn start
+yarn dev
 ```
 
 Open your browser and navigate to http://localhost:5173 to see the app
-
-### Getting started with the API
-
-1. Clone https://github.com/lucasWillem/poker-app-api
-
-2. Install dependencies:
-
-```bash
-cd poker-app-api; yarn install
-```
 
 ## Run Automated Tests
 

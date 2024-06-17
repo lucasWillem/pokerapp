@@ -1,7 +1,4 @@
-enum UserEndpoints {
-  Register = "http://localhost:1337/api/auth/local/register",
-  Login = "http://localhost:1337/api/auth/local",
-}
+import { AuthenticationEndPoints } from "@networking/constants";
 
 enum WaitTimes {
   Short = 2000,
@@ -51,7 +48,7 @@ describe("Registration form", () => {
 
     cy.get("[data-cy=button]").first().click();
 
-    cy.intercept("POST", UserEndpoints.Register, {
+    cy.intercept("POST", AuthenticationEndPoints.Register, {
       statusCode: 400,
       body: {
         error: {
@@ -71,7 +68,7 @@ describe("Registration form", () => {
 
     cy.get("[data-cy=button]").first().click();
 
-    cy.intercept("POST", UserEndpoints.Register, {
+    cy.intercept("POST", AuthenticationEndPoints.Register, {
       statusCode: 200,
       body: user,
     }).as("registerRequest");

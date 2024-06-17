@@ -14,9 +14,9 @@ import { Button } from "@components/library/Button";
 import { Container } from "react-bootstrap";
 import { RoutePaths } from "@routing/router";
 import { useLoginUser } from "@networking/network-hooks/useLoginUser";
-import { UserEndpoints } from "@features/authentication/user.constants";
 import { useStoreActions } from "@redux/typed-hooks";
 import { ColorOptions } from "@global/theme";
+import { AuthenticationEndPoints } from "@networking/constants";
 
 export interface LoginFormInputs {
   email: string;
@@ -57,7 +57,7 @@ const LoginForm: FC = () => {
   };
 
   const { mutate: loginUser } = useLoginUser({
-    url: UserEndpoints.Login,
+    url: AuthenticationEndPoints.Login,
     options: {
       onError: (error: Error) => {
         configureAlert({
