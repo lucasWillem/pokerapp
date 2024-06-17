@@ -4,7 +4,7 @@ import { ColorOptions } from "@global/theme";
 
 const StyledSignUpForm = styled(Form)(() =>
   css({
-    width: "30%",
+    width: "80%",
   }),
 );
 

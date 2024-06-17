@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 const StyledLoginForm = styled(Form)(() =>
   css({
-    width: "30%",
+    width: "80%",
   }),
 );
 
