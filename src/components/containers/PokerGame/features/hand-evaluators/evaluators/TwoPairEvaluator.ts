@@ -1,29 +1,19 @@
-import type { HandEvaluator } from '../types';
-import type { Hand } from '@global/types';
+import type { HandEvaluator } from "../types";
+import type { Hand } from "@global/types";
 
 export default class TwoPairEvaluator implements HandEvaluator {
   constructor(private hand: Hand) {}
 
   public evaluate() {
     const { hand } = this;
-    const handSortedAscending = hand.sort((a, b) => a.number - b.number);
 
-    let numOfmatches = 0;
+    const frequencies: Record<number, number> = {};
+    hand.forEach((card) => {
+      frequencies[card.number] = (frequencies[card.number] || 0) + 1;
+    });
 
-    let firstPointer = 0;
-    let secondPointer = 1;
-
-    while (secondPointer <= handSortedAscending.length - 1) {
-      const firstCard = handSortedAscending[firstPointer];
-      const secondCard = handSortedAscending[secondPointer];
-
-      if (firstCard.number === secondCard.number) {
-        numOfmatches += 1;
-      }
-      firstPointer++;
-      secondPointer++;
-    }
-
-    return numOfmatches === 2 ? true : false;
+    return (
+      Object.values(frequencies).filter((value) => value === 2).length === 2
+    );
   }
 }

@@ -22,9 +22,13 @@
       "@routing/*": ["src/routing/*"],
       "@pages/*": ["src/pages/*"],
       "@redux/*": ["src/redux/*"],
-      "@api/*": ["src/api/*"],
+      "@networking/*": ["src/networking/*"],
       "@features/*": ["src/features/*"]
     }
   },
-  "include": ["src", "config-overrides.js"]
+  "include": [
+    "src",
+    "config-overrides.js",
+    "cypress/e2e/SignUpForm.spec.cy.tsx"
+  ]
 }

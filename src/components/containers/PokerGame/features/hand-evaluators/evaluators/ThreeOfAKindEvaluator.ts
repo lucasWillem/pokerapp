@@ -1,32 +1,24 @@
-import type { HandEvaluator } from '../types';
-import type { Hand } from '@global/types';
-
-interface Frequencies {
-  [key: string]: number;
-}
+import type { HandEvaluator } from "../types";
+import type { Hand } from "@global/types";
 
 export default class ThreeOfAKindEvaluator implements HandEvaluator {
   constructor(private hand: Hand) {}
 
   public evaluate() {
     const { hand } = this;
-    const frequencies: Frequencies = {};
-    let isThreeOfKind = false;
 
-    for (const card of hand) {
-      const cardProperty = card.number;
-      frequencies[cardProperty] = ++frequencies[cardProperty] || 1;
-    }
+    const frequencies: Record<number, number> = {};
+    hand.forEach((card) => {
+      frequencies[card.number] = (frequencies[card.number] || 0) + 1;
+    });
 
-    // eslint-disable-next-line
-    for (const [_, cardNumberFrequency] of Object.entries(
-      frequencies,
-    )) {
-      if (cardNumberFrequency === 3) {
-        isThreeOfKind = true;
-      }
-    }
+    const isPair =
+      Object.values(frequencies).filter((value) => value === 2).length === 1;
+    const isThreeOfAKind =
+      Object.values(frequencies).filter((value) => value === 3).length === 1;
 
-    return isThreeOfKind;
+    const isFullHouse = isPair && isThreeOfAKind;
+
+    return isThreeOfAKind && !isFullHouse;
   }
 }

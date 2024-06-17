@@ -1,6 +1,6 @@
-import { Action } from 'easy-peasy';
-import { Hand } from '@global/types';
-import { ColorOptions } from '@global/theme';
+import { Action } from "easy-peasy";
+import { Hand } from "@global/types";
+import { ColorOptions } from "@global/theme";
 
 export interface PokerHandsModel {
   pokerHands: Hand[];

@@ -1,5 +1,5 @@
-import type { CardDeck } from '@global/types';
-import type { DeckShuffler } from '../types';
+import type { CardDeck } from "@global/types";
+import type { DeckShuffler } from "../types";
 
 export default class RandomShuffler implements DeckShuffler {
   constructor(private deck: CardDeck) {}

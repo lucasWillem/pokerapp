@@ -1,9 +1,9 @@
-import { FC, memo } from 'react';
-import { StyledAlert } from './Alert.styles';
+import { FC, memo } from "react";
+import { StyledAlert } from "./Alert.styles";
 
-import ClickAwayListener from 'react-click-away-listener';
-import { AlertProps as BootstrapAlertProps } from 'react-bootstrap';
-import { ColorOptions } from '@global/theme';
+import ClickAwayListener from "react-click-away-listener";
+import { AlertProps as BootstrapAlertProps } from "react-bootstrap";
+import { ColorOptions } from "@global/theme";
 
 export interface AlertProps extends BootstrapAlertProps {
   isVisible: boolean;
@@ -27,6 +27,7 @@ const Alert: FC<AlertProps> = ({
             variant="primary"
             dismissible
             color={color}
+            data-cy="alert"
           >
             {message}
           </StyledAlert>

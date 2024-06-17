@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { useMutation, UseMutationOptions } from '@tanstack/react-query';
-import { NO_NETWORK_ERROR_MESSAGE } from '../constants';
+import axios from "axios";
+import { useMutation, UseMutationOptions } from "@tanstack/react-query";
+import { NO_NETWORK_ERROR_MESSAGE } from "../constants";
 
 type Data = {
   identifier: string;
@@ -23,7 +23,7 @@ export type LoginResponse = {
   };
 };
 
-export const mutationKey = ['RegisterUser'];
+export const mutationKey = ["RegisterUser"];
 
 async function loginUser(url: string, data: Data): Promise<LoginResponse> {
   try {

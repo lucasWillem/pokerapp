@@ -1,14 +1,14 @@
-import { FaBars } from 'react-icons/fa';
+import { FaBars } from "react-icons/fa";
 
-import { Button } from '@components/library/Button';
-import { ColorOptions } from '@global/theme';
-import { useStoreActions } from '@redux/typed-hooks';
-import { useNavigate } from 'react-router-dom';
-import { RoutePaths } from '@routing/router';
-import { FC, memo } from 'react';
-import { NavLink } from 'react-bootstrap';
-import { useCheckIfUser } from '@features/authentication/useCheckIfUser';
-import { StyledAuthMenu } from './AuthMenu.styles';
+import { Button } from "@components/library/Button";
+import { ColorOptions } from "@global/theme";
+import { useStoreActions } from "@redux/typed-hooks";
+import { useNavigate } from "react-router-dom";
+import { RoutePaths } from "@routing/router";
+import { FC, memo } from "react";
+import { NavLink } from "react-bootstrap";
+import { useCheckIfUser } from "@features/authentication/useCheckIfUser";
+import { StyledAuthMenu } from "./AuthMenu.styles";
 
 const AuthMenu: FC = () => {
   const handleLogout = () => {

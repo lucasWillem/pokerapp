@@ -1,16 +1,21 @@
-import type { HandEvaluator } from '../types';
-import type { Hand } from '@global/types';
-import PairEvaluator from './PairEvaluator';
-import ThreeOfAKindEvaluator from './ThreeOfAKindEvaluator';
-
+import type { HandEvaluator } from "../types";
+import type { Hand } from "@global/types";
 export default class FullHouseEvaluator implements HandEvaluator {
   constructor(private hand: Hand) {}
 
   public evaluate() {
     const { hand } = this;
-    const isPair = new PairEvaluator(hand).evaluate();
-    const isThreeOfKind = new ThreeOfAKindEvaluator(hand).evaluate();
 
-    return isPair && isThreeOfKind;
+    const frequencies: Record<number, number> = {};
+    hand.forEach((card) => {
+      frequencies[card.number] = (frequencies[card.number] || 0) + 1;
+    });
+
+    const isPair =
+      Object.values(frequencies).filter((value) => value === 2).length === 1;
+    const isThreeOfAKind =
+      Object.values(frequencies).filter((value) => value === 3).length === 1;
+
+    return isPair && isThreeOfAKind;
   }
 }

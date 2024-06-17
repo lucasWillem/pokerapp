@@ -1,25 +1,25 @@
-import { FC, memo } from 'react';
+import { FC, memo } from "react";
 
 import {
   StyledSignUpForm,
   StyledSignUpFormControl,
   StyledInputTemplate,
   StyledHelperText,
-} from './SignUpForm.styles';
+} from "./SignUpForm.styles";
 
-import { Controller, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
-import { passwordPattern, emailPattern } from '@global/constants';
+import { passwordPattern, emailPattern } from "@global/constants";
 
-import { Button } from '@components/library/Button';
-import { useRegisterUser } from '../../../networking/network-hooks/useRegisterUser';
-import { useStoreActions } from '@redux/typed-hooks';
+import { Button } from "@components/library/Button";
+import { useRegisterUser } from "@networking/network-hooks/useRegisterUser";
+import { useStoreActions } from "@redux/typed-hooks";
 
-import { RoutePaths } from '@routing/router';
-import { UserEndpoints } from '@features/authentication/user.constants';
-import { ColorOptions } from '@global/theme';
+import { RoutePaths } from "@routing/router";
+import { UserEndpoints } from "@features/authentication/user.constants";
+import { ColorOptions } from "@global/theme";
 
 export interface SignUpFormInputs {
   email: string;
@@ -64,7 +64,7 @@ const SignUpForm: FC = () => {
     registerUser(userData);
   };
 
-  const title = 'Please Sign up to continue';
+  const title = "Please Sign up to continue";
 
   const {
     control,
@@ -73,11 +73,11 @@ const SignUpForm: FC = () => {
     trigger,
   } = useForm<SignUpFormInputs>({
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
-    mode: 'onChange',
-    reValidateMode: 'onChange',
+    mode: "onChange",
+    reValidateMode: "onChange",
   });
 
   const handleChange = (name: keyof SignUpFormInputs) => {
@@ -98,10 +98,10 @@ const SignUpForm: FC = () => {
               </StyledSignUpForm.Label>
               <StyledSignUpFormControl
                 {...field}
-                data-testid="email"
+                data-cy="signup-email"
                 onChange={(e) => {
                   field.onChange(e);
-                  handleChange('email');
+                  handleChange("email");
                 }}
                 placeholder="Email"
               />
@@ -111,10 +111,10 @@ const SignUpForm: FC = () => {
             </>
           )}
           rules={{
-            required: 'Email is required',
+            required: "Email is required",
             pattern: {
               value: emailPattern,
-              message: 'Please provide a valid email address',
+              message: "Please provide a valid email address",
             },
           }}
         />
@@ -128,10 +128,10 @@ const SignUpForm: FC = () => {
               </StyledSignUpForm.Label>
               <StyledSignUpFormControl
                 {...field}
-                data-testid="password"
+                data-cy="signup-password"
                 onChange={(e) => {
                   field.onChange(e);
-                  handleChange('password');
+                  handleChange("password");
                 }}
                 placeholder="Password"
                 type="password"
@@ -142,10 +142,10 @@ const SignUpForm: FC = () => {
             </>
           )}
           rules={{
-            required: 'Password is required',
+            required: "Password is required",
             pattern: {
               value: passwordPattern,
-              message: '8+ chars, 1 uppercase, 1 special char, 1 number',
+              message: "8+ chars, 1 uppercase, 1 special char, 1 number",
             },
           }}
         />

@@ -1,5 +1,5 @@
-import { memo, FC, ReactNode } from 'react';
-import { StyledPokerTable } from './PokerTable.styles';
+import { memo, FC, ReactNode } from "react";
+import { StyledPokerTable } from "./PokerTable.styles";
 
 type PokerTableProps = {
   children: ReactNode;

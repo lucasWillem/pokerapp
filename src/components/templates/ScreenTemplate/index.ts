@@ -1,1 +1,1 @@
-export { default as ScreenTemplate } from './ScreenTemplate.template';
+export { default as ScreenTemplate } from "./ScreenTemplate.template";
