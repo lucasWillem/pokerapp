@@ -27,6 +27,7 @@ const Alert: FC<AlertProps> = ({
             variant="primary"
             dismissible
             color={color}
+            data-cy="alert"
           >
             {message}
           </StyledAlert>

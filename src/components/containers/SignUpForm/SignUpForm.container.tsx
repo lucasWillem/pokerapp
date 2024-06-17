@@ -98,7 +98,7 @@ const SignUpForm: FC = () => {
               </StyledSignUpForm.Label>
               <StyledSignUpFormControl
                 {...field}
-                data-testid="email"
+                data-cy="signup-email"
                 onChange={(e) => {
                   field.onChange(e);
                   handleChange("email");
@@ -128,7 +128,7 @@ const SignUpForm: FC = () => {
               </StyledSignUpForm.Label>
               <StyledSignUpFormControl
                 {...field}
-                data-testid="password"
+                data-cy="signup-password"
                 onChange={(e) => {
                   field.onChange(e);
                   handleChange("password");
