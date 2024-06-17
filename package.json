@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "test": "vite test",
     "format": "prettier --write .",
     "prepare": "husky install",
     "lint": "eslint --cache --fix \"src/**/*.{ts,tsx}\"",
