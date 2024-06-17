@@ -2,11 +2,11 @@ import styled, { css } from "styled-components";
 import { Dropdown, DropdownProps } from "react-bootstrap";
 import { ColorOptions } from "@global/theme";
 
-export interface StyledDropdownProps extends DropdownProps {
+export interface StyledDropDownProps extends DropdownProps {
   color?: ColorOptions;
 }
 
-const StyledDropdown = styled(Dropdown)(({
+const StyledDropDown = styled(Dropdown)(({
   theme,
   color = ColorOptions.Green,
 }) => {
@@ -50,4 +50,4 @@ const StyledDropdown = styled(Dropdown)(({
   });
 });
 
-export { StyledDropdown };
+export { StyledDropDown };

@@ -1,11 +1,4 @@
-import {
-  memo,
-  ReactNode,
-  FC,
-  CSSProperties,
-  useCallback,
-  useEffect,
-} from "react";
+import { memo, ReactNode, FC, CSSProperties, useCallback } from "react";
 import { StyledScreenTemplate } from "./ScreenTemplate.styles";
 import { Alert } from "@components/library/Alert";
 import { useStoreState, useStoreActions } from "@redux/index";
@@ -22,12 +15,6 @@ const ScreenTemplate: FC<ScreenWrapperProps> = ({
   const { isVisible, message, color } = useStoreState(
     (state) => state.alert.alertConfig,
   );
-
-  useEffect(() => {
-    throw new Error(
-      "useEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect ErroruseEffect Error",
-    );
-  }, []);
 
   const configureAlert = useStoreActions(
     (actions) => actions.alert.configureAlert,
