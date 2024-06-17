@@ -1,4 +1,4 @@
-import { HandEvalutorsContext, PairEvaluator } from "../index";
+import { HandEvalutorsContext, PairEvaluator } from "../../index";
 import {
   mockHandLegitRoyalFlush,
   mockLegitFlush,

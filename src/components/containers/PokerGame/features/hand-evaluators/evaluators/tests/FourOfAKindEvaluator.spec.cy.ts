@@ -1,7 +1,4 @@
-import {
-  HandEvalutorsContext,
-  FourOfAKindEvaluator,
-} from "../../hand-evaluators";
+import { HandEvalutorsContext, FourOfAKindEvaluator } from "../..";
 import {
   mockLegitThreeOfAKind,
   mockLegitFourOfAKind,

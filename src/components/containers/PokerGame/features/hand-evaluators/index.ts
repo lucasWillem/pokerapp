@@ -1,4 +1,4 @@
-import HandEvalutorsContext from "./HandEvalutorsContext";
+import HandEvalutorsContext from "./evaluators/HandEvalutorsContext";
 import RoyalFlushEvaluator from "./evaluators/RoyalFlushEvaluator";
 import StraighFlushEvaluator from "./evaluators/StraighFlushEvaluator";
 import FourOfAKindEvaluator from "./evaluators/FourOfAKindEvaluator";

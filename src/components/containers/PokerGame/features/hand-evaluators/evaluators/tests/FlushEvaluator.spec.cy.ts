@@ -1,4 +1,4 @@
-import { HandEvalutorsContext, FlushEvaluator } from "../";
+import { HandEvalutorsContext, FlushEvaluator } from "../..";
 import {
   mockFlushSameSuitButInSequence,
   mockHandLegitRoyalFlush,

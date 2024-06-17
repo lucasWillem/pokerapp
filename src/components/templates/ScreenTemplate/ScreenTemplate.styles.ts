@@ -3,7 +3,9 @@ import { Container } from "react-bootstrap";
 
 const StyledScreenTemplate = styled(Container)(({ theme }) =>
   css({
-    padding: "5%",
+    paddingTop: "15%",
+    paddingLeft: 50,
+    paddingRight: 50,
     background: theme.colors.black,
     display: "flex",
     flexDirection: "column",

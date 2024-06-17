@@ -1,5 +1,5 @@
-import Dropdown from "../DropDown.library";
-import withProviders from "../../../../../cypress/utils";
+import { Dropdown } from ".";
+import { withProviders } from "../../../../cypress";
 
 describe("Dropdown.tsx", () => {
   const selectedDropdown = "[data-cy=dropdown]";

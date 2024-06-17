@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 const PokerGame = styled.div(() =>
   css({
     height: "100vh",
-    width: "100%",
   }),
 );
 

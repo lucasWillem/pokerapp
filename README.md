@@ -46,8 +46,8 @@ Open your browser and navigate to http://localhost:5173 to see the app
 
 ## Run Automated Tests
 
-- **yarn cypress:open**
-- **yarn cypress:run**
+- **yarn cypress:run:component**
+- **yarn cypress:run:e2e**
 
 ## Design Patterns
 
