@@ -4,6 +4,7 @@ import {
   StyledLoginForm,
   StyledInputTemplate,
   StyledHelperText,
+  StyledButtonsContainer,
 } from "./LoginForm.styles";
 
 import { Controller, useForm } from "react-hook-form";
@@ -11,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 
 import { PASSWORD_PATTERN, EMAIL_PATTERN } from "@global/constants";
 import { Button } from "@components/library/Button";
-import { Container } from "react-bootstrap";
 import { RoutePaths } from "@routing/index";
 import { useLoginUser } from "@networking/network-hooks/useLoginUser";
 import { useStoreActions } from "@redux/index";
@@ -144,7 +144,7 @@ const LoginForm: FC = () => {
         />
       </StyledInputTemplate>
 
-      <Container>
+      <StyledButtonsContainer>
         <Button style={{ width: 100 }} disabled={!isValid} type="submit">
           Log In
         </Button>
@@ -155,7 +155,7 @@ const LoginForm: FC = () => {
         >
           {`I don't have an account`}
         </Button>
-      </Container>
+      </StyledButtonsContainer>
     </StyledLoginForm>
   );
 };

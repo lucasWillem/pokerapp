@@ -1,9 +1,15 @@
-import { Form } from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
 import styled, { css } from "styled-components";
 
 const StyledLoginForm = styled(Form)(() =>
   css({
-    width: "80%",
+    width: "35%",
+    "@media (max-width: 900px)": {
+      width: "50%",
+    },
+    "@media (max-width: 600px)": {
+      width: "80%",
+    },
   }),
 );
 
@@ -22,4 +28,13 @@ const StyledHelperText = styled(Form.Text)(({ theme }) =>
   }),
 );
 
-export { StyledLoginForm, StyledInputTemplate, StyledHelperText };
+const StyledButtonsContainer = styled(Container)(() =>
+  css({ display: "flex", flexDirection: "column", alignItems: "center" }),
+);
+
+export {
+  StyledLoginForm,
+  StyledInputTemplate,
+  StyledHelperText,
+  StyledButtonsContainer,
+};
