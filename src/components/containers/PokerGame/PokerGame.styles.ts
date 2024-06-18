@@ -22,6 +22,7 @@ const PlayerSelectionFlexWrapper = styled.div(() =>
 const BottomActionButtonsContainer = styled.div(() =>
   css({
     marginTop: 24,
+    marginBottom: 16,
   }),
 );
 
