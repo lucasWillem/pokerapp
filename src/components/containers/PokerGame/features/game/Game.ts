@@ -16,7 +16,7 @@ import {
 } from "../hand-evaluators";
 
 import type { Hand } from "../../PokerGame.types";
-import type { PlayerRank } from "./types";
+import { WinningHand, type PlayerRank } from "./types";
 
 export default abstract class Game {
   static getHands({ noOfPlayers = 2 }: { noOfPlayers?: number }): Hand[] {
@@ -86,27 +86,51 @@ export default abstract class Game {
       ).evaluate();
 
       if (isRoyalFlush) {
-        rankOfGoodHand.push({ player: i, rank: 10 });
+        rankOfGoodHand.push({
+          player: i,
+          rank: 10,
+          name: WinningHand.RoyalFlush,
+        });
       } else if (isStraightFlush) {
-        rankOfGoodHand.push({ player: i, rank: 9 });
+        rankOfGoodHand.push({
+          player: i,
+          rank: 9,
+          name: WinningHand.StraightFlush,
+        });
       } else if (isFourOfAKind) {
-        rankOfGoodHand.push({ player: i, rank: 8 });
+        rankOfGoodHand.push({
+          player: i,
+          rank: 8,
+          name: WinningHand.FourOfAKind,
+        });
       } else if (isFullHouse) {
-        rankOfGoodHand.push({ player: i, rank: 7 });
+        rankOfGoodHand.push({
+          player: i,
+          rank: 7,
+          name: WinningHand.FullHouse,
+        });
       } else if (isFlush) {
-        rankOfGoodHand.push({ player: i, rank: 6 });
+        rankOfGoodHand.push({ player: i, rank: 6, name: WinningHand.Flush });
       } else if (isStraight) {
-        rankOfGoodHand.push({ player: i, rank: 5 });
+        rankOfGoodHand.push({ player: i, rank: 5, name: WinningHand.Straight });
       } else if (isThreeOfAKind) {
-        rankOfGoodHand.push({ player: i, rank: 4 });
+        rankOfGoodHand.push({
+          player: i,
+          rank: 4,
+          name: WinningHand.ThreeOfAKind,
+        });
       } else if (isTwoPair) {
-        rankOfGoodHand.push({ player: i, rank: 3 });
+        rankOfGoodHand.push({ player: i, rank: 3, name: WinningHand.TwoPair });
       } else if (isPair) {
-        rankOfGoodHand.push({ player: i, rank: 2 });
+        rankOfGoodHand.push({ player: i, rank: 2, name: WinningHand.Pair });
       } else {
         const highestCard = hand.sort((a, b) => b.number - a.number)[0].number;
 
-        rankOfBadHand.push({ player: i, rank: highestCard });
+        rankOfBadHand.push({
+          player: i,
+          rank: highestCard,
+          name: WinningHand.HighCard,
+        });
       }
     });
 
@@ -127,10 +151,12 @@ export default abstract class Game {
         .join(", ")
         .toString();
 
-      const drawMessage = `Congratulations players ${winnersByPlayerNumber}`;
+      const winningHand = winners[0].name;
+
+      const drawMessage = `Congratulations players ${winnersByPlayerNumber} with a ${winningHand}!`;
       const singleWinnerMessage = `Congratulations player ${
         winners[0].player + 1
-      }`;
+      } with a ${winningHand}!`;
 
       return winners.length > 1 ? drawMessage : singleWinnerMessage;
     }
@@ -138,7 +164,7 @@ export default abstract class Game {
     if (rankOfGoodHand.length === 1) {
       const singleWinnerMessage = `Congratulations player ${
         rankOfGoodHand[0].player + 1
-      }`;
+      } with a ${rankOfGoodHand[0].name}`;
       return singleWinnerMessage;
     }
 
@@ -152,10 +178,12 @@ export default abstract class Game {
         .join(", ")
         .toString();
 
-      const drawMessage = `Congratulations players ${winnersByPlayerNumber}`;
+      const winningHand = winners[0].name;
+
+      const drawMessage = `Congratulations players ${winnersByPlayerNumber} with a ${winningHand}!`;
       const singleWinnerMessage = `Congratulations player ${
         winners[0].player + 1
-      }`;
+      } with a ${winningHand}!`;
 
       return winners.length > 1 ? drawMessage : singleWinnerMessage;
     }
