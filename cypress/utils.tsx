@@ -1,11 +1,13 @@
 import React from "react";
+
 import { mount } from "@cypress/react18";
 import { StoreProvider } from "easy-peasy";
 import { ThemeProvider } from "styled-components";
-import { NetworkProvider } from "@networking/NetworkProvider";
-import { store } from "@redux/store";
-import theme from "@global/theme";
-import { Router } from "@routing/router";
+
+import { NetworkProvider } from "@networking/index";
+import { store } from "@redux/index";
+import { theme } from "@global/theme";
+import { Router } from "@routing/index";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/App.css";
 

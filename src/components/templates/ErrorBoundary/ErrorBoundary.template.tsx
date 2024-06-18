@@ -1,4 +1,5 @@
 import { memo, ReactNode, FC } from "react";
+
 import { ErrorBoundary as ReactErrorBoundary } from "react-error-boundary";
 import {
   StyledErrorBoundaryWrapper,

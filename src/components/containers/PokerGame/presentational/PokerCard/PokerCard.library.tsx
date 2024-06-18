@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
-import type { Card } from "@global/types";
-import { StyledCard, TopRow, BottomRow, MiddleRow } from "./PokerCard.styles";
 
+import type { Card } from "../../PokerGame.types";
+import { StyledCard, TopRow, BottomRow, MiddleRow } from "./PokerCard.styles";
 import {
   SuitClubFill,
   SuitDiamondFill,
@@ -16,19 +16,19 @@ interface PokerCardProps {
 const PokerCard: FC<PokerCardProps> = ({ pokerCard }) => {
   const renderSuite = () => {
     if (pokerCard.suit === "spades") {
-      return <SuitSpadeFill style={{ fontSize: 25 }} />;
+      return <SuitSpadeFill style={{ fontSize: 15 }} />;
     }
 
     if (pokerCard.suit === "clubs") {
-      return <SuitClubFill style={{ fontSize: 25 }} />;
+      return <SuitClubFill style={{ fontSize: 15 }} />;
     }
 
     if (pokerCard.suit === "hearts") {
-      return <SuitHeartFill style={{ fontSize: 25 }} />;
+      return <SuitHeartFill style={{ fontSize: 15 }} />;
     }
 
     if (pokerCard.suit === "diamonds") {
-      return <SuitDiamondFill style={{ fontSize: 25 }} />;
+      return <SuitDiamondFill style={{ fontSize: 15 }} />;
     }
   };
 

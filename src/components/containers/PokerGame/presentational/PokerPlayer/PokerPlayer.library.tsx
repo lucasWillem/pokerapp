@@ -1,7 +1,8 @@
 import { FC, memo } from "react";
-import type { Hand } from "@global/types";
+
 import { StyledPokerPlayer, PlayerName } from "./PokerPlayer.styles";
 import { useSpring } from "react-spring";
+import type { Hand } from "../../PokerGame.types";
 
 type PokerPlayerProps = {
   name: string;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@components/library/Button";
 import { withProviders } from "../../../../cypress";
-import theme, { ColorOptions } from "@global/theme";
+import { theme, ColorOptions } from "@global/theme";
 
 describe("Button.tsx", () => {
   const selectedButton = "[data-cy=button]";

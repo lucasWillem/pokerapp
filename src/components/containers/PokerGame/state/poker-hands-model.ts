@@ -1,5 +1,10 @@
-import { action } from "easy-peasy";
-import type { PokerHandsModel } from "@redux/types";
+import { Action, action } from "easy-peasy";
+import type { Hand } from "../PokerGame.types";
+export interface PokerHandsModel {
+  pokerHands: Hand[];
+  storePokerHands: Action<PokerHandsModel, Hand[]>;
+  clearPokerHands: Action<PokerHandsModel>;
+}
 
 const pokerHandsModel: PokerHandsModel = {
   pokerHands: [],
