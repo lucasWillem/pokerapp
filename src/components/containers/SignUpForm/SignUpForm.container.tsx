@@ -5,11 +5,11 @@ import {
   StyledSignUpFormControl,
   StyledInputTemplate,
   StyledHelperText,
+  StyledButtonsContainer,
 } from "./SignUpForm.styles";
 
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { Container } from "react-bootstrap";
 
 import { PASSWORD_PATTERN, EMAIL_PATTERN } from "@global/constants";
 
@@ -150,7 +150,9 @@ const SignUpForm: FC = () => {
           }}
         />
       </StyledInputTemplate>
-      <Container>
+      <StyledButtonsContainer
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <Button style={{ width: 100 }} disabled={!isValid} type="submit">
           Sign Up
         </Button>
@@ -161,7 +163,7 @@ const SignUpForm: FC = () => {
         >
           I already have an account
         </Button>
-      </Container>
+      </StyledButtonsContainer>
     </StyledSignUpForm>
   );
 };

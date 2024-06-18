@@ -1,10 +1,16 @@
-import { Form, FormProps } from "react-bootstrap";
+import { Form, FormProps, Container } from "react-bootstrap";
 import styled, { css } from "styled-components";
 import { ColorOptions } from "@global/theme";
 
 const StyledSignUpForm = styled(Form)(() =>
   css({
-    width: "80%",
+    width: "35%",
+    "@media (max-width: 900px)": {
+      width: "50%",
+    },
+    "@media (max-width: 600px)": {
+      width: "80%",
+    },
   }),
 );
 
@@ -38,9 +44,14 @@ const StyledHelperText = styled(Form.Text)(({ theme }) =>
   }),
 );
 
+const StyledButtonsContainer = styled(Container)(() =>
+  css({ display: "flex", flexDirection: "column", alignItems: "center" }),
+);
+
 export {
   StyledSignUpForm,
   StyledInputTemplate,
   StyledHelperText,
   StyledSignUpFormControl,
+  StyledButtonsContainer,
 };
