@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { PrivateRoutes } from "./PrivateRoutes";
 import { PublicRoutes } from "./PublicRoutes";
-import { useCheckIfUser } from "@features/authentication/useCheckIfUser";
+
+import { ColorOptions } from "@global/theme";
+import { useCheckIfUser } from "@authentication/useCheckIfUser";
 
 const LoginPage = lazy(() =>
   import("@pages/index").then((module) => ({
@@ -46,7 +48,9 @@ export const Router: FC<RouterProps> = ({ children }) => {
   return (
     <BrowserRouter>
       {children}
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense
+        fallback={<p style={{ color: ColorOptions.Gold }}>Loading...</p>}
+      >
         <Routes>
           <Route element={<PrivateRoutes isAuthenticated={isAuthenticated} />}>
             <Route path={RoutePaths.Game} element={<GamePage />} />

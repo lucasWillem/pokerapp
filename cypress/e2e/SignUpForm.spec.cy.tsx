@@ -1,7 +1,4 @@
-enum UserEndpoints {
-  Register = "http://localhost:1337/api/auth/local/register",
-  Login = "http://localhost:1337/api/auth/local",
-}
+import { AuthenticationEndPoints } from "@networking/constants";
 
 enum WaitTimes {
   Short = 2000,
@@ -19,12 +16,12 @@ const user = {
   username: "testuser",
 };
 
-describe("Registration form", () => {
+describe("Signup form", () => {
   beforeEach(() => {
     cy.visit("/signup");
   });
 
-  it.skip("1. will disable submit button if email or password fails validation", () => {
+  it("1. will disable submit button if email or password fails validation", () => {
     cy.wait(WaitTimes.Long);
 
     //email validation failure
@@ -41,7 +38,7 @@ describe("Registration form", () => {
     cy.get("[data-cy=button]").first().should("not.be.disabled");
   });
 
-  it.skip("2. displays an error message in an alert on API error", () => {
+  it("2. displays an error message in an alert on API error", () => {
     const errorMessage = "User already exists";
 
     cy.wait(WaitTimes.Long);
@@ -51,7 +48,7 @@ describe("Registration form", () => {
 
     cy.get("[data-cy=button]").first().click();
 
-    cy.intercept("POST", UserEndpoints.Register, {
+    cy.intercept("POST", AuthenticationEndPoints.Register, {
       statusCode: 400,
       body: {
         error: {
@@ -71,7 +68,7 @@ describe("Registration form", () => {
 
     cy.get("[data-cy=button]").first().click();
 
-    cy.intercept("POST", UserEndpoints.Register, {
+    cy.intercept("POST", AuthenticationEndPoints.Register, {
       statusCode: 200,
       body: user,
     }).as("registerRequest");

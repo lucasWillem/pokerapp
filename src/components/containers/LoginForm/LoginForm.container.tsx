@@ -4,19 +4,19 @@ import {
   StyledLoginForm,
   StyledInputTemplate,
   StyledHelperText,
+  StyledButtonsContainer,
 } from "./LoginForm.styles";
 
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { passwordPattern, emailPattern } from "@global/constants";
+import { PASSWORD_PATTERN, EMAIL_PATTERN } from "@global/constants";
 import { Button } from "@components/library/Button";
-import { Container } from "react-bootstrap";
-import { RoutePaths } from "@routing/router";
+import { RoutePaths } from "@routing/index";
 import { useLoginUser } from "@networking/network-hooks/useLoginUser";
-import { UserEndpoints } from "@features/authentication/user.constants";
-import { useStoreActions } from "@redux/typed-hooks";
+import { useStoreActions } from "@redux/index";
 import { ColorOptions } from "@global/theme";
+import { AuthenticationEndPoints } from "@networking/constants";
 
 export interface LoginFormInputs {
   email: string;
@@ -57,7 +57,7 @@ const LoginForm: FC = () => {
   };
 
   const { mutate: loginUser } = useLoginUser({
-    url: UserEndpoints.Login,
+    url: AuthenticationEndPoints.Login,
     options: {
       onError: (error: Error) => {
         configureAlert({
@@ -106,7 +106,7 @@ const LoginForm: FC = () => {
           rules={{
             required: "Email is required",
             pattern: {
-              value: emailPattern,
+              value: EMAIL_PATTERN,
               message: "Please provide a valid email address",
             },
           }}
@@ -137,14 +137,14 @@ const LoginForm: FC = () => {
           rules={{
             required: "Password is required",
             pattern: {
-              value: passwordPattern,
+              value: PASSWORD_PATTERN,
               message: "8+ chars, 1 uppercase, 1 special char, 1 number",
             },
           }}
         />
       </StyledInputTemplate>
 
-      <Container>
+      <StyledButtonsContainer>
         <Button style={{ width: 100 }} disabled={!isValid} type="submit">
           Log In
         </Button>
@@ -155,7 +155,7 @@ const LoginForm: FC = () => {
         >
           {`I don't have an account`}
         </Button>
-      </Container>
+      </StyledButtonsContainer>
     </StyledLoginForm>
   );
 };

@@ -1,9 +1,13 @@
 import styled, { css } from "styled-components";
 
-const PokerGame = styled.div(() =>
+const StyledPokerGame = styled.div(() =>
   css({
-    height: "100vh",
-    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    minWidth: "100%",
+    minHeight: "100vh",
   }),
 );
 
@@ -12,14 +16,13 @@ const PlayerSelectionFlexWrapper = styled.div(() =>
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: "50px",
-    width: "100%",
   }),
 );
 
 const BottomActionButtonsContainer = styled.div(() =>
   css({
-    margin: "50px",
+    marginTop: 24,
+    marginBottom: 16,
   }),
 );
 
@@ -32,7 +35,7 @@ const PokerHand = styled.div(() =>
 );
 
 export {
-  PokerGame,
+  StyledPokerGame,
   PlayerSelectionFlexWrapper,
   BottomActionButtonsContainer,
   PokerHand,

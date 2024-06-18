@@ -1,42 +1,11 @@
-import { Action } from "easy-peasy";
-import { Hand } from "@global/types";
-import { ColorOptions } from "@global/theme";
-
-export interface PokerHandsModel {
-  pokerHands: Hand[];
-  storePokerHands: Action<PokerHandsModel, Hand[]>;
-  clearPokerHands: Action<PokerHandsModel>;
-}
-export interface User {
-  username: string;
-  jwt: string;
-}
-
-export interface UserModel {
-  user?: User;
-  storeUser: Action<UserModel, User>;
-  clearUser: Action<UserModel>;
-}
-
-interface alert {
-  isVisible: boolean;
-  message: string;
-  color?: ColorOptions;
-}
-export interface AlertModel {
-  alertConfig: alert;
-  configureAlert: Action<AlertModel, alert>;
-}
+import type { UserModel } from "@authentication/user-model";
+import type { AlertModel } from "@components/templates/ScreenTemplate/state/alert-model";
+import type { PokerHandsModel } from "@components/containers/PokerGame/state/poker-hands-model";
+import type { WinnersModel } from "@components/containers/PokerGame/state/winners-model";
 
 export interface StoreModel {
   playersHands: PokerHandsModel;
   alert: AlertModel;
   winners: WinnersModel;
   user: UserModel;
-}
-
-export interface WinnersModel {
-  winners: number[];
-  storeWinners: Action<WinnersModel, number[]>;
-  clearWinners: Action<WinnersModel>;
 }
