@@ -1,1 +1,1 @@
-export const NUM_PLAYER_OPTIONS = [4, 8];
+export const NUM_PLAYER_OPTIONS = [6, 8, 10, 12];
