@@ -1,5 +1,7 @@
 import { memo, ReactNode, FC, CSSProperties, useCallback } from "react";
+
 import { StyledScreenTemplate } from "./ScreenTemplate.styles";
+
 import { Alert } from "@components/library/Alert";
 import { useStoreState, useStoreActions } from "@redux/index";
 
@@ -25,7 +27,7 @@ const ScreenTemplate: FC<ScreenWrapperProps> = ({
   }, [configureAlert]);
 
   return (
-    <StyledScreenTemplate style={containerStyle} fluid>
+    <StyledScreenTemplate style={containerStyle}>
       <Alert
         isVisible={isVisible}
         handleOnModalClose={handleOnModalClose}

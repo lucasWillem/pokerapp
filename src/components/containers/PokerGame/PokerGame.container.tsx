@@ -2,22 +2,22 @@ import React, { FC, memo, useCallback, useState } from "react";
 
 import Game from "./features/game";
 import {
-  PokerGame,
+  StyledPokerGame,
   PlayerSelectionFlexWrapper,
   BottomActionButtonsContainer,
   PokerHand,
 } from "./PokerGame.styles";
 
-import { Hand } from "@global/types";
-
-import { PokerTable } from "@components/library/PokerTable";
-import { PokerCard } from "@components/library/PokerCard";
-import { PokerPlayer } from "@components/library/PokerPlayer";
+import type { Hand } from "./PokerGame.types";
+import { PokerTable } from "@components/containers/PokerGame/presentational/PokerTable";
+import { PokerCard } from "@components/containers/PokerGame/presentational/PokerCard";
+import { PokerPlayer } from "@components/containers/PokerGame/presentational/PokerPlayer";
 
 import { useStoreActions, useStoreState } from "@redux/index";
 import { Button } from "@components/library/Button";
 import { ColorOptions } from "@global/theme";
 import { Dropdown } from "@components/library/Dropdown";
+import { NUM_PLAYER_OPTIONS } from "./constants";
 
 const GameContainer: FC = () => {
   const [numberOfPlayers, setNumberOfPlayers] = useState(0);
@@ -95,9 +95,9 @@ const GameContainer: FC = () => {
   );
 
   return (
-    <PokerGame>
+    <StyledPokerGame>
       <>
-        {pokerHands.length === 0 && (
+        {pokerHands.length === 0 ? (
           <PlayerSelectionFlexWrapper>
             <Dropdown
               title={
@@ -105,7 +105,7 @@ const GameContainer: FC = () => {
                   ? `${numberOfPlayers}`
                   : "Select Number Of Players"
               }
-              menuItems={[2, 3, 4, 5, 6]}
+              menuItems={NUM_PLAYER_OPTIONS}
               makeSelection={storeNumberOfPlayers}
               activeItem={numberOfPlayers}
             />
@@ -113,42 +113,43 @@ const GameContainer: FC = () => {
               Start game
             </Button>
           </PlayerSelectionFlexWrapper>
-        )}
-        <>
-          <PokerTable>
-            {pokerHands.map((hand, index) => {
-              const playerNumber = index + 1;
-              return (
-                <PokerPlayer
-                  key={`${hand}-${index}`}
-                  name={`Player ${playerNumber}`}
-                  hand={hand}
-                  renderHand={renderHand}
-                  index={index}
-                  shouldRenderCard={getCardVisibility(index, playerNumber)}
-                />
-              );
-            })}
-          </PokerTable>
+        ) : (
+          <>
+            <PokerTable>
+              {pokerHands.map((hand, index) => {
+                const playerNumber = index + 1;
+                return (
+                  <PokerPlayer
+                    key={`${hand}-${index}`}
+                    name={`Player ${playerNumber}`}
+                    hand={hand}
+                    renderHand={renderHand}
+                    index={index}
+                    shouldRenderCard={getCardVisibility(index, playerNumber)}
+                  />
+                );
+              })}
+            </PokerTable>
 
-          <BottomActionButtonsContainer>
-            {pokerHands.length > 0 && (
-              <Button
-                onClick={handleDetermineWinner}
-                disabled={winners.length > 0}
-              >
-                Determine Winner
-              </Button>
-            )}
-            {pokerHands.length > 0 && (
-              <Button onClick={handleReplay} disabled={winners.length === 0}>
-                Replay
-              </Button>
-            )}
-          </BottomActionButtonsContainer>
-        </>
+            <BottomActionButtonsContainer>
+              {pokerHands.length > 0 && (
+                <Button
+                  onClick={handleDetermineWinner}
+                  disabled={winners.length > 0}
+                >
+                  Determine Winner
+                </Button>
+              )}
+              {pokerHands.length > 0 && (
+                <Button onClick={handleReplay} disabled={winners.length === 0}>
+                  Replay
+                </Button>
+              )}
+            </BottomActionButtonsContainer>
+          </>
+        )}
       </>
-    </PokerGame>
+    </StyledPokerGame>
   );
 };
 

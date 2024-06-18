@@ -1,5 +1,15 @@
-import { action } from "easy-peasy";
-import type { UserModel } from "@redux/types";
+import { Action, action } from "easy-peasy";
+
+interface User {
+  username: string;
+  jwt: string;
+}
+
+export interface UserModel {
+  user?: User;
+  storeUser: Action<UserModel, User>;
+  clearUser: Action<UserModel>;
+}
 
 const userModel: UserModel = {
   user: undefined,

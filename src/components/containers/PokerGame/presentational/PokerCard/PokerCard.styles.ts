@@ -2,10 +2,10 @@ import styled, { css } from "styled-components";
 
 const StyledCard = styled.div(() =>
   css({
-    height: "100px",
-    width: "70px",
+    height: 70,
+    width: 45,
     borderRadius: "2px",
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "white",
     border: "1px solid black",
     display: "flex",
     flexDirection: "column",
@@ -19,7 +19,7 @@ const TopRow = styled.div(() =>
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    padding: "5px",
+    paddingLeft: 5,
   }),
 );
 
@@ -36,7 +36,7 @@ const BottomRow = styled.div(() =>
     flexDirection: "row",
     justifyContent: "flex-end",
     alignItems: "center",
-    padding: "5px",
+    paddingRight: 5,
   }),
 );
 

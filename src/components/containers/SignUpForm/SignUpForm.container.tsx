@@ -11,13 +11,13 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
-import { passwordPattern, emailPattern } from "@global/constants";
+import { PASSWORD_PATTERN, EMAIL_PATTERN } from "@global/constants";
 
 import { Button } from "@components/library/Button";
 import { useRegisterUser } from "@networking/network-hooks/useRegisterUser";
-import { useStoreActions } from "@redux/typed-hooks";
+import { useStoreActions } from "@redux/index";
 
-import { RoutePaths } from "@routing/router";
+import { RoutePaths } from "@routing/index";
 import { ColorOptions } from "@global/theme";
 import { AuthenticationEndPoints } from "@networking/constants";
 
@@ -113,7 +113,7 @@ const SignUpForm: FC = () => {
           rules={{
             required: "Email is required",
             pattern: {
-              value: emailPattern,
+              value: EMAIL_PATTERN,
               message: "Please provide a valid email address",
             },
           }}
@@ -144,7 +144,7 @@ const SignUpForm: FC = () => {
           rules={{
             required: "Password is required",
             pattern: {
-              value: passwordPattern,
+              value: PASSWORD_PATTERN,
               message: "8+ chars, 1 uppercase, 1 special char, 1 number",
             },
           }}

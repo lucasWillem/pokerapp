@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { PrivateRoutes } from "./PrivateRoutes";
 import { PublicRoutes } from "./PublicRoutes";
-import { useCheckIfUser } from "@features/authentication/useCheckIfUser";
+
 import { ColorOptions } from "@global/theme";
+import { useCheckIfUser } from "@authentication/useCheckIfUser";
 
 const LoginPage = lazy(() =>
   import("@pages/index").then((module) => ({

@@ -1,5 +1,5 @@
 import type { HandEvaluator } from "../types";
-import type { Hand } from "@global/types";
+import type { Hand } from "../../../PokerGame.types";
 
 export default class StraightEvaluator implements HandEvaluator {
   constructor(private hand: Hand) {}

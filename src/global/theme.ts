@@ -13,7 +13,7 @@ const theme = {
   fonts: ["Arial", "sans-serif"],
 };
 
-export enum ColorOptions {
+enum ColorOptions {
   Black = "black",
   Red = "red",
   Green = "green",
@@ -25,4 +25,4 @@ export enum ColorOptions {
   Light = "light",
 }
 
-export default theme;
+export { theme, ColorOptions };

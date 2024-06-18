@@ -6,8 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { StoreProvider } from "easy-peasy";
 import { ThemeProvider } from "styled-components";
 
-import { store } from "@redux/store";
-import theme from "@global/theme";
+import { store } from "@redux/index";
+import { theme } from "@global/theme";
 import { NetworkProvider } from "@networking/index";
 import { ErrorBoundary } from "@components/templates/ErrorBoundary";
 

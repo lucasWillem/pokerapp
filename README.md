@@ -46,8 +46,8 @@ Open your browser and navigate to http://localhost:5173 to see the app
 
 ## Run Automated Tests
 
-- **yarn cypress:run:component**
-- **yarn cypress:run:e2e**
+- **yarn cypress:run:component**: This command will run component tests and unit tests for hand evaluators.
+- **yarn cypress:run:e2e**: This command runs end-to-end (e2e) tests.
 
 ## Design Patterns
 

@@ -1,4 +1,4 @@
-import type { CardDeck, CardNumber } from "@global/types";
+import type { CardDeck, CardNumber } from "../../../PokerGame.types";
 import type { DeckCreator } from "../types";
 
 export default class DefaultDeckCreator implements DeckCreator {

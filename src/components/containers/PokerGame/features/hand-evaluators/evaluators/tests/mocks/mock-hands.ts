@@ -1,4 +1,4 @@
-import { Hand } from "@global/types";
+import type { Hand } from "../../../../../PokerGame.types";
 export const mockHandLegitRoyalFlush: Hand = [
   {
     number: 1,

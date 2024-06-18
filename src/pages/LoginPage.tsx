@@ -1,6 +1,7 @@
+import { FC, memo } from "react";
+
 import { LoginForm } from "@components/containers/LoginForm";
 import { ScreenTemplate } from "@components/templates/ScreenTemplate";
-import { FC, memo } from "react";
 
 const LoginPage: FC = () => {
   return (
