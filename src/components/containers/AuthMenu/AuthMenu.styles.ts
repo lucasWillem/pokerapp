@@ -1,5 +1,5 @@
 import { Dropdown, DropdownProps } from "react-bootstrap";
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 import { styled, css } from "styled-components";
 
 export interface StyledAuthMenuProps extends DropdownProps {

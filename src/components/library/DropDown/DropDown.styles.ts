@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Dropdown, DropdownProps } from "react-bootstrap";
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 
 export interface StyledDropDownProps extends DropdownProps {
   color?: ColorOptions;

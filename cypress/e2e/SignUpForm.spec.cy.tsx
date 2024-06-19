@@ -1,4 +1,4 @@
-import { AuthenticationEndPoints } from "@networking/constants";
+import { AuthenticationEndPoints } from "@/networking/constants";
 
 enum WaitTimes {
   Short = 2000,

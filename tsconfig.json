@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -15,31 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@authentication/*": ["src/authentication/*"],
-      "@global/*": ["src/global/*"],
-      "@networking/*": ["src/networking/*"],
-      "@pages/*": ["src/pages/*"],
-      "@redux/*": ["src/redux/*"],
-      "@routing/*": ["src/routing/*"]
-    }
+    "jsx": "react-jsx"
   },
-  "include": [
-    "src",
-    "cypress/e2e/SignUpForm.spec.cy.tsx",
-    "src/components/library/Alert/Alert.spec.cy.tsx",
-    "src/components/library/Dropdown/Dropdown.spec.cy.tsx",
-    "src/components/library/Button/Button.spec.cy.tsx",
-    "src/components/containers/PokerGame/features/hand-evaluators/TwoPairEvaluator.spec.cy.ts",
-    "src/components/containers/PokerGame/features/hand-evaluators/ThreeOfAKindEvaluator.spec.cy.ts",
-    "src/components/containers/PokerGame/features/hand-evaluators/FlushEvaluator.cy.ts",
-    "src/components/containers/PokerGame/features/hand-evaluators/FourOfAKindEvaluator.spec.cy.ts",
-    "src/components/containers/PokerGame/features/hand-evaluators/FullHouseEvaluator.spec.cy.ts",
-    "src/components/containers/PokerGame/features/hand-evaluators/PairEvaluator.spec.cy.ts",
-    "src/components/containers/PokerGame/features/hand-evaluators/RoyalFlushEvaluator.spec.cy.ts",
-    "src/components/containers/PokerGame/features/hand-evaluators/StraighFlushEvaluator.spec.cy.ts",
-    "src/components/containers/PokerGame/features/hand-evaluators/StraightEvaluator.spec.cy.ts"
-  ]
+  "include": ["src", "cypress/e2e/SignUpForm.spec.cy.tsx"]
 }

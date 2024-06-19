@@ -10,13 +10,13 @@ import {
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { PASSWORD_PATTERN, EMAIL_PATTERN } from "@global/constants";
-import { Button } from "@components/library/Button";
-import { RoutePaths } from "@routing/index";
-import { useLoginUser } from "@networking/network-hooks/useLoginUser";
-import { useStoreActions } from "@redux/index";
-import { ColorOptions } from "@global/theme";
-import { AuthenticationEndPoints } from "@networking/constants";
+import { PASSWORD_PATTERN, EMAIL_PATTERN } from "@/global/constants";
+import { Button } from "@/components/library/Button";
+import { RoutePaths } from "@/routing/index";
+import { useLoginUser } from "@/networking/network-hooks/useLoginUser";
+import { useStoreActions } from "@/redux/index";
+import { ColorOptions } from "@/global/theme";
+import { AuthenticationEndPoints } from "@/networking/constants";
 
 export interface LoginFormInputs {
   email: string;

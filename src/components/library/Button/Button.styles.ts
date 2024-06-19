@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Button, ButtonProps } from "react-bootstrap";
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 export interface StyledButtonProps extends ButtonProps {
   color?: ColorOptions;
 }
