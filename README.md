@@ -91,6 +91,18 @@ The application implements code splitting within its routing mechanism. This app
 
 This strategy is particularly beneficial for large-scale applications, ensuring that users receive a fast and efficient service regardless of the app's complexity or the speed of their internet connection.
 
+### Responsive Design Implementation
+
+Implementing responsive design ensures that the Poker App project is accessible and provides an optimal viewing experience across a wide range of devices, from desktops to mobile phones. This approach enhances user engagement by offering a seamless interaction regardless of the device's screen size or orientation.
+
+#### Strategies for Responsive Design:
+
+- **Fluid Layouts:** Utilize CSS flexbox and grid systems to create layouts, ensuring content is well-structured and readable on any device.
+
+- **Media Queries:** Employ media queries to apply different CSS styles for various screen sizes, improving the app's usability on devices with smaller screens such as smartphones and tablets.
+
+- **Scalable Vector Graphics (SVGs):** Use SVGs for icons and illustrations to ensure they remain crisp and clear at any resolution, enhancing the visual appeal of the app across devices.
+
 ## Proposed Optimizations
 
 ### Preact Signals for Hooks Replacement
