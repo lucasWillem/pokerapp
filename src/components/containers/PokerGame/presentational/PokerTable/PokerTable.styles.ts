@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 
 export interface StyledPokerTableProps {
   color?: ColorOptions;

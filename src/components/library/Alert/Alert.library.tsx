@@ -3,7 +3,7 @@ import { StyledAlert } from "./Alert.styles";
 
 import ClickAwayListener from "react-click-away-listener";
 import { AlertProps as BootstrapAlertProps } from "react-bootstrap";
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 
 export interface AlertProps extends BootstrapAlertProps {
   isVisible: boolean;

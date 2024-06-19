@@ -1,6 +1,6 @@
 import React from "react";
 import { Alert } from ".";
-import { theme, ColorOptions } from "@global/theme";
+import { theme, ColorOptions } from "@/global/theme";
 import { withProviders } from "../../../../cypress";
 
 const selectedAlert = "[data-cy=alert]";

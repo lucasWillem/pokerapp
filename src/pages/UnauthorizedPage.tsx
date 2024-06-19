@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 
-import { ScreenTemplate } from "@components/templates/ScreenTemplate";
+import { ScreenTemplate } from "@/components/templates/ScreenTemplate";
 
 const UnauthorizedPage: FC = () => {
   return (

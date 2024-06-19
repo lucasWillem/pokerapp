@@ -1,6 +1,6 @@
 import { Form, FormProps, Container } from "react-bootstrap";
 import styled, { css } from "styled-components";
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 
 const StyledSignUpForm = styled(Form)(() =>
   css({

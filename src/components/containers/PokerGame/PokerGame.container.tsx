@@ -9,14 +9,14 @@ import {
 } from "./PokerGame.styles";
 
 import type { Hand } from "./PokerGame.types";
-import { PokerTable } from "@components/containers/PokerGame/presentational/PokerTable";
-import { PokerCard } from "@components/containers/PokerGame/presentational/PokerCard";
-import { PokerPlayer } from "@components/containers/PokerGame/presentational/PokerPlayer";
+import { PokerTable } from "@/components/containers/PokerGame/presentational/PokerTable";
+import { PokerCard } from "@/components/containers/PokerGame/presentational/PokerCard";
+import { PokerPlayer } from "@/components/containers/PokerGame/presentational/PokerPlayer";
 
-import { useStoreActions, useStoreState } from "@redux/index";
-import { Button } from "@components/library/Button";
-import { ColorOptions } from "@global/theme";
-import { Dropdown } from "@components/library/Dropdown";
+import { useStoreActions, useStoreState } from "@/redux/index";
+import { Button } from "@/components/library/Button";
+import { ColorOptions } from "@/global/theme";
+import { DropDownMenu } from "@/components/library/DropDownMenu";
 import { NUM_PLAYER_OPTIONS } from "./constants";
 
 const GameContainer: FC = () => {
@@ -99,7 +99,7 @@ const GameContainer: FC = () => {
       <>
         {pokerHands.length === 0 ? (
           <PlayerSelectionFlexWrapper>
-            <Dropdown
+            <DropDownMenu
               title={
                 numberOfPlayers > 0
                   ? `${numberOfPlayers}`

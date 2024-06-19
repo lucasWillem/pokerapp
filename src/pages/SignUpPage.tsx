@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 
-import { SignUpForm } from "@components/containers/SignUpForm";
-import { ScreenTemplate } from "@components/templates/ScreenTemplate";
+import { SignUpForm } from "@/components/containers/SignUpForm";
+import { ScreenTemplate } from "@/components/templates/ScreenTemplate";
 
 const SignUpPage: FC = () => {
   return (

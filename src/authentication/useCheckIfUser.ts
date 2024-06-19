@@ -1,4 +1,4 @@
-import { useStoreState } from "@redux/index";
+import { useStoreState } from "@/redux/index";
 
 export const useCheckIfUser = (): boolean => {
   const user = useStoreState((state) => state.user.user);

@@ -1,36 +1,36 @@
 import { memo, FC } from "react";
-import { StyledDropDown } from "./DropDown.styles";
+import { StyledDropDownMenu } from "./DropDownMenu.styles";
 
-interface DropDownProps {
+interface DropDownMenuProps {
   menuItems: number[];
   title: string;
   makeSelection: (menuItem: number) => void;
   activeItem: number;
 }
 
-const DropDown: FC<DropDownProps> = ({
+const DropDownMenu: FC<DropDownMenuProps> = ({
   menuItems,
   title,
   makeSelection,
   activeItem,
 }) => {
   return (
-    <StyledDropDown data-cy="dropdown">
-      <StyledDropDown.Toggle>{title}</StyledDropDown.Toggle>
-      <StyledDropDown.Menu>
+    <StyledDropDownMenu data-cy="dropdown">
+      <StyledDropDownMenu.Toggle>{title}</StyledDropDownMenu.Toggle>
+      <StyledDropDownMenu.Menu>
         {menuItems.map((menuItem, i) => (
-          <StyledDropDown.Item
+          <StyledDropDownMenu.Item
             data-cy="dropdown-item"
             active={activeItem === menuItem}
             key={`${menuItem}-${i}`}
             onClick={() => makeSelection(menuItem)}
           >
             {menuItem}
-          </StyledDropDown.Item>
+          </StyledDropDownMenu.Item>
         ))}
-      </StyledDropDown.Menu>
-    </StyledDropDown>
+      </StyledDropDownMenu.Menu>
+    </StyledDropDownMenu>
   );
 };
 
-export default memo(DropDown);
+export default memo(DropDownMenu);
