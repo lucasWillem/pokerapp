@@ -4,11 +4,17 @@ import { ColorOptions } from "@global/theme";
 
 const StyledSignUpForm = styled(Form)(() =>
   css({
-    width: "35%",
-    "@media (max-width: 900px)": {
-      width: "50%",
+    width: "25%",
+    "@media (max-width: 1100px)": {
+      width: "30%",
+    },
+    "@media (max-width: 950px)": {
+      width: "40%",
     },
     "@media (max-width: 600px)": {
+      width: "60%",
+    },
+    "@media (max-width: 400px)": {
       width: "80%",
     },
   }),
