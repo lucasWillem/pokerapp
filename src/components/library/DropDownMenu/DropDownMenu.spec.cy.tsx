@@ -1,4 +1,4 @@
-import { Dropdown } from ".";
+import DropDownMenu from "./DropDownMenu.library";
 import { withProviders } from "../../../../cypress";
 
 describe("Dropdown.tsx", () => {
@@ -12,7 +12,7 @@ describe("Dropdown.tsx", () => {
     const mockMakeSelection = cy.stub().as("makeSelection");
 
     withProviders(
-      <Dropdown
+      <DropDownMenu
         menuItems={menuItems}
         title={title}
         makeSelection={mockMakeSelection}
@@ -30,7 +30,7 @@ describe("Dropdown.tsx", () => {
     const mockMakeSelection = cy.stub().as("makeSelection");
 
     withProviders(
-      <Dropdown
+      <DropDownMenu
         menuItems={menuItems}
         title={title}
         makeSelection={mockMakeSelection}
@@ -51,7 +51,7 @@ describe("Dropdown.tsx", () => {
     const mockMakeSelection = cy.stub().as("makeSelection");
 
     withProviders(
-      <Dropdown
+      <DropDownMenu
         menuItems={menuItems}
         title={title}
         makeSelection={mockMakeSelection}
