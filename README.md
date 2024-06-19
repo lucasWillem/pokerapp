@@ -16,6 +16,10 @@ Poker App leverages a variety of technologies and packages to provide a robust, 
 
 - **Cypress**: As a part of our testing strategy, Cypress is used for end-to-end testing. This testing framework allows us to write tests that mimic real user interactions, ensuring that the application behaves as expected in a real-world scenario. Cypress's easy setup, fast test execution, and debugging capabilities make it an invaluable tool for maintaining the quality and reliability of the application.
 
+- **React Router DOM**: Utilized for implementing dynamic routing in the application, React Router DOM enables the creation of protected routes that are accessible only to authenticated users. This package plays a crucial role in the app's navigation structure, allowing for the seamless transition between public and private sections of the app based on the user's authentication status.
+
+- **Strapi**: Chosen for its flexibility and ease of use, Strapi serves as the headless CMS for managing the application's user authentication. It provides a powerful and developer-friendly API for user authentication, which is integrated into the Poker App to secure access to certain parts of the application. Strapi's role-based access control (RBAC) capabilities ensure that only authorized users can access specific functionalities, enhancing the app's security and user management.
+
 ## Getting Started with the Front-end
 
 To run the app locally, follow these steps:
