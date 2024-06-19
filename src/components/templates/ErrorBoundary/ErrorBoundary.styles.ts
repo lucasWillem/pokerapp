@@ -1,4 +1,4 @@
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 import { Alert } from "react-bootstrap";
 import styled, { css } from "styled-components";
 

@@ -1,4 +1,4 @@
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 import { Action, action } from "easy-peasy";
 
 interface Alert {

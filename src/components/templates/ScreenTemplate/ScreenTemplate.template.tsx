@@ -2,8 +2,8 @@ import { memo, ReactNode, FC, CSSProperties, useCallback } from "react";
 
 import { StyledScreenTemplate } from "./ScreenTemplate.styles";
 
-import { Alert } from "@components/library/Alert";
-import { useStoreState, useStoreActions } from "@redux/index";
+import { Alert } from "@/components/library/Alert";
+import { useStoreState, useStoreActions } from "@/redux/index";
 
 interface ScreenWrapperProps {
   children: ReactNode;

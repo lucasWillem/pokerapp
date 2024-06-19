@@ -8,8 +8,8 @@ import {
   StyledMessage,
 } from "./ErrorBoundary.styles";
 
-import { Button } from "@components/library/Button";
-import { ColorOptions } from "@global/theme";
+import { Button } from "@/components/library/Button";
+import { ColorOptions } from "@/global/theme";
 
 interface ErrorBoundaryProps {
   children: ReactNode;

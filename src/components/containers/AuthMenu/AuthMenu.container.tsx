@@ -4,12 +4,12 @@ import { NavLink } from "react-bootstrap";
 import { FaBars } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import { Button } from "@components/library/Button";
-import { ColorOptions } from "@global/theme";
-import { useStoreActions } from "@redux/index";
-import { useCheckIfUser } from "@authentication/useCheckIfUser";
+import { Button } from "@/components/library/Button";
+import { ColorOptions } from "@/global/theme";
+import { useStoreActions } from "@/redux/index";
+import { useCheckIfUser } from "@/authentication/useCheckIfUser";
 
-import { RoutePaths } from "@routing/index";
+import { RoutePaths } from "@/routing/index";
 
 import { StyledAuthMenu } from "./AuthMenu.styles";
 

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { AlertProps, Alert as BootstrapAlert } from "react-bootstrap";
-import { ColorOptions } from "@global/theme";
+import { ColorOptions } from "@/global/theme";
 
 export interface StyledAlertProps extends AlertProps {
   color?: ColorOptions;
