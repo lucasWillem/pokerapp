@@ -8,7 +8,7 @@ Poker App leverages a variety of technologies and packages to provide a robust, 
 
 - **React-Bootstrap**: A UI library built specifically for React, React-Bootstrap reimagines Bootstrap in the context of React components. This library provides a suite of pre-built components that can be easily integrated into a React application, eliminating the need for jQuery or Bootstrap's JavaScript. The app leverages these components to create a consistent and efficient user interface. Custom styles can be applied to these components to align with the application's design requirements.
 
-- **Easy Peasy**: A robust, opinionated, but incredibly easy to use state management library for React. The app leverages Easy Peasy for its state management needs, providing a straightforward and efficient way to manage global state. The library's model-based approach to state management aligns well with the application's architecture, allowing for a clean and organized codebase. Actions and selectors provided by Easy Peasy are used throughout the application to interact with the state, ensuring a consistent and predictable state management flow.
+- **Easy Peasy**: A robust, opinionated, but incredibly easy to use state management library for React. The app leverages Easy Peasy for its state management needs, providing a straightforward and efficient way to manage global state. The library's model-based approach to state management aligns well with the application's architecture, allowing for a clean and organized codebase. Actions and selectors provided by Easy Peasy are used throughout the application to interact with the state, ensuring a consistent and predictable state management flow. Easy peasy also allows for state persistence.
 
 - **React Hook Form**: This library simplifies form management in React applications, offering an efficient and scalable way to handle form inputs and validations. React Hook Form reduces the amount of boilerplate code needed for creating forms, improving performance and developer productivity. It integrates seamlessly with the application, enhancing the form handling processes with its easy-to-use API and minimal re-renders.
 
@@ -65,7 +65,7 @@ Poker App employs several design patterns to ensure a clean, maintainable, and s
 
 ## Additional Features
 
-- **ESLint, Prettier, Lint-Staged and Husky Integration**
+### ESLint, Prettier, Lint-Staged and Husky Integration
 
 - **Code Quality:** ESLint helps in identifying and reporting on ECMAScript/JavaScript and React errors, with the goal of making code more consistent and avoiding bugs.
 - **Code Formatting:** Prettier enforces a consistent style by parsing your code and re-printing it with its own rules, ensuring that the codebase has a uniform formatting style.
@@ -106,6 +106,10 @@ Implementing responsive design ensures that the Poker App project is accessible 
 - **Media Queries:** Employ media queries to apply different CSS styles for various screen sizes, improving the app's usability on devices with smaller screens such as smartphones and tablets.
 
 - **Scalable Vector Graphics (SVGs):** Use SVGs for icons and illustrations to ensure they remain crisp and clear at any resolution, enhancing the visual appeal of the app across devices.
+
+### Error Boundary
+
+- **Robust Error Handling:** Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. They provide a more graceful error-handling mechanism by isolating faulty components and preventing the entire application from crashing.
 
 ## Proposed Optimizations
 
